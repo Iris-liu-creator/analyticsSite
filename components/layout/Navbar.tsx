@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
-import { Button } from "@/components/ui/Button";
 
 const nav = [
+  { href: "/", label: "Home" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/services", label: "Services" },
   { href: "/analysis", label: "Analysis" },
@@ -32,7 +32,6 @@ export function Navbar() {
             </Link>
           ))}
           <ThemeToggle />
-          <Button href="/resume/resume.pdf" variant="secondary">Resume</Button>
         </div>
         <button type="button" onClick={() => setOpen((value) => !value)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white md:hidden dark:border-slate-700 dark:bg-slate-900" aria-label="Open menu">
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -48,7 +47,6 @@ export function Navbar() {
             ))}
             <div className="mt-2 flex items-center gap-2">
               <ThemeToggle />
-              <Button href="/resume/resume.pdf" variant="secondary" className="flex-1">Resume</Button>
             </div>
           </div>
         </div>

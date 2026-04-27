@@ -1,17 +1,17 @@
 import { BarChart3, Bot, Cloud, Database, FileSpreadsheet, LineChart, Workflow, Wrench } from "lucide-react";
 
 export const skills = [
-  { name: "Power BI", level: 95, group: "BI", icon: BarChart3 },
-  { name: "SQL", level: 92, group: "Data", icon: Database },
-  { name: "Python", level: 84, group: "Analytics", icon: LineChart },
+  { name: "Power BI", level: 99, group: "BI", icon: BarChart3 },
+  { name: "SQL", level: 99, group: "Data", icon: Database },
+  { name: "Python", level: 92, group: "Analytics", icon: LineChart },
   { name: "DAX", level: 88, group: "BI", icon: BarChart3 },
-  { name: "Power Query", level: 86, group: "BI", icon: Workflow },
-  { name: "Excel", level: 90, group: "Productivity", icon: FileSpreadsheet },
-  { name: "AWS Redshift", level: 78, group: "Warehouse", icon: Cloud },
-  { name: "Databricks", level: 74, group: "Engineering", icon: Database },
-  { name: "Tableau", level: 76, group: "BI", icon: BarChart3 },
-  { name: "AI/Automation", level: 82, group: "AI", icon: Bot },
-  { name: "RevOps Analytics", level: 88, group: "Business", icon: Wrench }
+  { name: "Power Query", level: 95, group: "BI", icon: Workflow },
+  { name: "Excel", level: 95, group: "Productivity", icon: FileSpreadsheet },
+  { name: "AWS Redshift", level: 92, group: "Warehouse", icon: Cloud },
+  { name: "Databricks", level: 92, group: "Engineering", icon: Database },
+  { name: "Tableau", level: 85, group: "BI", icon: BarChart3 },
+  { name: "AI/Automation", level: 90, group: "AI", icon: Bot },
+  { name: "RevOps Analytics", level: 95, group: "Business", icon: Wrench }
 ];
 
 export const impactStats = [
