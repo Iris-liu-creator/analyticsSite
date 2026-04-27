@@ -1,0 +1,26 @@
+---
+title: "Learning Note: DAX Context in Plain English"
+slug: "learning-note-dax-context"
+date: "2026-04-05"
+category: "Learning Notes"
+tags: ["DAX", "Power BI", "Learning"]
+summary: "A short reflection on understanding row context, filter context, and why DAX feels different from spreadsheet formulas."
+thumbnail: "/images/posts/dax-context.svg"
+featured: true
+---
+
+## The mental shift
+
+DAX becomes easier when you stop thinking only in cells and start thinking in filters. A measure answers a question inside the current filter context.
+
+## Row context
+
+Row context is about the current row while evaluating calculated columns or iterators. It is useful, but it does not automatically filter the model the way many beginners expect.
+
+## Filter context
+
+Filter context comes from slicers, relationships, visuals, and explicit filter expressions. Most dashboard behavior comes from understanding this layer.
+
+## My practical reminder
+
+When a measure surprises me, I ask: what filters are active, where did they come from, and did I intentionally change them?

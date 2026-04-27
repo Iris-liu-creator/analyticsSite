@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Revenue operations dashboard placeholder">
+  <rect width="1200" height="675" fill="#f8fbff"/>
+  <rect x="70" y="65" width="1060" height="545" rx="28" fill="#ffffff" stroke="#d8e2ef"/>
+  <text x="110" y="130" font-family="Arial" font-size="38" font-weight="700" fill="#14213d">Revenue Operations Dashboard</text>
+  <text x="110" y="170" font-family="Arial" font-size="20" fill="#64748b">Pipeline, bookings, forecast coverage, and risk</text>
+  <g>
+    <rect x="110" y="220" width="220" height="110" rx="18" fill="#dbeafe"/>
+    <text x="135" y="260" font-family="Arial" font-size="18" fill="#1e40af">Pipeline</text>
+    <text x="135" y="305" font-family="Arial" font-size="38" font-weight="700" fill="#14213d">$4.8M</text>
+    <rect x="360" y="220" width="220" height="110" rx="18" fill="#ccfbf1"/>
+    <text x="385" y="260" font-family="Arial" font-size="18" fill="#0f766e">Coverage</text>
+    <text x="385" y="305" font-family="Arial" font-size="38" font-weight="700" fill="#14213d">3.2x</text>
+    <rect x="610" y="220" width="220" height="110" rx="18" fill="#fef3c7"/>
+    <text x="635" y="260" font-family="Arial" font-size="18" fill="#92400e">Forecast</text>
+    <text x="635" y="305" font-family="Arial" font-size="38" font-weight="700" fill="#14213d">91%</text>
+    <rect x="860" y="220" width="220" height="110" rx="18" fill="#ede9fe"/>
+    <text x="885" y="260" font-family="Arial" font-size="18" fill="#6d28d9">Risk</text>
+    <text x="885" y="305" font-family="Arial" font-size="38" font-weight="700" fill="#14213d">14</text>
+  </g>
+  <polyline points="120,500 230,460 340,485 450,410 560,430 670,350 780,380 890,300 1020,330" fill="none" stroke="#2563eb" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

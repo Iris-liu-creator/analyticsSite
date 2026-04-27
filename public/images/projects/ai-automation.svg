@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="AI automation workflow placeholder">
+  <rect width="1200" height="675" fill="#fbfdff"/>
+  <rect x="90" y="85" width="1020" height="505" rx="30" fill="#fff" stroke="#d8e2ef"/>
+  <text x="130" y="155" font-family="Arial" font-size="38" font-weight="700" fill="#14213d">AI Reporting Automation</text>
+  <text x="130" y="195" font-family="Arial" font-size="20" fill="#64748b">Metric deltas, anomaly prompts, reviewed summaries</text>
+  <g font-family="Arial" font-size="22" font-weight="700" text-anchor="middle">
+    <rect x="150" y="300" width="210" height="130" rx="20" fill="#dbeafe"/><text x="255" y="373" fill="#1e40af">Data refresh</text>
+    <rect x="495" y="300" width="210" height="130" rx="20" fill="#ccfbf1"/><text x="600" y="373" fill="#0f766e">AI draft</text>
+    <rect x="840" y="300" width="210" height="130" rx="20" fill="#fef3c7"/><text x="945" y="373" fill="#92400e">Human review</text>
+  </g>
+  <path d="M370 365h100M715 365h100" stroke="#2563eb" stroke-width="12" stroke-linecap="round"/>
+</svg>
