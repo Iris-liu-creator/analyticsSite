@@ -21,6 +21,13 @@ export const businessFunctions = [
 
 export const statuses = ["Featured", "Recent", "Archived"];
 
-export const analysisTopics = ["Business Intelligence", "AI Analytics", "RevOps", "Data Storytelling", "Automation"];
+export const analysisTopics = [
+  "Business Intelligence",
+  "AI Analytics",
+  "RevOps",
+  "Data Storytelling",
+  "Automation",
+  "Key Metrics Design"
+];
 
 export const postCategories = ["Career", "Learning Notes", "Technical Blog", "Personal Update"];

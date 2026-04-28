@@ -10,7 +10,7 @@ export function CommentSection() {
         </p>
       ) : (
         <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
-          Comments are coming soon. Connect GitHub Discussions, Supabase, or another provider to enable comments.
+          Comment feature is coming soon. Stay tuned and keep reading!
         </p>
       )}
     </section>
