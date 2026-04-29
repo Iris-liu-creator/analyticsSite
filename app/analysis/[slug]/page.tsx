@@ -20,7 +20,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   try {
     const { meta } = getContentItem<ArticleMeta>("analysis", slug);
-    return { title: meta.title, description: meta.summary, openGraph: { title: meta.title, description: meta.summary, images: [meta.thumbnail] } };
+    return {
+      title: meta.title,
+      description: meta.summary,
+      keywords: [meta.category, meta.topic, ...(meta.tags ?? [])].filter(Boolean),
+      alternates: {
+        canonical: `/analysis/${meta.slug}`
+      },
+      openGraph: {
+        title: meta.title,
+        description: meta.summary,
+        type: "article",
+        publishedTime: meta.date,
+        tags: meta.tags,
+        images: [meta.thumbnail]
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: meta.title,
+        description: meta.summary,
+        images: [meta.thumbnail]
+      }
+    };
   } catch {
     return {};
   }
@@ -36,7 +57,7 @@ export default async function AnalysisDetailPage({ params }: PageProps) {
   return (
     <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ label: "Analysis", href: "/analysis" }, { label: article.meta.title }]} />
-      <p className="text-sm font-semibold uppercase tracking-wide text-signal">{article.meta.topic ?? article.meta.category} • {formatDate(article.meta.date)} • {article.readingTime} min read</p>
+      <p className="text-sm font-semibold uppercase tracking-wide text-signal">{article.meta.topic ?? article.meta.category} | {formatDate(article.meta.date)} | {article.readingTime} min read</p>
       <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink dark:text-white">{article.meta.title}</h1>
       <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{article.meta.summary}</p>
       <div className="mt-5 flex flex-wrap gap-2">{article.meta.tags.map((tag) => <TagPill key={tag}>{tag}</TagPill>)}</div>

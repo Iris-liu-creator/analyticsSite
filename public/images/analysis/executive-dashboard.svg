@@ -1,1 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675"><rect width="1200" height="675" fill="#fff7ed"/><text x="90" y="150" font-family="Arial" font-size="54" font-weight="700" fill="#14213d">Executive Dashboard Design</text><rect x="100" y="250" width="250" height="250" rx="24" fill="#fed7aa"/><rect x="410" y="250" width="250" height="250" rx="24" fill="#ffedd5"/><rect x="720" y="250" width="380" height="250" rx="24" fill="#fff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title">
+  <title id="title">360 Degree Strategic Radar for Professional Services Metrics</title>
+  <defs>
+    <radialGradient id="wash" cx="70%" cy="48%" r="62%">
+      <stop offset="0" stop-color="#ccfbf1"/>
+      <stop offset="0.45" stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#wash)"/>
+  <circle cx="290" cy="438" r="138" fill="#ccfbf1" opacity="0.72"/>
+  <circle cx="430" cy="438" r="138" fill="#dbeafe" opacity="0.74"/>
+  <circle cx="570" cy="438" r="138" fill="#e0f2fe" opacity="0.58"/>
+  <text x="82" y="150" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#14213d">
+    <tspan x="82" dy="0">360 Degree</tspan>
+    <tspan x="82" dy="72">Strategic Radar</tspan>
+    <tspan x="82" dy="72">for Professional</tspan>
+    <tspan x="82" dy="72">Services Metrics</tspan>
+  </text>
+  <g transform="translate(820 340)">
+    <circle r="272" fill="#ffffff" opacity="0.44"/>
+    <circle r="232" fill="none" stroke="#14213d" stroke-opacity="0.72" stroke-width="3"/>
+    <circle r="190" fill="none" stroke="#14213d" stroke-opacity="0.58" stroke-width="3"/>
+    <circle r="148" fill="none" stroke="#14213d" stroke-opacity="0.45" stroke-width="3"/>
+    <circle r="106" fill="none" stroke="#14213d" stroke-opacity="0.34" stroke-width="3"/>
+    <circle r="64" fill="none" stroke="#14213d" stroke-opacity="0.25" stroke-width="3"/>
+    <line x1="-292" y1="0" x2="292" y2="0" stroke="#14213d" stroke-opacity="0.48" stroke-width="3"/>
+    <line x1="0" y1="-292" x2="0" y2="292" stroke="#14213d" stroke-opacity="0.48" stroke-width="3"/>
+    <circle cx="45" cy="-18" r="28" fill="#06b6d4" opacity="0.95" filter="url(#glow)"/>
+    <circle cx="128" cy="-132" r="18" fill="#06b6d4" opacity="0.95"/>
+    <circle cx="190" cy="-82" r="34" fill="#2563eb" opacity="0.93"/>
+    <circle cx="230" cy="-172" r="25" fill="#6366f1" opacity="0.94"/>
+    <circle cx="170" cy="-236" r="14" fill="#6366f1" opacity="0.95"/>
+    <circle cx="242" cy="64" r="36" fill="#2563eb" opacity="0.93"/>
+    <circle cx="142" cy="166" r="24" fill="#2563eb" opacity="0.93"/>
+    <circle cx="58" cy="112" r="28" fill="#2563eb" opacity="0.93"/>
+    <circle cx="-130" cy="68" r="34" fill="#0f766e" opacity="0.9"/>
+    <circle cx="-194" cy="152" r="27" fill="#0f766e" opacity="0.9"/>
+    <circle cx="-228" cy="34" r="16" fill="#0f766e" opacity="0.92"/>
+    <circle cx="-108" cy="-122" r="22" fill="#06b6d4" opacity="0.95"/>
+    <circle cx="-64" cy="-42" r="15" fill="#0f766e" opacity="0.92"/>
+    <circle cx="98" cy="204" r="17" fill="#2563eb" opacity="0.93"/>
+    <circle cx="214" cy="126" r="14" fill="#2563eb" opacity="0.93"/>
+    <circle cx="-164" cy="-84" r="18" fill="#06b6d4" opacity="0.95"/>
+  </g>
+</svg>
