@@ -24,6 +24,7 @@ export const statuses = ["Featured", "Recent", "Archived"];
 export const analysisTopics = [
   "Business Intelligence",
   "AI Analytics",
+  "AI Governance",
   "RevOps",
   "Data Storytelling",
   "Automation",

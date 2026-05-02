@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Building Governed AI Reporting People Can Really Trust</title>
+  <desc id="desc">A balanced governed AI reporting banner showing a data reporting pipeline and a governance control layer.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="0.52" stop-color="#ecfeff"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="nodeA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="nodeB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ecfeff"/>
+      <stop offset="1" stop-color="#ccfbf1"/>
+    </linearGradient>
+    <linearGradient id="nodeC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <filter id="softShadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <circle cx="1048" cy="92" r="108" fill="#dbeafe" opacity="0.72"/>
+  <circle cx="1006" cy="560" r="174" fill="#ccfbf1" opacity="0.65"/>
+  <circle cx="118" cy="575" r="182" fill="#dbeafe" opacity="0.58"/>
+  <circle cx="900" cy="222" r="62" fill="#dbeafe" opacity="0.38"/>
+
+  <g transform="translate(82 72)">
+    <text x="0" y="0" dominant-baseline="hanging" font-family="Inter, Arial, sans-serif" font-size="53" font-weight="800" fill="#071a3d">
+      Building Governed AI Reporting
+    </text>
+    <text x="0" y="66" dominant-baseline="hanging" font-family="Inter, Arial, sans-serif" font-size="53" font-weight="800" fill="#071a3d">
+      People Can Really Trust
+    </text>
+  </g>
+
+  <g transform="translate(84 226)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="1032" height="334" rx="36" fill="#ffffff" opacity="0.98"/>
+
+    <g transform="translate(38 52)">
+      <rect x="0" y="0" width="140" height="78" rx="21" fill="url(#nodeA)"/>
+      <rect x="178" y="0" width="140" height="78" rx="21" fill="url(#nodeB)"/>
+      <rect x="356" y="0" width="140" height="78" rx="21" fill="#f0fdfa"/>
+      <rect x="534" y="0" width="140" height="78" rx="21" fill="url(#nodeC)"/>
+      <rect x="712" y="0" width="140" height="78" rx="21" fill="#eff6ff"/>
+      <rect x="890" y="0" width="140" height="78" rx="21" fill="url(#nodeA)"/>
+
+      <g fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)">
+        <path d="M146 39 H166"/>
+        <path d="M324 39 H344"/>
+        <path d="M502 39 H522"/>
+        <path d="M680 39 H700"/>
+        <path d="M858 39 H878"/>
+      </g>
+
+      <g font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#071a3d" text-anchor="middle">
+        <text x="70" y="47">Sources</text>
+        <text x="248" y="47">ETL/ELT</text>
+        <text x="426" y="47">Curated</text>
+        <text x="604" y="47">Semantic</text>
+        <text x="782" y="47">RAG</text>
+        <text x="960" y="47">Report</text>
+      </g>
+    </g>
+
+    <g transform="translate(38 186)">
+      <rect x="0" y="0" width="956" height="92" rx="25" fill="#071a3d"/>
+      <g transform="translate(30 23)">
+        <path d="M24 0 L48 11 V31 C48 50 34 61 24 66 C14 61 0 50 0 31 V11 Z" fill="#14b8a6"/>
+        <path d="M14 31 L21 38 L35 21" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="94" y="35" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#ffffff">
+        Governance control layer
+      </text>
+      <g font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#bfdbfe">
+        <text x="94" y="67">Ownership</text>
+        <text x="216" y="67">Lineage</text>
+        <text x="318" y="67">Quality</text>
+        <text x="420" y="67">Access</text>
+        <text x="514" y="67">RLS</text>
+        <text x="576" y="67">Citations</text>
+        <text x="700" y="67">Human review</text>
+        <text x="852" y="67">Audit trail</text>
+      </g>
+    </g>
+  </g>
+
+  <g opacity="0.78">
+    <path d="M928 220 C954 190 1004 186 1038 216" fill="none" stroke="#93c5fd" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="963" cy="201" r="14" fill="#06b6d4"/>
+    <circle cx="928" cy="213" r="10" fill="#14b8a6"/>
+    <circle cx="1010" cy="229" r="11" fill="#4f46e5"/>
+  </g>
+</svg>

@@ -60,3 +60,19 @@ body {
 .prose-portfolio a {
   @apply font-medium text-signal underline-offset-4 hover:underline;
 }
+
+.prose-portfolio.prose-spacious p {
+  @apply my-5 max-w-3xl text-slate-700 dark:text-slate-200;
+}
+
+.prose-portfolio.prose-spacious blockquote {
+  @apply my-8 max-w-3xl rounded-r-xl border-l-4 border-indigo-400 bg-indigo-50/40 px-5 py-4 text-ink shadow-none dark:bg-slate-900/40 dark:text-white;
+}
+
+.prose-portfolio.prose-spacious blockquote p {
+  @apply my-0 max-w-none text-lg font-semibold not-italic leading-7 text-slate-800 dark:text-slate-100;
+}
+
+.prose-portfolio.prose-spacious > p:has(strong):last-of-type {
+  @apply text-2xl font-bold leading-8 text-ink dark:text-white;
+}

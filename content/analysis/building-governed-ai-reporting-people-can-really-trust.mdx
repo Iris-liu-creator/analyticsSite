@@ -1,0 +1,665 @@
+---
+title: "Building Governed AI Reporting People Can Really Trust"
+slug: "building-governed-ai-reporting-people-can-really-trust"
+date: "2026-05-02"
+category: "AI Governance"
+topic: "AI Governance"
+tags: ["AI Reporting", "Governance", "RAG", "ETL", "Semantic Models"]
+summary: "A practical map for where ETL, RAG, DAGs, semantic models, access controls, and human review fit in the modern reporting stack."
+thumbnail: "/images/analysis/governed-ai-reporting.svg"
+featured: true
+difficulty: "Advanced"
+---
+
+## Beyond Dashboards
+
+*A practical map for where ETL, RAG, DAGs, semantic models, access controls and human review fit in the modern reporting stack.*
+
+AI can make reporting faster. It cannot make messy data trustworthy by magic. The organisations that win will not replace BI with chatbots - they will put AI on top of governed data, clear definitions, and safe review workflows.
+
+## 1. The moment reporting changes
+
+It usually starts with a very reasonable question.
+
+> 'Why did Professional Services margin decline last quarter?'
+>
+> A dashboard might show the drop. A good reporting workflow should help explain it.
+
+For years, the answer would involve opening a dashboard, checking a few filters, exporting a table, scanning project notes, asking Finance to confirm the definition, and then writing a careful summary for leadership. Now the expectation is different. People want to ask the question in plain language and get a useful answer in seconds.
+
+That expectation is fair. But the shortcut is dangerous if the system is wired the wrong way. A chatbot pointed at raw data can sound confident while using the wrong revenue definition, ignoring row-level security, missing a currency conversion, or pulling context from an outdated note.
+
+The better way is not to choose between dashboards and AI. The better way is to treat AI as the top layer of a reporting stack that already knows how to produce trusted numbers.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Building block</th>
+        <th className="px-5 py-4">Plain-English role</th>
+        <th className="px-5 py-4">What it protects</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">ETL / ELT</td>
+        <td className="px-5 py-4 text-slate-700">Turns raw data into clean, structured data</td>
+        <td className="px-5 py-4 text-slate-700">Metric consistency, data quality, business rules</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">DAG</td>
+        <td className="px-5 py-4 text-slate-700">Runs the workflow in the right order</td>
+        <td className="px-5 py-4 text-slate-700">Reliability, scheduling, retries, observability</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">RAG</td>
+        <td className="px-5 py-4 text-slate-700">Finds the right context before generating an answer</td>
+        <td className="px-5 py-4 text-slate-700">Grounding, source traceability, business explanation</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Governance</td>
+        <td className="px-5 py-4 text-slate-700">Sets the rules for data use</td>
+        <td className="px-5 py-4 text-slate-700">Access, ownership, lineage, audit, approval</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+> The future is not 'dashboards versus AI'. It is governed BI plus AI-assisted interpretation.
+
+## 2. The whole stack, not just the shiny top
+
+The AI assistant is the most visible part of the experience, but it is not where trust begins. Trust begins much earlier, at the point where source data is extracted, cleaned, reconciled, modelled and secured.
+
+### A practical reporting pipeline
+
+<div className="my-8 rounded-[2rem] bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 p-6 shadow-soft">
+  <div className="grid gap-3 md:grid-cols-6">
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Source systems</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Ingestion</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Raw layer</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">ETL / ELT</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Curated data</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Semantic model</div>
+  </div>
+  <div className="mt-3 rounded-2xl border border-blue-200 bg-blue-100/80 p-4 text-center font-bold text-blue-800 shadow-sm">BI + AI</div>
+</div>
+
+In a SaaS or revenue operations environment, the source systems might include CRM, billing, finance, support, implementation, HR and spreadsheet-based operational inputs. Each system knows part of the story. None of them, on its own, usually contains the complete business answer.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[820px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Layer</th>
+        <th className="px-5 py-4">What happens here</th>
+        <th className="px-5 py-4">Example output</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Source systems</td>
+        <td className="px-5 py-4 text-slate-700">Operational activity is recorded</td>
+        <td className="px-5 py-4 text-slate-700">Opportunities, subscriptions, support tickets, project hours</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Ingestion</td>
+        <td className="px-5 py-4 text-slate-700">Data is copied or streamed into the platform</td>
+        <td className="px-5 py-4 text-slate-700">API loads, connector syncs, scheduled file imports</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Raw / landing</td>
+        <td className="px-5 py-4 text-slate-700">Source records are preserved close to original form</td>
+        <td className="px-5 py-4 text-slate-700">Bronze tables, snapshots, audit-friendly extracts</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">ETL / ELT</td>
+        <td className="px-5 py-4 text-slate-700">Data is cleaned, joined, standardised and tested</td>
+        <td className="px-5 py-4 text-slate-700">Customer mapping, currency conversion, ARR logic</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Curated layer</td>
+        <td className="px-5 py-4 text-slate-700">Reporting-ready structures are created</td>
+        <td className="px-5 py-4 text-slate-700">Facts, dimensions, gold tables, data marts</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Semantic layer</td>
+        <td className="px-5 py-4 text-slate-700">Business meaning is formalised</td>
+        <td className="px-5 py-4 text-slate-700">Power BI measures, relationships, KPI names, RLS</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Consumption</td>
+        <td className="px-5 py-4 text-slate-700">People and systems use the data</td>
+        <td className="px-5 py-4 text-slate-700">Dashboards, emails, Excel, AI summaries, Q&amp;A;</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+The crucial design choice is this: AI should sit near the end of the pipeline, after the organisation has done the hard work of defining what the numbers mean. It should not be asked to invent definitions on demand.
+
+## 3. Where ETL actually sits
+
+ETL does not live inside governance as a separate governance department. It lives in the transformation layer. Governance wraps around it.
+
+### Governance wraps the pipeline; ETL transforms the data
+
+<div className="my-8 rounded-[2rem] bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 p-6 shadow-soft">
+  <div className="grid gap-3 md:grid-cols-6">
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Sources</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Ingestion</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Raw data</div>
+    <div className="rounded-2xl bg-blue-600 p-4 text-center font-bold text-white shadow-sm">ETL / ELT</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Curated data</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">BI / AI</div>
+  </div>
+</div>
+
+A useful way to say it is: governance writes the rules; ETL operationalises them.
+
+If the business agrees that ARR should exclude cancelled subscriptions, convert currency into AUD, map child accounts to a parent entity, and align to fiscal quarters, that logic needs to live somewhere repeatable. ETL is where those decisions become code, tables, checks and repeatable outputs.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Governance concern</th>
+        <th className="px-5 py-4">How ETL / ELT makes it real</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Data quality</td>
+        <td className="px-5 py-4 text-slate-700">Null checks, duplicate checks, schema validation, row-count reconciliation</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Standard definitions</td>
+        <td className="px-5 py-4 text-slate-700">ARR, churn, utilisation, bookings, compliance and revenue logic</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Lineage</td>
+        <td className="px-5 py-4 text-slate-700">Source-to-target mapping and transformation history</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Privacy</td>
+        <td className="px-5 py-4 text-slate-700">Sensitive fields masked, excluded, separated or tagged</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Access preparation</td>
+        <td className="px-5 py-4 text-slate-700">Manager hierarchies, security tables and RLS mapping tables</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Auditability</td>
+        <td className="px-5 py-4 text-slate-700">Pipeline logs, refresh times, failed records and change history</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+> ETL is not just plumbing. It is where business logic becomes reusable infrastructure.
+>
+> This is why AI reporting is weak when it jumps over the transformation layer.
+
+## 4. Governance is the control fabric
+
+Governance is often drawn as a box on the side of an architecture diagram. In reality, it behaves more like a fabric. It stretches across every layer: source data, pipelines, curated tables, semantic models, reports, AI retrieval and final distribution.
+
+For reporting teams, governance should not sound abstract. It should answer very practical questions:
+
+- Who owns this data, and who can approve a definition change?
+- Which source is authoritative when systems disagree?
+- Can we trace a reported number back to the original record?
+- Is the data fresh enough for the decision being made?
+- Can this person see this row, customer, employee or financial field?
+- Does this AI-generated output need review before it is distributed?
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Pipeline layer</th>
+        <th className="px-5 py-4">Governance question to ask</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Source systems</td>
+        <td className="px-5 py-4 text-slate-700">Is this the system of record? Who owns it?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Ingestion</td>
+        <td className="px-5 py-4 text-slate-700">Did the data arrive on time and completely?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Raw layer</td>
+        <td className="px-5 py-4 text-slate-700">Can we recover and replay the source history?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">ETL / ELT</td>
+        <td className="px-5 py-4 text-slate-700">Are the transformation rules documented and tested?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Curated layer</td>
+        <td className="px-5 py-4 text-slate-700">Is this table certified for reporting?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Semantic layer</td>
+        <td className="px-5 py-4 text-slate-700">Are KPI definitions and RLS rules approved?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">AI layer</td>
+        <td className="px-5 py-4 text-slate-700">Is retrieval permission-aware and source-backed?</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+This is the difference between a clever demo and a system the business can trust. A demo can answer a question. A governed reporting system can explain where the answer came from, who was allowed to see it, and why the definition was used.
+
+## 5. What the RAG diagram is really showing
+
+The RAG diagram we reviewed is useful because it separates two activities that are often mixed together: preparing knowledge for search, and using that knowledge to answer a question.
+
+<div className="my-8 grid gap-5 lg:grid-cols-2">
+  <div className="rounded-[1.75rem] bg-white p-6 shadow-soft">
+    <p className="text-sm font-bold uppercase tracking-[0.18em] text-teal-600">Data ingestion workflow</p>
+    <div className="mt-5 grid gap-3 sm:grid-cols-4">
+      <div className="rounded-2xl bg-teal-50 px-4 py-3 text-center font-semibold text-teal-950">Data source</div>
+      <div className="rounded-2xl bg-teal-50 px-4 py-3 text-center font-semibold text-teal-950">Chunks</div>
+      <div className="rounded-2xl bg-teal-50 px-4 py-3 text-center font-semibold text-teal-950">Embeddings</div>
+      <div className="rounded-2xl bg-teal-50 px-4 py-3 text-center font-semibold text-teal-950">Vector DB</div>
+    </div>
+    <p className="mt-5 text-sm text-slate-700">This is the preparation stage. Documents, policies, notes and definitions are split into searchable pieces and stored in a vector database.</p>
+  </div>
+  <div className="rounded-[1.75rem] bg-white p-6 shadow-soft">
+    <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">Retrieval generation workflow</p>
+    <div className="mt-5 grid gap-3 sm:grid-cols-5">
+      <div className="rounded-2xl bg-blue-50 px-4 py-3 text-center font-semibold text-blue-950">Question</div>
+      <div className="rounded-2xl bg-blue-50 px-4 py-3 text-center font-semibold text-blue-950">Search</div>
+      <div className="rounded-2xl bg-blue-50 px-4 py-3 text-center font-semibold text-blue-950">Context</div>
+      <div className="rounded-2xl bg-blue-50 px-4 py-3 text-center font-semibold text-blue-950">Prompt</div>
+      <div className="rounded-2xl bg-blue-50 px-4 py-3 text-center font-semibold text-blue-950">Answer</div>
+    </div>
+    <p className="mt-5 text-sm text-slate-700">This is the answering stage. The user's question is matched with relevant context, which is passed into the model before the response is written.</p>
+  </div>
+</div>
+
+RAG is valuable because it gives the system a way to answer from current business material rather than relying only on what a language model has learned during training. It can retrieve policies, QBR notes, project commentary, data dictionary entries and approved metric definitions at the moment of the question.
+
+But the diagram is not the whole enterprise architecture. It is the retrieval layer. It should sit on top of governed documents, governed data products and governed semantic definitions - not beside them as an uncontrolled copy of the business.
+
+> RAG should not mean 'retrieve anything'. It should mean 'retrieve the most relevant content the user is allowed to see'.
+
+## 6. Semantic search is not the semantic model
+
+The word 'semantic' appears in two very different places, and mixing them up creates confusion.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Concept</th>
+        <th className="px-5 py-4">What it means</th>
+        <th className="px-5 py-4">Example</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Semantic search</td>
+        <td className="px-5 py-4 text-slate-700">Search by meaning using embeddings and vector similarity</td>
+        <td className="px-5 py-4 text-slate-700">Find QBR notes about project delays even if the wording differs</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Semantic model</td>
+        <td className="px-5 py-4 text-slate-700">A governed business model with tables, relationships, measures and security</td>
+        <td className="px-5 py-4 text-slate-700">Power BI model with ARR, revenue, utilisation, RLS and KPI definitions</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+A good AI reporting assistant needs both. The semantic model gives it trusted numbers. Semantic search gives it supporting context.
+
+> Numbers without context can be sterile. Context without governed numbers can be misleading.
+>
+> The strongest reporting experience combines both.
+
+Take the Professional Services margin question again:
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Question</th>
+        <th className="px-5 py-4">What should answer it?</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">How much did margin move?</td>
+        <td className="px-5 py-4 text-slate-700">Semantic model: revenue, cost, billable hours, utilisation</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Where did the movement concentrate?</td>
+        <td className="px-5 py-4 text-slate-700">Semantic model: portfolio, region, product, project type</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Why did it happen?</td>
+        <td className="px-5 py-4 text-slate-700">RAG: QBR notes, project delay commentary, capacity planning notes</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Can we publish this explanation?</td>
+        <td className="px-5 py-4 text-slate-700">Governance: source approval, human review, audit trail</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## 7. DAGs are the backstage crew
+
+A DAG is not the chatbot. It is the workflow map that tells the data platform what needs to run, in what order, and what depends on what.
+
+> If ETL is the kitchen, a DAG is the service plan. It decides what gets prepared first, what waits, what retries, and what stops the process if something fails.
+
+A BI reporting DAG might look like this:
+
+<div className="my-8 rounded-[2rem] bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 p-6 shadow-soft">
+  <div className="grid gap-3 md:grid-cols-6">
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Extract CRM</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Load raw</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Quality checks</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Transform ARR</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Refresh model</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Send report</div>
+  </div>
+</div>
+
+A RAG indexing DAG might look like this:
+
+<div className="my-8 rounded-[2rem] bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 p-6 shadow-soft">
+  <div className="grid gap-3 md:grid-cols-6">
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Extract docs</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Parse text</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Chunk</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Embed</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Update vector DB</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Validate</div>
+  </div>
+</div>
+
+In a mature AI reporting workflow, these two paths meet. The system refreshes the structured data, refreshes the retrieval index, generates a draft narrative, routes it for review, distributes the approved version and logs what happened.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[640px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Term</th>
+        <th className="px-5 py-4">Best way to remember it</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">DAG</td>
+        <td className="px-5 py-4 text-slate-700">Runs the workflow</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">ETL / ELT</td>
+        <td className="px-5 py-4 text-slate-700">Transforms the data</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">RAG</td>
+        <td className="px-5 py-4 text-slate-700">Finds the supporting context</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">LLM</td>
+        <td className="px-5 py-4 text-slate-700">Writes the response</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Governance</td>
+        <td className="px-5 py-4 text-slate-700">Controls whether the response can be trusted and shared</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## 8. Access control has to follow the question
+
+Security is where many AI reporting concepts quietly fail. The chatbot does not just need to find the most relevant information. It needs to find the most relevant information this specific user is allowed to see.
+
+<div className="my-8 grid gap-5 lg:grid-cols-2">
+  <div className="rounded-[1.75rem] border border-rose-100 bg-rose-50 p-6">
+    <p className="text-sm font-bold uppercase tracking-[0.18em] text-rose-700">Unsafe pattern</p>
+    <p className="mt-3 text-slate-800">User asks a question -&gt; chatbot retrieves from unrestricted raw data or vector index -&gt; answer may expose sensitive information.</p>
+  </div>
+  <div className="rounded-[1.75rem] border border-emerald-100 bg-emerald-50 p-6">
+    <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-700">Safer pattern</p>
+    <p className="mt-3 text-slate-800">User identity -&gt; permission check -&gt; governed semantic model and filtered retrieval -&gt; cited answer within access rules.</p>
+  </div>
+</div>
+
+For RAG, this means the vector database cannot be a permission-free bucket of every document in the company. Chunks should carry metadata, and retrieval should filter on that metadata before any answer is written.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Metadata field</th>
+        <th className="px-5 py-4">Why it matters</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">department / business_unit</td>
+        <td className="px-5 py-4 text-slate-700">Limits retrieval to relevant organisational areas</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">manager_id</td>
+        <td className="px-5 py-4 text-slate-700">Supports manager-level reporting and hierarchy access</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">security_group</td>
+        <td className="px-5 py-4 text-slate-700">Aligns retrieval with identity and group membership</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">classification / sensitivity_label</td>
+        <td className="px-5 py-4 text-slate-700">Protects confidential, personal or regulated content</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">approved_for_ai_use</td>
+        <td className="px-5 py-4 text-slate-700">Prevents draft or outdated material from being used in answers</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">source_system</td>
+        <td className="px-5 py-4 text-slate-700">Keeps provenance visible for audit and troubleshooting</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+This is especially important for finance, HR, sales performance, customer health and executive reporting. The answer may be analytically correct, but still inappropriate if it reveals detail to the wrong audience.
+
+## 9. The human review layer is not a bottleneck
+
+Not every AI-generated output needs the same level of review. A definition lookup is not the same as an executive revenue commentary. A personal productivity summary is not the same as a sensitive HR compliance report.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Risk level</th>
+        <th className="px-5 py-4">Example</th>
+        <th className="px-5 py-4">Recommended control</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Low</td>
+        <td className="px-5 py-4 text-slate-700">Explain what a KPI means</td>
+        <td className="px-5 py-4 text-slate-700">Answer directly with approved glossary citation</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Medium</td>
+        <td className="px-5 py-4 text-slate-700">Summarise weekly sales movement</td>
+        <td className="px-5 py-4 text-slate-700">AI drafts; analyst reviews before publishing</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">High</td>
+        <td className="px-5 py-4 text-slate-700">Explain a revenue miss to ELT</td>
+        <td className="px-5 py-4 text-slate-700">Data owner and business owner approve</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Sensitive</td>
+        <td className="px-5 py-4 text-slate-700">Identify non-compliant employees</td>
+        <td className="px-5 py-4 text-slate-700">Strict RLS, aggregation rules and explicit approval</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">External</td>
+        <td className="px-5 py-4 text-slate-700">Send customer-facing commentary</td>
+        <td className="px-5 py-4 text-slate-700">Formal review, version control and audit trail</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+A practical review loop can be simple:
+
+<div className="my-8 rounded-[2rem] bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 p-6 shadow-soft">
+  <div className="grid gap-3 md:grid-cols-6">
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Retrieve</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Draft</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Validate</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Approve</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Distribute</div>
+    <div className="rounded-2xl bg-white p-4 text-center font-bold text-slate-950 shadow-sm">Log</div>
+  </div>
+</div>
+
+The point is not to slow everything down. The point is to put review where it actually matters: high-impact, sensitive, executive, financial or people-related outputs.
+
+**AI can draft the narrative. Humans still own the judgement.**
+
+## 10. A practical blueprint for governed AI reporting
+
+The most useful question is not 'Which model should we use?' It is 'Is our reporting environment ready for a model to use it safely?'
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Area</th>
+        <th className="px-5 py-4">Readiness question</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Data foundation</td>
+        <td className="px-5 py-4 text-slate-700">Do we have clean, curated reporting tables?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Metric definitions</td>
+        <td className="px-5 py-4 text-slate-700">Are key KPIs documented and approved?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Semantic model</td>
+        <td className="px-5 py-4 text-slate-700">Do reports and users consume consistent definitions?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Security</td>
+        <td className="px-5 py-4 text-slate-700">Is RLS or equivalent access control in place?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Governance</td>
+        <td className="px-5 py-4 text-slate-700">Do we know owners, stewards and approval paths?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Lineage</td>
+        <td className="px-5 py-4 text-slate-700">Can we trace reported numbers back to source?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">RAG content</td>
+        <td className="px-5 py-4 text-slate-700">Are documents indexed, current and permission-filtered?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">AI output</td>
+        <td className="px-5 py-4 text-slate-700">Does the answer cite sources and show assumptions?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Review workflow</td>
+        <td className="px-5 py-4 text-slate-700">Which outputs require analyst or business approval?</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Monitoring</td>
+        <td className="px-5 py-4 text-slate-700">Are prompts, responses, failures and usage logged?</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+Start narrow. The best early use cases usually have three traits: the data source is already trusted, the question is repeated often, and the output can be reviewed before it reaches a wide audience.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Good starter use cases</th>
+        <th className="px-5 py-4">Why they work</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Weekly sales performance summary</td>
+        <td className="px-5 py-4 text-slate-700">Repeated rhythm, clear audience, structured metrics</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Professional Services utilisation commentary</td>
+        <td className="px-5 py-4 text-slate-700">Needs both numbers and delivery context</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Customer renewal risk explanation</td>
+        <td className="px-5 py-4 text-slate-700">Combines data signals with account notes</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Support queue performance summary</td>
+        <td className="px-5 py-4 text-slate-700">Operationally useful and measurable</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Executive QBR narrative draft</td>
+        <td className="px-5 py-4 text-slate-700">High value, but can remain review-led</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## 11. The real shift: governed BI enables better reporting experiences
+
+The mistake is to think AI reporting means the dashboard disappears. It does not. The dashboard becomes part of a wider experience.
+
+Dashboards are still excellent at showing standardised metrics, trend lines, operational performance and exception areas. What they often struggle with is explanation. Why did this happen? What changed? What commentary supports the number? What should a manager notice first?
+
+That is where a well-designed AI layer is useful. It can turn trusted metrics into a clearer story. It can retrieve the relevant note, explain the definition, draft commentary and help users ask better follow-up questions.
+
+> Standardised BI gives the numbers. RAG gives the context. AI writes the first draft. Governance keeps the system trustworthy. Human review protects business judgement.
+
+The future of reporting is not a blank chat box connected to everything. It is a carefully designed reporting stack where the AI assistant knows where to look, what to use, what to ignore, what the user is allowed to see, and when a human should step in.
+
+**That is how organisations move beyond dashboards without losing trust.**
+
+## 12. Source
+
+1. Amazon Web Services. (n.d.). *What is ETL?* Retrieved May 2, 2026, from https://aws.amazon.com/what-is/etl/
+
+2. Amazon Web Services. (n.d.). *ETL vs ELT: What's the difference?* Retrieved May 2, 2026, from https://aws.amazon.com/compare/the-difference-between-etl-and-elt/
+
+3. Microsoft. (n.d.). *Data governance glossary*. Retrieved May 2, 2026, from https://learn.microsoft.com/en-us/purview/data-governance-glossary
+
+4. Microsoft. (n.d.). *Row-level security with Power BI*. Retrieved May 2, 2026, from https://learn.microsoft.com/en-us/fabric/security/service-admin-row-level-security
+
+5. Microsoft. (n.d.). *Power BI semantic models in Microsoft Fabric*. Retrieved May 2, 2026, from https://learn.microsoft.com/en-us/fabric/data-warehouse/semantic-models
+
+6. Microsoft. (n.d.). *Retrieval augmented generation in Azure AI Search*. Retrieved May 2, 2026, from https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview
+
+7. Databricks. (n.d.). *Retrieval augmented generation*. Retrieved May 2, 2026, from https://docs.databricks.com/aws/en/generative-ai/retrieval-augmented-generation
+
+8. Apache Airflow. (n.d.). *DAGs*. Retrieved May 2, 2026, from https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html
+
+9. Apache Airflow. (n.d.). *Tasks*. Retrieved May 2, 2026, from https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html
