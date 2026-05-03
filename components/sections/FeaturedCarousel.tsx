@@ -61,10 +61,10 @@ export function FeaturedCarousel({ projects }: { projects: ProjectMeta[] }) {
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="mb-6 flex items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Featured work</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Portfolio highlights</h2>
+          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Featured Work</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Portfolio Highlights</h2>
         </div>
-        <Button href="/portfolio" variant="secondary">View all</Button>
+        <Button href="/portfolio" variant="secondary">View All</Button>
       </div>
 
       <div className="relative overflow-x-hidden overflow-y-visible rounded-lg bg-slate-100 px-3 py-8 dark:bg-slate-950 sm:px-8 lg:px-12">
