@@ -15,7 +15,6 @@ export function Footer() {
           <Link aria-label="LinkedIn" className="rounded-lg border border-slate-200 p-2 text-slate-600 hover:text-signal dark:border-slate-700 dark:text-slate-300" href="https://www.linkedin.com/"><Linkedin className="h-5 w-5" /></Link>
           <Link aria-label="GitHub" className="rounded-lg border border-slate-200 p-2 text-slate-600 hover:text-signal dark:border-slate-700 dark:text-slate-300" href="https://github.com/"><Github className="h-5 w-5" /></Link>
           <Link aria-label="Email" className="rounded-lg border border-slate-200 p-2 text-slate-600 hover:text-signal dark:border-slate-700 dark:text-slate-300" href="mailto:irisinsightsops888@gmail.com"><Mail className="h-5 w-5" /></Link>
-          <Link className="text-sm font-medium text-slate-600 hover:text-signal dark:text-slate-300" href="/content-guide">Content guide</Link>
         </div>
       </div>
     </footer>
