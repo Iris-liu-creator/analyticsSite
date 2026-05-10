@@ -78,17 +78,25 @@ export const servicePillars: ServicePillar[] = [
 ];
 
 export const capabilityGroups = [
-  {
-    title: "BI and reporting",
-    tools: ["Power BI", "DAX", "Power Query", "Tableau", "Dashboard documentation"]
+    {
+    title: "Discovery & Metric Alignment",
+    tools: ["Business Questions", "KPI Definitions", "Metrics Alignment", "Stakeholder Engagement", "Reporting Requirements"]
   },
   {
-    title: "Data and automation",
-    tools: ["SQL", "Python", "Excel", "AWS Redshift", "Databricks", "Automation workflows"]
+    title: "Data Pipeline & Modelling",
+    tools: ["SQL", "Cloud Data Platforms", "ETL/ELT", "CI/CD", "Semantic Model Design", "Business Gold Layer"]
   },
   {
-    title: "Business enablement",
-    tools: ["CRM / RevOps reporting", "KPI framework design", "Data storytelling"]
+    title: "Governance & Reporting Trust",
+    tools: ["Data Stewardship", "Data Lineage", "Metadata Management", "Data Dictionary", "Access Control"]
+  },
+  {
+    title: "BI & Decision Reporting",
+    tools: ["Power BI/Tableau", "Python", "Self-Service Analytics)", "Data Democratisation"]
+  },
+  {
+    title: "Automation & Adoption",
+    tools: ["Workflow Automation", "Training & Handover", "User Documentation", "Stakeholder alignment", "AI/ML-Assisted Analytics"]
   }
 ];
 

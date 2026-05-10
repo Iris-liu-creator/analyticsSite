@@ -3,7 +3,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CommentSection } from "@/components/content/CommentSection";
 import { MDXContentRenderer } from "@/components/content/MDXContentRenderer";
-import { ReactionBar } from "@/components/content/ReactionBar";
 import { RelatedProjects } from "@/components/content/RelatedContent";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { PowerBIEmbed } from "@/components/media/PowerBIEmbed";
@@ -48,7 +47,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </div>
       <PowerBIEmbed src={project.meta.embedUrl} title={`${project.meta.title} dashboard`} />
       <MDXContentRenderer source={project.content} />
-      <ReactionBar slug={project.meta.slug} />
       <CommentSection />
       <RelatedProjects projects={related} />
     </article>

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CommentSection } from "@/components/content/CommentSection";
 import { MDXContentRenderer } from "@/components/content/MDXContentRenderer";
-import { ReactionBar } from "@/components/content/ReactionBar";
 import { RelatedArticles } from "@/components/content/RelatedContent";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { TagPill } from "@/components/ui/TagPill";
@@ -44,7 +43,6 @@ export default async function PostDetailPage({ params }: PageProps) {
         <Image src={post.meta.thumbnail} alt="" fill className="object-cover" priority />
       </div>
       <MDXContentRenderer source={post.content} />
-      <ReactionBar slug={post.meta.slug} />
       <CommentSection />
       <RelatedArticles articles={related} basePath="/posts" />
     </article>

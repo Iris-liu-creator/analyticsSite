@@ -10,8 +10,7 @@ A modern personal portfolio web app for a data analytics, BI, RevOps, and AI-ena
 - MDX content with frontmatter
 - Recharts for native charts
 - shadcn/ui-inspired custom components
-- LocalStorage demo reactions
-- Giscus-ready comment placeholder
+- Giscus comments and GitHub Discussions reactions
 - Vercel and Netlify deployment friendly
 
 ## Folder Structure
@@ -190,16 +189,33 @@ Future backend options:
 
 Do not commit private API keys or service credentials.
 
-## Enable Comments Later
+## Enable Comments and Reactions
 
-Phase 1 ships with a clean placeholder. To enable GitHub Discussions through Giscus later:
+Comments and reactions are powered by Giscus, which stores visitor comments and GitHub reactions in GitHub Discussions.
 
-1. Enable Discussions on your GitHub repository.
-2. Configure Giscus for the repo and category.
-3. Add public environment variables such as `NEXT_PUBLIC_GISCUS_REPO` and `NEXT_PUBLIC_GISCUS_REPO_ID`.
-4. Replace the placeholder text in `components/content/CommentSection.tsx` with the Giscus script/component.
+1. Enable Discussions on your public GitHub repository.
+2. Install the Giscus GitHub app for that repository.
+3. Create or choose a discussion category, such as `Comments`.
+4. Use https://giscus.app to generate the repo and category IDs.
+5. Add these public environment variables in `.env.local`, Vercel, or Netlify:
 
-No private credentials should be committed.
+```bash
+NEXT_PUBLIC_GISCUS_REPO="username/repository"
+NEXT_PUBLIC_GISCUS_REPO_ID="your_repo_id"
+NEXT_PUBLIC_GISCUS_CATEGORY="Comments"
+NEXT_PUBLIC_GISCUS_CATEGORY_ID="your_category_id"
+```
+
+Optional settings:
+
+```bash
+NEXT_PUBLIC_GISCUS_MAPPING="pathname"
+NEXT_PUBLIC_GISCUS_REACTIONS_ENABLED="1"
+NEXT_PUBLIC_GISCUS_THEME="preferred_color_scheme"
+NEXT_PUBLIC_GISCUS_LANG="en"
+```
+
+The previous local browser-only `Like / Useful / Insightful` reaction buttons have been removed so Giscus is the single source of truth for comments and reactions. No private credentials should be committed.
 
 ## Deploy to Vercel
 

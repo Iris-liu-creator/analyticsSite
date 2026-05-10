@@ -23,10 +23,7 @@ export default function ServicesPage() {
         <Breadcrumbs items={[{ label: "Services" }]} />
         <div className="grid gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-center">
           <div>
-            <p className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-200">
-              Optional analytics consulting
-            </p>
-            <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-ink dark:text-white sm:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-ink dark:text-white sm:text-6xl">
               Analytics Services for Data-Driven Business Teams
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
@@ -43,12 +40,12 @@ export default function ServicesPage() {
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
             <p className="text-sm font-semibold uppercase tracking-wide text-signal">Engagement style</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink dark:text-white">Practical support without the agency theatre.</h2>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink dark:text-white">Built for Clarity, Impact, and Reusuability.</h2>
             <p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">
-              Services are shaped around business decisions, maintainable reporting, documentation, and BAU adoption. The goal is to leave teams with systems they can understand and use.
+              Services are shaped around real business decisions, reliable reporting foundations, and smooth handover, so teams leave with systems they can understand, trust, and use.
             </p>
             <div className="mt-6 grid gap-3">
-              {["Discovery before scope", "Clear definitions before dashboards", "Documentation and handover included"].map((item) => (
+              {["Discovery before scope", "Clear definitions before dashboards", "Documentation and handover built in"].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-lg bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 dark:bg-slate-950 dark:text-slate-200">
                   <ShieldCheck className="h-4 w-4 text-mint" />
                   {item}
