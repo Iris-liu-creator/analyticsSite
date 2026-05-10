@@ -34,8 +34,8 @@ export function ArticleLibrary({
   return (
     <div>
       <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-        <div className="grid gap-4 md:grid-cols-4">
-          <div className="md:col-span-2"><SearchInput value={query} onChange={setQuery} placeholder="Search articles" /></div>
+        <div className="grid items-end gap-4 md:grid-cols-2 xl:grid-cols-[minmax(18rem,1.4fr)_repeat(3,minmax(10rem,1fr))]">
+          <div className="md:col-span-2 xl:col-span-1"><SearchInput value={query} onChange={setQuery} placeholder="Search articles" /></div>
           <FilterSelect label={basePath === "/analysis" ? "Topic" : "Category"} value={primary} onChange={setPrimary} options={primaryOptions} />
           <FilterSelect label="Tag" value={tag} onChange={setTag} options={filters.tags} />
           {filters.difficulties ? <FilterSelect label="Difficulty" value={difficulty} onChange={setDifficulty} options={filters.difficulties} /> : null}

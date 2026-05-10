@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: meta.title,
       description: meta.summary,
-      keywords: [meta.category, meta.topic, ...(meta.tags ?? [])].filter(Boolean),
+      keywords: [meta.category, meta.topic, ...(meta.tags ?? [])].filter((keyword): keyword is string => Boolean(keyword)),
       alternates: {
         canonical: `/analysis/${meta.slug}`
       },

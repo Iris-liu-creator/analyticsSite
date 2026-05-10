@@ -1,5 +1,6 @@
 import { ArrowRight, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { HeroMetricValue } from "@/components/sections/HeroMetricValue";
 
 export function HeroSection() {
   return (
@@ -24,21 +25,38 @@ export function HeroSection() {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Executive BI cockpit</p>
-            <h2 className="mt-1 text-xl font-semibold text-ink dark:text-white">Revenue and operations health</h2>
+            <h2 className="mt-1 text-xl font-semibold text-ink dark:text-white">Analytics Delivery at a Glance</h2>
           </div>
           <BarChart3 className="h-8 w-8 text-signal" />
         </div>
         <div className="mt-8 grid grid-cols-2 gap-4">
           {[
-            ["Pipeline", "$4.8M", "12% up"],
-            ["Forecast accuracy", "91%", "6 pts up"],
-            ["Manual hours saved", "240", "quarterly"],
-            ["Active dashboards", "32", "maintained"]
-          ].map(([label, value, detail]) => (
-            <div key={label} className="rounded-lg bg-slate-50 p-4 dark:bg-slate-950">
-              <p className="text-sm text-slate-500 dark:text-slate-400">{label}</p>
-              <p className="mt-2 text-2xl font-semibold text-ink dark:text-white">{value}</p>
-              <p className="mt-1 text-xs font-medium text-mint">{detail}</p>
+            { label: "Reports Delivered", start: 66, end: 100, suffix: "+", trendPrefix: "▲", trendStart: 3, trendEnd: 12, trendSuffix: "% QoQ" },
+            { label: "Monthly Hours Reduced", start: 280, end: 360, suffix: "+", trendPrefix: "▲", trendStart: 5, trendEnd: 18, trendSuffix: "% QoQ", trendEndSuffix: "% MoM" },
+            { label: "Business Functions Supported", start: 3, end: 6, detail: "+1 team/function YoY" },
+            { label: "Typical Response Time", start: 4, end: 2, prefix: "<", suffix: " Hours", trendPrefix: "▼", trendStart: 2, trendEnd: 25, trendSuffix: "% MoM" }
+          ].map((metric) => (
+            <div key={metric.label} className="rounded-lg bg-slate-50 p-4 dark:bg-slate-950">
+              <p className="text-sm text-slate-500 dark:text-slate-400">{metric.label}</p>
+              <p className="mt-2 text-2xl font-semibold text-ink dark:text-white">
+                <HeroMetricValue start={metric.start} end={metric.end} prefix={metric.prefix} suffix={metric.suffix} />
+              </p>
+              {metric.trendStart ? (
+                <p className="mt-1 text-xs font-medium text-mint">
+                  <HeroMetricValue
+                    start={metric.trendStart}
+                    end={metric.trendEnd}
+                    prefix={metric.trendPrefix}
+                    suffix={metric.trendSuffix}
+                    endSuffix={metric.trendEndSuffix}
+                    className="inline-block min-w-[4.5rem] tabular-nums"
+                  />
+                </p>
+              ) : metric.detail ? (
+                <p className="mt-1 text-xs font-medium text-mint">{metric.detail}</p>
+              ) : (
+                <p className="mt-1 text-xs font-medium text-mint">&nbsp;</p>
+              )}
             </div>
           ))}
         </div>

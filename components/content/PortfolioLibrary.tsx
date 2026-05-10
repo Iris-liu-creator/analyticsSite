@@ -38,8 +38,10 @@ export function PortfolioLibrary({ projects }: { projects: ProjectMeta[] }) {
   return (
     <div>
       <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-        <div className="grid gap-4 lg:grid-cols-[1.2fr_repeat(5,1fr)]">
-          <SearchInput value={query} onChange={setQuery} placeholder="Search projects, tools, outcomes" />
+        <div className="grid items-end gap-4 md:grid-cols-2 xl:grid-cols-[minmax(18rem,1.4fr)_repeat(5,minmax(9rem,1fr))]">
+          <div className="md:col-span-2 xl:col-span-1">
+            <SearchInput value={query} onChange={setQuery} placeholder="Search projects, tools, outcomes" />
+          </div>
           <FilterSelect label="Category" value={category} onChange={setCategory} options={projectCategories} />
           <FilterSelect label="Tool" value={tool} onChange={setTool} options={toolTags} />
           <FilterSelect label="Function" value={businessFunction} onChange={setBusinessFunction} options={businessFunctions} />

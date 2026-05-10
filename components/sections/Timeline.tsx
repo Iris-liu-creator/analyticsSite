@@ -1,8 +1,8 @@
 const events = [
-  { title: "Business-first analytics", text: "Start with decision context, stakeholders, KPI definitions, and operational cadence." },
-  { title: "Reliable data models", text: "Shape source data into documented models that analysts and leaders can trust." },
-  { title: "Dashboards people use", text: "Design reporting views that make exceptions, trends, and action paths obvious." },
-  { title: "Automation and AI", text: "Reduce repetitive reporting work and add AI-assisted workflows where they create measurable leverage." }
+  { title: "Business-first analytics", text: "Start with decision context, stakeholder needs, KPI definitions, and operational cadence." },
+  { title: "Trusted data groundwork", text: "Shape source data into documented, scalable models that analysts and leaders can trust." },
+  { title: "Decision-ready dashboards", text: "Design reporting views that make performance, exceptions, trends, and action paths clear." },
+  { title: "Automation and AI workflows", text: "Reduce repetitive reporting work and apply AI-assisted workflows where they create measurable leverage." }
 ];
 
 export function Timeline() {

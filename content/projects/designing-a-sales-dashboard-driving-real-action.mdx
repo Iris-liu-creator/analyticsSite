@@ -1,0 +1,225 @@
+---
+title: "Designing a Sales Dashboard Driving Real Action"
+slug: "designing-a-sales-dashboard-driving-real-action"
+date: "2026-05-09"
+category: "BI Dashboard"
+tools: ["Power BI", "SQL", "DAX", "Excel"]
+businessFunction: ["Sales", "Marketing", "Finance"]
+summary: "A sales dashboard should not simply tell leaders what happened. It should help them decide what to do next."
+thumbnail: "/images/projects/sales-dashboard-action.svg"
+heroImage: "/images/projects/sales-dashboard-action.svg"
+featured: true
+status: "Recent"
+impact: "The real insight is where growth is coming from, whether it is repeatable, and which part of the business needs support."
+embedUrl: ""
+tags: ["Sales Analytics", "Dashboard Design", "Forecasting", "RevOps"]
+---
+
+> A sales dashboard should not simply tell leaders what happened. It should help them decide what to do next.
+
+In revenue operations, the real value of reporting is never the visual itself. The true value comes from sharper forecast calls, faster deal intervention, better coaching, cleaner pipeline reviews and more confident decisions. Data-driven organisations are more likely to improve decision-making because they use evidence to guide action, not just opinions or assumptions.
+
+A high-impact sales dashboard should do 3 things:
+
+<div className="my-8 grid gap-4 md:grid-cols-3">
+  <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <p className="text-sm font-bold uppercase tracking-[0.14em] text-signal">Show performance:</p>
+    <p className="mt-3 text-slate-700">what has closed and how it compares to target.</p>
+  </div>
+  <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <p className="text-sm font-bold uppercase tracking-[0.14em] text-teal-700">Reveal risk:</p>
+    <p className="mt-3 text-slate-700">what may slip, stall or fail to convert.</p>
+  </div>
+  <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <p className="text-sm font-bold uppercase tracking-[0.14em] text-blue-700">Guide action:</p>
+    <p className="mt-3 text-slate-700">where leaders should coach, intervene or reallocate focus.</p>
+  </div>
+</div>
+
+## Start with decision, not the metric
+
+Before adding visuals, the dashboard should be designed around leadership questions:
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Leadership Asks</th>
+        <th className="px-5 py-4">Dashboard Insight</th>
+        <th className="px-5 py-4">Supported Decisions</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Are we on track?</td>
+        <td className="px-5 py-4 text-slate-700">Closed won, commit, target gap</td>
+        <td className="px-5 py-4 text-slate-700">Update expected landing position and decide whether more intervention is needed</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">What can still close?</td>
+        <td className="px-5 py-4 text-slate-700">Strong upside, upside, pipeline coverage</td>
+        <td className="px-5 py-4 text-slate-700">Decide where teams should focus</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Where is revenue at risk?</td>
+        <td className="px-5 py-4 text-slate-700">Slipped deals, stale deals, weak conversion</td>
+        <td className="px-5 py-4 text-slate-700">Intervene before quarter-end</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Which segment is performing?</td>
+        <td className="px-5 py-4 text-slate-700">New vs Existing business, region, company size</td>
+        <td className="px-5 py-4 text-slate-700">Shift focus or resources</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Where is the sales motion leaking?</td>
+        <td className="px-5 py-4 text-slate-700">Stage conversion, win rate, sales cycle</td>
+        <td className="px-5 py-4 text-slate-700">Improve qualification or coaching</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Bookings show performance, but segmentation explains it
+
+Closed won and bookings are the scoreboard. But the total number alone does not explain the business.
+
+A strong bookings result may come from one large enterprise deal, strong expansion in existing accounts, or broad new customer growth. Each story requires a different management response.
+
+That is why bookings should always be split by:
+
+<div className="my-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+  <div className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-slate-950 shadow-sm">New vs existing business</div>
+  <div className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-slate-950 shadow-sm">Region</div>
+  <div className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-slate-950 shadow-sm">Company size (Enterprise, mid-market, SMB)</div>
+  <div className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-slate-950 shadow-sm">Product</div>
+  <div className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-slate-950 shadow-sm">Sales owner</div>
+  <div className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-slate-950 shadow-sm">Month, quarter, or year</div>
+</div>
+
+"We closed $X in Q2 FY26" doesn't tell any story.
+
+The real insight is where growth is coming from, whether it is repeatable, and which part of the business needs support.
+
+## Expose risk at early stage
+
+Pipeline is future potential, not guaranteed revenue. A large pipeline can still be weak if deals are old, poorly qualified or sitting in the wrong forecast category. Dashboard should make risk visible before the miss happens.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Signal</th>
+        <th className="px-5 py-4">What it means</th>
+        <th className="px-5 py-4">Action</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Low pipeline coverage</td>
+        <td className="px-5 py-4 text-slate-700">Not enough open opportunities to hit target</td>
+        <td className="px-5 py-4 text-slate-700">Source more qualified pipeline</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Deals are ageing in stage</td>
+        <td className="px-5 py-4 text-slate-700">Sales motion is slowing</td>
+        <td className="px-5 py-4 text-slate-700">Review next steps and buyer engagement</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Close dates keep moving</td>
+        <td className="px-5 py-4 text-slate-700">Forecast risk is increasing</td>
+        <td className="px-5 py-4 text-slate-700">Challenge deal confidence</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Large deals have low activity</td>
+        <td className="px-5 py-4 text-slate-700">Pipeline may be inflated</td>
+        <td className="px-5 py-4 text-slate-700">Inspect deal quality</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Early-stage pipeline is too high</td>
+        <td className="px-5 py-4 text-slate-700">Forecast may be over-optimistic</td>
+        <td className="px-5 py-4 text-slate-700">Separate future pipeline from current-quarter forecast</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## Forecast turns pipeline into judgement
+
+Sales stage shows where the deal sits. Forecast status shows how much confidence the business has.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Category</th>
+        <th className="px-5 py-4">Meaning</th>
+        <th className="px-5 py-4">Decision Use</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Include</td>
+        <td className="px-5 py-4 text-slate-700">Active but not yet confident</td>
+        <td className="px-5 py-4 text-slate-700">Monitor and qualify further</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Upside</td>
+        <td className="px-5 py-4 text-slate-700">Possible if risks are resolved</td>
+        <td className="px-5 py-4 text-slate-700">Identify blocks</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Strong upside</td>
+        <td className="px-5 py-4 text-slate-700">Realistic close path</td>
+        <td className="px-5 py-4 text-slate-700">Prioritise leadership support</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Exclude</td>
+        <td className="px-5 py-4 text-slate-700">Nor credible for current forecast</td>
+        <td className="px-5 py-4 text-slate-700">Remove from forecast discussion</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Commit</td>
+        <td className="px-5 py-4 text-slate-700">Expected to close</td>
+        <td className="px-5 py-4 text-slate-700">Hold ower accountable</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Closed Won</td>
+        <td className="px-5 py-4 text-slate-700">Secured revenue</td>
+        <td className="px-5 py-4 text-slate-700">Count toward bookings</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+This creates a better forecast conversation. Instead of asking "how does this deal feel?", leaders can ask:
+
+- What needs to happen to commit the current upsides?
+- Can the current strong upside deals close the target gap?
+- Which commit deals are actually at risk?
+- Which included deals should be excluded?
+
+## Commit versus target
+
+If the target relies heavily on upside, the business is carrying forecast risk. When commit is strong and most of the current-quarter target is already covered, the quarter may be under control. However, that does not automatically mean future-period pipeline coverage is healthy.
+
+Pipeline coverage, target gap and forecast risk must always be assessed within a specific timeframe. A current-quarter view may show confidence, while next quarter may still require more qualified pipeline to support future revenue.
+
+## Movement and status are equally important
+
+A dashboard should show what changed since the last review.
+
+Track:
+
+<div className="my-8 rounded-[2rem] bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 p-6 shadow-soft">
+  <div className="grid gap-3 md:grid-cols-4">
+    <div className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold leading-snug text-slate-950 shadow-sm">New pipeline created</div>
+    <div className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold leading-snug text-slate-950 shadow-sm">Deals moved forward</div>
+    <div className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold leading-snug text-slate-950 shadow-sm">Deals pushed out</div>
+    <div className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold leading-snug text-slate-950 shadow-sm">Deals reduced in value</div>
+    <div className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold leading-snug text-slate-950 shadow-sm">Deals moved into commit</div>
+    <div className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold leading-snug text-slate-950 shadow-sm">Deals removed from forecast</div>
+    <div className="rounded-2xl bg-white px-4 py-3 text-center text-sm font-semibold leading-snug text-slate-950 shadow-sm md:col-span-2">Closed won and closed lost</div>
+  </div>
+</div>
+
+This gives sales leaders a cleaner forecast conversation. Instead of only asking "what is the number today?", they can ask "what changed, why did it change, and what action do we need to take?"

@@ -51,7 +51,7 @@ export default function HomePage() {
               For medium-sized teams that need help clarifying KPIs, building reliable dashboards, automating reporting, or creating a more sustainable analytics operating model.
             </p>
           </div>
-          <Button href="/services" variant="secondary">Discuss Your Analytics Needs</Button>
+          <Button href="/services" variant="secondary">Codesign Your Analytics</Button>
         </div>
         <div className="grid gap-6 lg:grid-cols-3">
           {servicePillars.map((service) => (

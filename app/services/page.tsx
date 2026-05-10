@@ -131,7 +131,7 @@ export default function ServicesPage() {
             <p className="text-sm font-semibold uppercase tracking-wide text-signal">Inquiry</p>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Discuss Your Analytics Needs</h2>
             <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
-              Share your current reporting challenge, and I’ll help identify the best next step — whether that is KPI clarification, dashboard development, reporting automation, or a broader analytics enablement plan.
+              Share your current reporting challenge, and I’ll help identify the best next step - whether that is KPI clarification, dashboard development, reporting automation, or a broader analytics enablement plan.
             </p>
             <p className="mt-6 rounded-lg border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
               Client data and business context are handled confidentially and used only for the agreed analytics and reporting scope.

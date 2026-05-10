@@ -7,11 +7,11 @@ import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/analysis", label: "Analysis" },
   { href: "/posts", label: "Posts" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" }
 ];
 
