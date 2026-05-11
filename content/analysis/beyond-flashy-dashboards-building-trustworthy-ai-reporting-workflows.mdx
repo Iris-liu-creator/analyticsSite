@@ -1,0 +1,515 @@
+﻿---
+title: "Beyond Flashy Dashboards: Building Trustworthy AI Reporting Workflows"
+slug: "beyond-flashy-dashboards-building-trustworthy-ai-reporting-workflows"
+date: "2026-05-11"
+category: "AI Governance"
+topic: "AI Governance"
+tags: ["AI Reporting", "Reporting Automation", "Governance", "Semantic Models", "Human Review"]
+summary: "A practical operating model for governed AI-assisted reporting, metric trust, and human review."
+thumbnail: "/images/analysis/beyond-flashy-dashboards.svg"
+featured: true
+difficulty: "Advanced"
+---
+
+AI is quickly changing how business users interact with reporting.
+
+Instead of waiting for a dashboard request to move through a BI backlog, managers can now ask questions in natural language. Executives can ask for a summary of performance before a meeting. Analysts can use AI to draft commentary, generate report layouts, explain movements, or turn scattered metrics into a more structured business narrative.
+
+At first glance, this sounds like the future of reporting: fewer manual reports, faster answers, and more personalised views for every stakeholder.
+
+But there is a catch.
+
+A beautiful dashboard is not the same as a trusted report. A polished AI-generated summary is not automatically a reliable business insight. And a chatbot that can answer questions from data does not remove the need for governance, metric definitions, data quality, or human accountability.
+
+The real opportunity is not simply to let everyone prompt their own version of a report. The better opportunity is to build an AI-assisted reporting automation workflow: one where trusted data, governed metrics, AI-generated insight, human review, and controlled distribution work together.
+
+In this model, AI does not replace BI. It changes where BI teams create value.
+
+Instead of manually building every report variation, analysts and data teams increasingly design the governed foundation that allows AI to generate safe, consistent, and useful reporting experiences.
+
+A simple way to summarise the shift is:
+
+> AI drafts. Humans validate. Governance controls. Automation distributes.
+
+## 1. What AI-Assisted Reporting Automation Really Means
+
+AI-assisted reporting automation is not just a chatbot attached to a database.
+
+It is a workflow that connects data infrastructure, semantic modelling, AI generation, human review, and reporting distribution into one controlled operating model.
+
+A traditional reporting workflow often looks like this:
+
+> Data is collected → a report is built → users read the report → users interpret the result.
+
+An AI-assisted workflow looks more like this:
+
+> Data is collected → trusted metrics are defined → AI drafts or answers → humans validate → approved insights are distributed → feedback improves the model.
+
+That distinction matters.
+
+The first workflow is report-centric. The second is decision-centric. It does not only ask, "Can we produce a report?" It asks, "Can we produce the right insight, for the right person, with the right level of trust?"
+
+AI can assist across multiple stages of the workflow:
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[860px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Workflow stage</th>
+        <th className="px-5 py-4">What happens</th>
+        <th className="px-5 py-4">How AI assists</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Data ingestion</td>
+        <td className="px-5 py-4 text-slate-700">Data is pulled from CRM, ERP, HR, finance, product, or operational systems</td>
+        <td className="px-5 py-4 text-slate-700">AI may help explain pipeline failures, generate documentation, or assist with code</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Transformation and modelling</td>
+        <td className="px-5 py-4 text-slate-700">Raw data is cleaned and converted into business-ready tables</td>
+        <td className="px-5 py-4 text-slate-700">AI can help draft SQL, DAX, transformation logic, and documentation</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Data quality</td>
+        <td className="px-5 py-4 text-slate-700">Data is tested before it reaches reports</td>
+        <td className="px-5 py-4 text-slate-700">AI can summarise anomalies, explain unusual movements, and flag suspicious patterns</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Semantic model</td>
+        <td className="px-5 py-4 text-slate-700">KPIs, relationships, business terms, and certified datasets are defined</td>
+        <td className="px-5 py-4 text-slate-700">AI uses this layer to understand business meaning</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Q&amp;A chatbot</td>
+        <td className="px-5 py-4 text-slate-700">Users ask questions in natural language</td>
+        <td className="px-5 py-4 text-slate-700">AI maps questions to governed metrics and accessible data</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">AI-generated reporting</td>
+        <td className="px-5 py-4 text-slate-700">AI drafts summaries, commentary, or report narratives</td>
+        <td className="px-5 py-4 text-slate-700">AI prepares the first version of insights or meeting-ready explanations</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Human review</td>
+        <td className="px-5 py-4 text-slate-700">Analysts or business owners validate the output</td>
+        <td className="px-5 py-4 text-slate-700">Humans check metrics, context, audience, and business interpretation</td>
+      </tr>
+      <tr>
+        <td className="px-5 py-4 font-bold text-slate-950">Distribution</td>
+        <td className="px-5 py-4 text-slate-700">Reports or summaries are sent to users</td>
+        <td className="px-5 py-4 text-slate-700">Automation sends approved outputs through dashboards, email, alerts, or collaboration tools</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+The important point is that AI sits inside a workflow. It is not the whole workflow.
+
+## 2. Where the Q&A AI Chatbot Sits
+
+The Q&A AI chatbot should sit after the semantic model, not directly on top of raw data.
+
+The safer structure is:
+
+> Source systems → data warehouse or lakehouse → transformation layer → certified semantic model → AI Q&A chatbot → user response.
+
+This is because raw tables are rarely business-ready. They may contain technical column names, duplicate fields, inconsistent date logic, historical exceptions, and unclear relationships. If AI queries this layer directly, it may produce an answer that looks confident but is based on the wrong logic.
+
+For example, a user may ask:
+
+> "How are we performing this quarter?"
+
+That question sounds simple, but from a reporting perspective it is full of assumptions.
+
+Does "performance" mean revenue, bookings, ARR, margin, utilisation, pipeline, retention, or compliance? Should the answer use calendar quarter or financial quarter? Should one-off revenue be included? Should internal accounts, test records, churned customers, or inactive employees be excluded?
+
+A human analyst would usually clarify these assumptions. An AI chatbot may not, unless the business has already provided the right context.
+
+That is why the semantic model becomes the control point. It tells AI what the approved metrics are, how they are calculated, what relationships exist, which fields are safe to use, and which definitions should be applied.
+
+In a governed reporting environment, the AI chatbot should not be free to invent KPI logic. It should query certified metrics and explain the result in business language.
+
+## 3. Where AI-Generated Reporting Sits
+
+AI-generated reporting sits across three connected stages:
+
+<div className="not-prose ai-reporting-stage-grid my-8 grid gap-4 md:grid-cols-3">
+  <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">AI Query / Narrative / Agent</p>
+    <p className="ai-reporting-stage-body m-0 mt-4 text-sm leading-6 text-slate-700">AI drafts the insight, summary, explanation, or report commentary.</p>
+  </div>
+  <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Human Review &amp; Approval</p>
+    <p className="ai-reporting-stage-body m-0 mt-4 text-sm leading-6 text-slate-700">A report owner, analyst, or business stakeholder validates the output.</p>
+  </div>
+  <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Personalised Distribution &amp; Actions</p>
+    <p className="ai-reporting-stage-body m-0 mt-4 text-sm leading-6 text-slate-700">Once approved, the report is sent to the right audience through dashboards, email, meeting packs, alerts, or collaboration tools.</p>
+  </div>
+</div>
+
+This distinction is important because AI-generated reporting should not be treated as a single "generate and send" action.
+
+A safer workflow looks like this:
+
+> AI drafts the report → human validates the interpretation → automation distributes the approved result.
+
+For example, AI may draft a weekly summary:
+
+> "Team compliance declined by 8% compared with the previous week, mainly driven by lower attendance across two departments."
+
+Before that message is sent to managers, a human should check whether the drop is real, whether the comparison period is correct, whether the department grouping is accurate, and whether the wording is appropriate for the audience.
+
+This is especially important for executive, HR, finance, customer-facing, or performance-related reporting. In these cases, the cost of a misleading automated summary is much higher than the time saved by skipping review.
+
+## 4. Why Standardised Reporting Still Matters
+
+AI self-service reporting is powerful because it gives users flexibility.
+
+A sales leader may want a pipeline risk view. A CFO may want a board-style revenue summary. A professional services leader may want utilisation, project margin, delivery risk, and resource capacity in one operating view. AI can help generate these different perspectives more quickly than traditional report development.
+
+But flexibility without standardisation creates another problem: everyone may end up with their own version of the truth.
+
+This is why standardised reporting still matters.
+
+Standardised reporting provides:
+
+- official KPI definitions
+- certified datasets
+- controlled access
+- repeatable executive reporting
+- consistent performance tracking
+- auditability
+- confidence in business decisions
+
+AI-generated views are useful for exploration and personalisation. Standardised reports are still needed for official decision-making.
+
+The future is not one replacing the other. The future is a hybrid model:
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[680px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Reporting need</th>
+        <th className="px-5 py-4">Better fit</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Board reporting</td><td className="px-5 py-4 text-slate-700">Standardised reporting</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Executive KPI packs</td><td className="px-5 py-4 text-slate-700">Standardised reporting with AI commentary</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Weekly team summaries</td><td className="px-5 py-4 text-slate-700">Automated reporting with governance controls</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Meeting preparation</td><td className="px-5 py-4 text-slate-700">AI-assisted self-service</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Ad hoc exploration</td><td className="px-5 py-4 text-slate-700">AI Q&amp;A chatbot</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Sensitive HR or finance reporting</td><td className="px-5 py-4 text-slate-700">Standardised reporting with human approval</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Personalised manager views</td><td className="px-5 py-4 text-slate-700">Governed self-service reporting</td></tr>
+    </tbody>
+  </table>
+</div>
+
+In other words, AI expands the reporting experience, but standardised reporting protects consistency.
+
+## 5. Making Sure AI Queries the Right Metrics
+
+One of the biggest risks in AI reporting is not that AI cannot generate a dashboard. It is that AI generates a polished report using the wrong metric, wrong grain, wrong filter, or wrong business definition.
+
+For AI reporting to be trustworthy, organisations need to guide how AI queries data.
+
+### Start with certified metrics
+
+AI should not recreate KPI logic every time someone asks a question.
+
+For example, if a manager asks:
+
+> "Show me sales performance this quarter."
+
+AI needs to know whether that means bookings, ARR, ACV, revenue, pipeline created, win rate, or quota attainment.
+
+If these definitions are not governed, the AI may choose a metric based on wording rather than business intent. This creates the same problem traditional BI teams have been solving for years: inconsistent numbers across different reports.
+
+A better rule is:
+
+> If a KPI is used in executive reporting, board reporting, sales reviews, finance reporting, or performance management, AI should only access the certified version of that KPI.
+
+Certified metrics allow AI to generate flexible outputs without changing the underlying business logic.
+
+### Give AI business metadata, not just data
+
+AI needs more than table names and column names. It needs context.
+
+A strong AI-ready metadata layer should include:
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[860px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Metadata type</th>
+        <th className="px-5 py-4">Example</th>
+        <th className="px-5 py-4">Why it matters</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Business definition</td><td className="px-5 py-4 text-slate-700">"Active customer means a customer with an active paid subscription."</td><td className="px-5 py-4 text-slate-700">Prevents wrong interpretation</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">KPI owner</td><td className="px-5 py-4 text-slate-700">Finance owns revenue; RevOps owns pipeline</td><td className="px-5 py-4 text-slate-700">Clarifies accountability</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Calculation logic</td><td className="px-5 py-4 text-slate-700">ARR = monthly recurring value multiplied by 12</td><td className="px-5 py-4 text-slate-700">Avoids AI inventing formulas</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Grain</td><td className="px-5 py-4 text-slate-700">One row per customer-month, opportunity, employee-week, or invoice line</td><td className="px-5 py-4 text-slate-700">Prevents aggregation errors</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Time logic</td><td className="px-5 py-4 text-slate-700">Current quarter, previous quarter, YTD, last 6 weeks</td><td className="px-5 py-4 text-slate-700">Keeps period comparisons consistent</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Synonyms</td><td className="px-5 py-4 text-slate-700">"Closed won", "bookings", "sales"</td><td className="px-5 py-4 text-slate-700">Helps AI map natural language to the right metric</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Exclusions</td><td className="px-5 py-4 text-slate-700">Exclude test accounts, internal accounts, inactive records</td><td className="px-5 py-4 text-slate-700">Reduces misleading outputs</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Sensitivity level</td><td className="px-5 py-4 text-slate-700">Internal, confidential, restricted</td><td className="px-5 py-4 text-slate-700">Controls exposure risk</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Recommended visuals</td><td className="px-5 py-4 text-slate-700">Trend, funnel, variance, cohort, waterfall</td><td className="px-5 py-4 text-slate-700">Guides dashboard generation</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This metadata works like an instruction manual for AI.
+
+Without metadata, AI may see a field called amount and not know whether it means invoice amount, opportunity amount, revenue, pipeline value, local currency, or converted value. With metadata, AI has a better chance of understanding how the field should be used.
+
+### Use approved question patterns
+
+Another practical approach is to define standard analytical patterns for common business questions.
+
+For example:
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">User question</th>
+        <th className="px-5 py-4">Governed analytical path</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">"How is sales going?"</td><td className="px-5 py-4 text-slate-700">Bookings, quota attainment, pipeline coverage, win rate</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">"Why did revenue drop?"</td><td className="px-5 py-4 text-slate-700">Churn, contraction, expansion, delayed renewals, timing impact</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">"Which team needs attention?"</td><td className="px-5 py-4 text-slate-700">KPI variance, threshold breaches, historical trend</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">"Are we compliant?"</td><td className="px-5 py-4 text-slate-700">Certified compliance metric, eligible population, current period</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">"What changed since last week?"</td><td className="px-5 py-4 text-slate-700">Week-over-week movement, top drivers, exceptions</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This does not remove flexibility. It gives flexibility a safer structure.
+
+AI should not only answer questions. It should answer them through approved business logic.
+
+### Apply query guardrails
+
+The AI experience may look conversational, but underneath it should follow the same governance principles as BI.
+
+Useful query guardrails include:
+
+- only query certified datasets for official reporting
+- enforce RLS and RBAC
+- restrict sensitive fields
+- use approved measures for core KPIs
+- rely on predefined joins and relationships
+- validate results before generating commentary
+- log prompts, generated queries, and outputs
+- block high-risk or inappropriate prompts
+- flag unusual results for human review
+
+This prevents AI from becoming an uncontrolled reporting layer.
+
+The goal is not to make AI less useful. The goal is to make it dependable.
+
+## 6. The Human-AI Loop
+
+The human-AI loop is where reporting automation becomes safe enough for real business use.
+
+A simple loop looks like this:
+
+<ol className="not-prose human-ai-timeline my-8 grid gap-3">
+  <li className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-100 text-sm font-semibold text-slate-600">1</span>
+    <p className="m-0 text-sm font-semibold leading-6 text-slate-950">AI drafts the insight or report narrative.</p>
+  </li>
+  <li className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-100 text-sm font-semibold text-slate-600">2</span>
+    <p className="m-0 text-sm font-semibold leading-6 text-slate-950">Human reviews the metric, interpretation, audience, and wording.</p>
+  </li>
+  <li className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-100 text-sm font-semibold text-slate-600">3</span>
+    <p className="m-0 text-sm font-semibold leading-6 text-slate-950">Human corrects unclear logic, missing context, or risky phrasing.</p>
+  </li>
+  <li className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-100 text-sm font-semibold text-slate-600">4</span>
+    <p className="m-0 text-sm font-semibold leading-6 text-slate-950">AI regenerates a better version.</p>
+  </li>
+  <li className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-100 text-sm font-semibold text-slate-600">5</span>
+    <p className="m-0 text-sm font-semibold leading-6 text-slate-950">Human approves the final output.</p>
+  </li>
+  <li className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-100 text-sm font-semibold text-slate-600">6</span>
+    <p className="m-0 text-sm font-semibold leading-6 text-slate-950">Automation distributes the approved report.</p>
+  </li>
+</ol>
+
+This loop should also improve the system over time.
+
+If AI repeatedly confuses bookings and revenue, that is not only an AI issue. It may signal that the semantic model, business glossary, synonyms, or verified question patterns need improvement.
+
+So the feedback loop should not stop at one corrected report. It should feed back into the governed reporting foundation:
+
+> AI makes a mistake → human identifies the ambiguity → metadata or KPI definition is improved → future AI answers become more consistent.
+
+This is how organisations move from AI experimentation to AI reporting maturity.
+
+## 7. Governance Across the Entire Workflow
+
+Governance is often treated as a restriction, but in AI reporting it is what makes scale possible.
+
+Without governance, every AI-generated report is a potential risk. With governance, AI can safely support more users, more questions, and more personalised reporting experiences.
+
+A practical governance model can be structured across four layers.
+
+<div className="not-prose governance-card-grid my-8 grid gap-4 md:grid-cols-2">
+  <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <h3 className="m-0 text-lg font-semibold text-ink">Data governance</h3>
+    <p className="m-0 mt-3 text-sm leading-6 text-slate-700">This controls the source data.</p>
+    <p className="governance-section-label m-0 mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">It includes:</p>
+    <ul className="m-0 mt-3 list-disc space-y-1.5 pl-4 text-sm leading-6 text-slate-700">
+      <li>approved data sources</li>
+      <li>data ownership</li>
+      <li>refresh monitoring</li>
+      <li>data quality checks</li>
+      <li>anomaly detection</li>
+      <li>lineage</li>
+      <li>issue escalation</li>
+    </ul>
+    <p className="governance-closing-note m-0 mt-5 border-t border-slate-100 pt-4 text-sm leading-6 text-slate-600">The goal is to prevent AI from explaining bad, incomplete, or outdated data.</p>
+  </div>
+  <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <h3 className="m-0 text-lg font-semibold text-ink">Metric governance</h3>
+    <p className="m-0 mt-3 text-sm leading-6 text-slate-700">This controls business meaning.</p>
+    <p className="governance-section-label m-0 mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">It includes:</p>
+    <ul className="m-0 mt-3 list-disc space-y-1.5 pl-4 text-sm leading-6 text-slate-700">
+      <li>certified semantic models</li>
+      <li>KPI definitions</li>
+      <li>business glossary</li>
+      <li>metric owners</li>
+      <li>approved calculation logic</li>
+      <li>version control</li>
+      <li>standard time periods and filters</li>
+    </ul>
+    <p className="governance-closing-note m-0 mt-5 border-t border-slate-100 pt-4 text-sm leading-6 text-slate-600">This layer makes sure AI answers questions using the same logic that the business uses for official reporting.</p>
+  </div>
+  <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <h3 className="m-0 text-lg font-semibold text-ink">AI governance</h3>
+    <p className="m-0 mt-3 text-sm leading-6 text-slate-700">This controls how AI behaves.</p>
+    <p className="governance-section-label m-0 mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">It includes:</p>
+    <ul className="m-0 mt-3 list-disc space-y-1.5 pl-4 text-sm leading-6 text-slate-700">
+      <li>approved AI use cases</li>
+      <li>prompt and usage policies</li>
+      <li>grounding rules</li>
+      <li>model access controls</li>
+      <li>output validation</li>
+      <li>hallucination checks</li>
+      <li>prompt and response logging</li>
+      <li>human approval thresholds</li>
+    </ul>
+    <p className="governance-closing-note m-0 mt-5 border-t border-slate-100 pt-4 text-sm leading-6 text-slate-600">This layer defines what AI can draft, what it can answer, and what it is not allowed to do without review.</p>
+  </div>
+  <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <h3 className="m-0 text-lg font-semibold text-ink">Distribution governance</h3>
+    <p className="m-0 mt-3 text-sm leading-6 text-slate-700">This controls who receives what.</p>
+    <p className="governance-section-label m-0 mt-5 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">It includes:</p>
+    <ul className="m-0 mt-3 list-disc space-y-1.5 pl-4 text-sm leading-6 text-slate-700">
+      <li>RLS and RBAC</li>
+      <li>approved distribution lists</li>
+      <li>recipient-specific filtering</li>
+      <li>audit logs</li>
+      <li>sensitivity labels</li>
+      <li>approval workflows</li>
+      <li>exception handling</li>
+    </ul>
+    <p className="governance-closing-note m-0 mt-5 border-t border-slate-100 pt-4 text-sm leading-6 text-slate-600">This is especially important when AI-generated summaries are distributed automatically. The organisation must know who received which report, based on which data, and under which approval process.</p>
+  </div>
+</div>
+
+## 8. What Should Be Automated and What Should Be Reviewed
+
+Not every reporting use case needs the same level of control.
+
+The governance model should separate low-risk automation from high-risk reporting.
+
+<div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Use case</th>
+        <th className="px-5 py-4">Automation level</th>
+        <th className="px-5 py-4">Human review needed?</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Data pipeline refresh</td><td className="px-5 py-4 text-slate-700">High</td><td className="px-5 py-4 text-slate-700">Only on failure or anomaly</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Standard dashboard refresh</td><td className="px-5 py-4 text-slate-700">High</td><td className="px-5 py-4 text-slate-700">Periodic review</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Weekly team-level summary</td><td className="px-5 py-4 text-slate-700">Medium to high</td><td className="px-5 py-4 text-slate-700">Review during rollout, then exception-based</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Ad hoc Q&amp;A chatbot answer</td><td className="px-5 py-4 text-slate-700">Medium</td><td className="px-5 py-4 text-slate-700">Not every answer, but must be governed and logged</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Executive narrative summary</td><td className="px-5 py-4 text-slate-700">Medium</td><td className="px-5 py-4 text-slate-700">Yes, before distribution</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Sensitive HR or finance reporting</td><td className="px-5 py-4 text-slate-700">Low to medium</td><td className="px-5 py-4 text-slate-700">Always yes</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Board reporting</td><td className="px-5 py-4 text-slate-700">Low to medium</td><td className="px-5 py-4 text-slate-700">Always yes</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">External customer-facing reporting</td><td className="px-5 py-4 text-slate-700">Low</td><td className="px-5 py-4 text-slate-700">Always yes</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This is an important operating principle:
+
+> The more sensitive the audience, metric, or decision, the stronger the review process should be.
+
+AI can reduce manual effort, but it should not remove accountability.
+
+## 9. The Role of Traditional BI in an AI Reporting Future
+
+Traditional BI tools are still relevant, but their role changes.
+
+In the past, BI tools were mainly seen as dashboard-building tools. In an AI reporting environment, they increasingly become the governance and trust layer behind self-service analytics.
+
+Their role includes:
+
+- managing certified datasets
+- defining governed KPIs
+- enforcing security and RLS
+- maintaining semantic models
+- supporting official dashboards
+- providing auditability
+- enabling repeatable executive reporting
+
+AI may create the interface. BI protects the integrity of the numbers.
+
+This is why AI does not make BI obsolete. It makes the BI foundation more important.
+
+If every user can prompt for a dashboard, the organisation needs an even stronger way to make sure those dashboards are based on consistent logic.
+
+## 10. Conclusion: Pretty Dashboards Are Not the Same as Trusted Reporting
+
+AI tools are becoming very good at turning ideas into polished interfaces.
+
+Claude, for example, is already strong at helping users shape layouts, generate UI concepts, and create end-user-friendly views from natural language. This is a meaningful shift. It means the presentation layer of reporting may become much more flexible and personalised.
+
+A manager may describe the exact view they want for a team meeting. An executive may ask for a cleaner summary layout before a board discussion. A department head may want a dashboard that combines operational KPIs, exceptions, commentary, and recommended actions in one view.
+
+AI can help generate these experiences quickly.
+
+But making a report look good is not the same as making it trustworthy.
+
+To bring those AI-generated dashboards and narratives into real business use, organisations need much more than model capability. They need governance.
+
+They need certified metrics so AI does not calculate KPIs differently for each user. They need metadata so AI understands business meaning. They need RLS and RBAC so users only see what they are allowed to see. They need data quality checks so AI is not explaining broken data. They need audit logs so outputs can be traced. They need human review so sensitive reporting is not distributed without accountability.
+
+The future of reporting is therefore not simply "AI replaces dashboards." It is also not "everyone prompts their own version of the truth."
+
+The better future is governed self-service reporting: AI helps users explore, draft, summarise, and personalise insights, while the organisation still controls the data, metrics, access, quality, approval process, and distribution rules.
+
+A simple way to put it is:
+
+> AI can design the view. Governance makes the view trustworthy.
+
+This is the foundation for the next question: how do we design a governed AI reporting model that people can really trust?
+
+That is where the next article, "Building Governed AI Reporting People Can Really Trust," can go deeper: not just into the workflow, but into the operating model, responsibilities, controls, and governance practices required to make AI-generated reporting dependable at scale.

@@ -65,6 +65,18 @@ body {
   @apply my-5 max-w-3xl text-slate-700 dark:text-slate-200;
 }
 
+.prose-portfolio.prose-spacious h2 {
+  @apply mb-5 mt-14;
+}
+
+.prose-portfolio.prose-spacious h3 {
+  @apply mb-4 mt-10;
+}
+
+.prose-portfolio.prose-spacious ul {
+  @apply my-6 space-y-3;
+}
+
 .prose-portfolio.prose-spacious blockquote {
   @apply my-8 max-w-3xl rounded-r-xl border-l-4 border-indigo-400 bg-indigo-50/40 px-5 py-4 text-ink shadow-none dark:bg-slate-900/40 dark:text-white;
 }
@@ -75,4 +87,48 @@ body {
 
 .prose-portfolio.prose-spacious > p:has(strong):last-of-type {
   @apply text-2xl font-bold leading-8 text-ink dark:text-white;
+}
+
+.prose-portfolio .governance-card-grid h3 {
+  @apply m-0 text-lg font-semibold leading-7 text-ink dark:text-white;
+}
+
+.prose-portfolio .governance-card-grid p {
+  @apply m-0 max-w-none leading-6;
+}
+
+.prose-portfolio .governance-card-grid ul {
+  @apply m-0 list-disc space-y-1.5 pl-4;
+}
+
+.prose-portfolio .governance-card-grid li {
+  @apply leading-6;
+}
+
+.prose-portfolio .governance-card-grid .governance-section-label {
+  @apply mt-5;
+}
+
+.prose-portfolio .governance-card-grid .governance-closing-note {
+  @apply mt-5;
+}
+
+.prose-portfolio .human-ai-timeline {
+  @apply list-none pl-0;
+}
+
+.prose-portfolio .human-ai-timeline li {
+  @apply m-0 leading-6;
+}
+
+.prose-portfolio .human-ai-timeline p {
+  @apply m-0 max-w-none leading-6;
+}
+
+.prose-portfolio .ai-reporting-stage-grid p {
+  @apply m-0 max-w-none leading-6;
+}
+
+.prose-portfolio .ai-reporting-stage-grid .ai-reporting-stage-body {
+  @apply mt-4;
 }

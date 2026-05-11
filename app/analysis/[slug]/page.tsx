@@ -52,10 +52,13 @@ export default async function AnalysisDetailPage({ params }: PageProps) {
   const article = getContentItem<ArticleMeta>("analysis", slug);
   const all = getAllContent<ArticleMeta>("analysis");
   const related = getRelated(all, article.meta).map((item) => item.meta);
-  const isGovernedAiReporting = article.meta.slug === "building-governed-ai-reporting-people-can-really-trust";
+  const usesSpaciousProse = [
+    "building-governed-ai-reporting-people-can-really-trust",
+    "beyond-flashy-dashboards-building-trustworthy-ai-reporting-workflows"
+  ].includes(article.meta.slug);
 
   return (
-    <article className={cn("mx-auto px-4 py-12 sm:px-6 lg:px-8", isGovernedAiReporting ? "max-w-5xl" : "max-w-4xl")}>
+    <article className={cn("mx-auto px-4 py-12 sm:px-6 lg:px-8", usesSpaciousProse ? "max-w-5xl" : "max-w-4xl")}>
       <Breadcrumbs items={[{ label: "Analysis", href: "/analysis" }, { label: article.meta.title }]} />
       <p className="text-sm font-semibold uppercase tracking-wide text-signal">{article.meta.topic ?? article.meta.category} | {formatDate(article.meta.date)} | {article.readingTime} min read</p>
       <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink dark:text-white">{article.meta.title}</h1>
@@ -64,7 +67,7 @@ export default async function AnalysisDetailPage({ params }: PageProps) {
       <div className="relative my-8 aspect-[16/8] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800">
         <Image src={article.meta.thumbnail} alt="" fill className="object-cover" priority />
       </div>
-      <MDXContentRenderer source={article.content} className={isGovernedAiReporting ? "prose-spacious" : undefined} />
+      <MDXContentRenderer source={article.content} className={usesSpaciousProse ? "prose-spacious" : undefined} />
       <CommentSection />
       <RelatedArticles articles={related} basePath="/analysis" />
     </article>

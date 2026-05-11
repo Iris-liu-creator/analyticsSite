@@ -60,7 +60,7 @@ export default function AboutPage() {
                 Analytics experiences that business teams can trust.
               </h1>
               <p className="mt-6 max-w-3xl text-xl font-medium leading-9 text-slate-700 dark:text-slate-200">
-                I design BI and reporting solutions that turn complex business data into clear, reliable, and decision-ready insights. My work helps teams move beyond manual reporting, siloed systems, and fragmented metrics toward consistent performance visibility, clearer accountability, and faster operational decisions.
+                Hey, I&apos;m Iris, who designs BI and reporting solutions that turn complex business data into clear, reliable, and decision-ready insights. My work helps teams move beyond manual reporting, siloed systems, and fragmented metrics toward consistent performance visibility, clearer accountability, and faster operational decisions.
               </p>
             </div>
             <aside className="lg:pt-8">
