@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Behavioural Data Quality: Reading the Process Behind the Numbers</title>
+  <desc id="desc">An editorial analytics banner showing behaviour signals, exception patterns, and an operating cadence board.</desc>
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.5" stop-color="#f4f9fb"/>
+      <stop offset="1" stop-color="#eef6f8"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="cadence" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e0ecfb"/>
+      <stop offset="0.55" stop-color="#d9f5f2"/>
+      <stop offset="1" stop-color="#e8eef8"/>
+    </linearGradient>
+    <filter id="softShadow" x="-15%" y="-20%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#page)"/>
+  <path d="M0 484C126 420 230 444 336 501C470 574 596 583 727 514C875 436 991 394 1200 472V675H0Z" fill="#e6f7f6" opacity="0.54"/>
+  <path d="M0 542C178 493 315 518 452 570C584 620 709 622 844 572C983 520 1088 501 1200 522V675H0Z" fill="#dbeafe" opacity="0.22"/>
+
+  <g transform="translate(78 72)">
+    <text x="0" y="0" dominant-baseline="hanging" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="42" font-weight="750" fill="#071a3d">
+      <tspan x="0" dy="0">Behavioural Data Quality:</tspan>
+      <tspan x="0" dy="54">Reading the Process Behind the Numbers</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(80 244)">
+    <g filter="url(#softShadow)">
+      <rect x="0" y="0" width="322" height="286" rx="32" fill="url(#surface)"/>
+      <rect x="42" y="48" width="238" height="18" rx="9" fill="#e2e8f0"/>
+      <rect x="42" y="88" width="168" height="18" rx="9" fill="#e2e8f0"/>
+      <rect x="42" y="128" width="218" height="18" rx="9" fill="#e2e8f0"/>
+      <rect x="42" y="180" width="238" height="58" rx="18" fill="#f1f7fb"/>
+      <circle cx="82" cy="209" r="12" fill="#0f9f9a"/>
+      <path d="M112 209H238" stroke="#bfdbfe" stroke-width="10" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(417 16)">
+      <rect x="0" y="0" width="208" height="254" rx="30" fill="#071a3d"/>
+      <g stroke="#334155" stroke-width="2">
+        <path d="M52 34V218"/>
+        <path d="M104 34V218"/>
+        <path d="M156 34V218"/>
+        <path d="M26 66H182"/>
+        <path d="M26 118H182"/>
+        <path d="M26 170H182"/>
+      </g>
+      <g fill="#55bdb8">
+        <circle cx="52" cy="66" r="10"/>
+        <circle cx="156" cy="118" r="10"/>
+        <circle cx="104" cy="170" r="10"/>
+      </g>
+      <g fill="#78a8f2">
+        <circle cx="104" cy="66" r="10"/>
+        <circle cx="52" cy="170" r="10"/>
+      </g>
+      <g fill="#94a3b8">
+        <circle cx="156" cy="66" r="10"/>
+        <circle cx="52" cy="118" r="10"/>
+      </g>
+      <path d="M34 224H174" stroke="#8fd8d0" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(719 0)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="322" height="286" rx="32" fill="url(#surface)"/>
+      <path d="M67 154C67 102 109 60 161 60C213 60 255 102 255 154C255 206 213 248 161 248" fill="none" stroke="#dbeafe" stroke-width="20" stroke-linecap="round"/>
+      <path d="M161 248C109 248 67 206 67 154" fill="none" stroke="#8fd8d0" stroke-width="20" stroke-linecap="round"/>
+      <path d="M161 60C213 60 255 102 255 154" fill="none" stroke="#7fa7f3" stroke-width="20" stroke-linecap="round"/>
+      <circle cx="161" cy="154" r="45" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+      <path d="M139 154L155 170L186 132" fill="none" stroke="#0f9f9a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <path d="M348 142H415" stroke="#7fa7f3" stroke-width="9" stroke-linecap="round"/>
+    <path d="M647 142H696" stroke="#8fd8d0" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="348" cy="142" r="10" fill="#7fa7f3"/>
+    <circle cx="696" cy="142" r="10" fill="#8fd8d0"/>
+  </g>
+
+  <g transform="translate(182 572)">
+    <rect x="0" y="0" width="836" height="34" rx="17" fill="url(#cadence)" opacity="0.92"/>
+    <circle cx="84" cy="17" r="8" fill="#7fa7f3"/>
+    <circle cx="310" cy="17" r="8" fill="#8fd8d0"/>
+    <circle cx="548" cy="17" r="8" fill="#94a3b8"/>
+    <circle cx="752" cy="17" r="8" fill="#8fd8d0"/>
+  </g>
+</svg>

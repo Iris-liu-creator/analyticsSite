@@ -53,6 +53,10 @@ export default async function AnalysisDetailPage({ params }: PageProps) {
   const all = getAllContent<ArticleMeta>("analysis");
   const related = getRelated(all, article.meta).map((item) => item.meta);
   const usesSpaciousProse = [
+    "360-degree-metrics-diagnosis-for-ps-leaders",
+    "choosing-the-right-data-structure-for-better-reporting",
+    "behavioural-data-quality-reading-the-process-behind-the-numbers",
+    "how-to-factor-business-stage-problems-and-decision-context-into-your-kpi-framework",
     "building-governed-ai-reporting-people-can-really-trust",
     "beyond-flashy-dashboards-building-trustworthy-ai-reporting-workflows"
   ].includes(article.meta.slug);
@@ -67,7 +71,13 @@ export default async function AnalysisDetailPage({ params }: PageProps) {
       <div className="relative my-8 aspect-[16/8] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800">
         <Image src={article.meta.thumbnail} alt="" fill className="object-cover" priority />
       </div>
-      <MDXContentRenderer source={article.content} className={usesSpaciousProse ? "prose-spacious" : undefined} />
+      <MDXContentRenderer
+        source={article.content}
+        className={cn(
+          usesSpaciousProse && "prose-spacious",
+          article.meta.slug === "360-degree-metrics-diagnosis-for-ps-leaders" && "prose-ps-metrics"
+        )}
+      />
       <CommentSection />
       <RelatedArticles articles={related} basePath="/analysis" />
     </article>

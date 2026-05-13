@@ -20,8 +20,7 @@ app/                    Routes, layouts, metadata, loading and not-found pages
 components/             Reusable layout, content, media, section, and UI components
 content/
   projects/             Portfolio case studies in MDX
-  analysis/             Long-form analysis articles in MDX
-  posts/                Blog posts and learning notes in MDX
+  analysis/             Analysis articles, learning notes, and career reflections in MDX
 data/                   Shared tags, skills, and static metadata helpers
 lib/                    Content loading, frontmatter parsing, and utilities
 public/
@@ -72,25 +71,17 @@ Write the case study here.
 
 The detail route is generated automatically at `/portfolio/revenue-operations-dashboard`.
 
-## Add a Blog Post
-
-Create a file in `content/posts`, for example `my-learning-note.mdx`.
-
-Required frontmatter:
-
-- `title`
-- `slug`
-- `date`
-- `category`
-- `tags`
-- `summary`
-- `thumbnail`
-
-The route is generated at `/posts/[slug]`.
-
 ## Add an Analysis Article
 
-Create a file in `content/analysis`. Analysis articles support `topic`, `difficulty`, `tags`, and reading time calculation.
+Create a file in `content/analysis`. Analysis articles, learning notes, and career reflections support `topic`, `difficulty`, `tags`, optional `audiences`, and reading time calculation.
+
+Use `audiences` to control which Start Here CTA includes the article:
+
+```yaml
+audiences: ["analytics-leaders", "data-professionals", "business-teams"]
+```
+
+An article can belong to one, two, or all three audiences. The route is generated at `/analysis/[slug]`.
 
 ## Add Images
 
@@ -98,7 +89,6 @@ Put small and medium image files in:
 
 - `public/images/projects`
 - `public/images/analysis`
-- `public/images/posts`
 
 Use paths like `/images/projects/example.svg` in MDX frontmatter. Avoid storing large raw files, videos, or very large exports in GitHub. Use Cloudinary, Supabase Storage, or S3 for larger media.
 

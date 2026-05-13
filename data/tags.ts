@@ -25,10 +25,11 @@ export const analysisTopics = [
   "Business Intelligence",
   "AI Analytics",
   "AI Governance",
+  "Data Modelling",
+  "Data Quality",
   "RevOps",
   "Data Storytelling",
   "Automation",
   "Key Metrics Design"
 ];
 
-export const postCategories = ["Career", "Learning Notes", "Technical Blog", "Personal Update"];

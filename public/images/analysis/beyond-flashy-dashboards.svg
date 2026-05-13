@@ -3,9 +3,18 @@
   <desc id="desc">A simplified governed AI reporting flow chart with five quiet process stages and a governance foundation.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f8fafc"/>
-      <stop offset="0.58" stop-color="#ecfeff"/>
-      <stop offset="1" stop-color="#eef2ff"/>
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.5" stop-color="#f7fbfc"/>
+      <stop offset="1" stop-color="#f3f8fb"/>
+    </linearGradient>
+    <linearGradient id="mesh" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef6ff"/>
+      <stop offset="0.5" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#e9f8f5"/>
+    </linearGradient>
+    <linearGradient id="governance" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#334155"/>
+      <stop offset="1" stop-color="#0f766e"/>
     </linearGradient>
     <filter id="softShadow" x="-10%" y="-15%" width="120%" height="130%">
       <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#0f172a" flood-opacity="0.1"/>
@@ -13,9 +22,10 @@
   </defs>
 
   <rect width="1200" height="675" fill="url(#bg)"/>
-  <circle cx="1018" cy="106" r="124" fill="#dbeafe" opacity="0.78"/>
-  <circle cx="1010" cy="548" r="182" fill="#ccfbf1" opacity="0.58"/>
-  <circle cx="126" cy="552" r="170" fill="#dbeafe" opacity="0.5"/>
+  <path d="M702 -28H1200V675H487C640 550 676 390 602 258C542 151 575 54 702 -28Z" fill="url(#mesh)" opacity="0.78"/>
+  <path d="M0 470C178 432 324 468 475 520C640 577 792 560 966 494C1065 457 1142 452 1200 466V675H0Z" fill="#eff6ff" opacity="0.5"/>
+  <path d="M140 226H1040" stroke="#dbeafe" stroke-width="2" stroke-dasharray="10 18" opacity="0.6"/>
+  <path d="M140 592H1040" stroke="#d9f5f2" stroke-width="2" stroke-dasharray="10 18" opacity="0.8"/>
 
   <g transform="translate(82 76)">
     <text x="0" y="0" dominant-baseline="hanging" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#071a3d">Beyond Flashy Dashboards</text>
@@ -25,31 +35,31 @@
   <g transform="translate(82 246)" filter="url(#softShadow)">
     <rect x="0" y="0" width="1036" height="328" rx="34" fill="#ffffff" stroke="#d8e2ef" stroke-width="2"/>
 
-    <line x1="132" y1="122" x2="904" y2="122" stroke="#dbeafe" stroke-width="10" stroke-linecap="round"/>
+    <line x1="132" y1="122" x2="904" y2="122" stroke="#e0ecfb" stroke-width="10" stroke-linecap="round"/>
     <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
-      <rect x="46" y="62" width="150" height="120" rx="26" fill="#eff6ff" stroke="#bfdbfe"/>
+      <rect x="46" y="62" width="150" height="120" rx="26" fill="#f3f8ff" stroke="#d6e6fb"/>
       <text x="121" y="124" dominant-baseline="middle" font-size="18" font-weight="600" fill="#071a3d">Data</text>
 
-      <rect x="249.5" y="62" width="150" height="120" rx="26" fill="#f0fdfa" stroke="#99f6e4"/>
+      <rect x="249.5" y="62" width="150" height="120" rx="26" fill="#f2fbfa" stroke="#bdeee6"/>
       <text x="324.5" y="116" font-size="18" font-weight="600" fill="#071a3d">
         <tspan x="324.5" y="116">Certified</tspan>
         <tspan x="324.5" y="140">Model</tspan>
       </text>
 
-      <rect x="453" y="62" width="150" height="120" rx="26" fill="#eef2ff" stroke="#c7d2fe"/>
+      <rect x="453" y="62" width="150" height="120" rx="26" fill="#f2f5ff" stroke="#d8def7"/>
       <text x="528" y="124" dominant-baseline="middle" font-size="18" font-weight="600" fill="#071a3d">AI Draft</text>
 
-      <rect x="656.5" y="62" width="150" height="120" rx="26" fill="#ffffff" stroke="#d8e2ef"/>
+      <rect x="656.5" y="62" width="150" height="120" rx="26" fill="#ffffff" stroke="#e1e8f0"/>
       <text x="731.5" y="116" font-size="18" font-weight="600" fill="#071a3d">
         <tspan x="731.5" y="116">Human</tspan>
         <tspan x="731.5" y="140">Review</tspan>
       </text>
 
-      <rect x="860" y="62" width="150" height="120" rx="26" fill="#f8fafc" stroke="#d8e2ef"/>
+      <rect x="860" y="62" width="150" height="120" rx="26" fill="#f8fafc" stroke="#e1e8f0"/>
       <text x="935" y="124" dominant-baseline="middle" font-size="18" font-weight="600" fill="#071a3d">Delivery</text>
     </g>
 
-    <rect x="46" y="224" width="964" height="62" rx="22" fill="#0f172a"/>
+    <rect x="46" y="224" width="964" height="62" rx="22" fill="url(#governance)"/>
     <text x="528" y="263" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Governance Foundation</text>
   </g>
 </svg>

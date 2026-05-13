@@ -1,0 +1,341 @@
+---
+title: "Choosing the Right Data Structure for Better Reporting"
+slug: "choosing-the-right-data-structure-for-better-reporting"
+date: "2026-05-13"
+category: "Data Modelling"
+topic: "Data Modelling"
+tags: ["Data Modelling", "Reporting Design", "Kimball", "Snapshots", "Fact Tables"]
+audiences: ["analytics-leaders", "data-professionals"]
+audiencePriority:
+  analytics-leaders: 4
+  data-professionals: 1
+summary: "How to choose reporting data structures by grain so dashboards can answer the right business questions without fragile KPIs."
+thumbnail: "/images/analysis/data-structure-reporting.svg"
+featured: true
+difficulty: "Intermediate"
+---
+
+> A dashboard can only answer the questions that its underlying data structure is designed to support.
+
+This is why reporting design should not start with the visual. It should start with a simpler question: What does one row of this table represent?
+
+Kimball calls this the grain of the table. It sounds technical, but it is actually very practical. If the grain is unclear, the report becomes fragile: numbers double count, trends become misleading, and users start asking why the same KPI looks different in different places.
+
+Below is a practical way to think about the main data structures used in reporting.
+
+## 1. Current-State Tables: Best for “Where Are We Now?”
+
+A current-state table keeps the latest version of a business object.
+
+This is useful for operational reporting, such as current pipeline, current customers, current projects, current employee lists, current ARR, and current open support tickets.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[720px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Opportunity</th><th className="px-5 py-4">Stage</th><th className="px-5 py-4">ARR</th><th className="px-5 py-4">Close Date</th><th className="px-5 py-4">Owner</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">OPP-001</td><td className="px-5 py-4 text-slate-700">Proposal</td><td className="px-5 py-4 text-slate-700">50,000</td><td className="px-5 py-4 text-slate-700">30 Jun 2026</td><td className="px-5 py-4 text-slate-700">Sarah</td></tr>
+    </tbody>
+  </table>
+</div>
+
+The limitation is obvious: it only shows now. If the opportunity was in Discovery last month, had a different close date two weeks ago, or moved from one owner to another, that history is gone unless it is stored somewhere else.
+
+So a current-state table is useful, but it is not enough for movement analysis.
+
+## 2. Event Tables: Best for “What Happened?”
+
+An event table records actions or transactions.
+
+This structure is good for volume and activity reporting: number of calls made, support tickets created, invoices issued, projects closed, or timesheets submitted.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Event Date</th><th className="px-5 py-4">Account</th><th className="px-5 py-4">Event Type</th><th className="px-5 py-4">User</th><th className="px-5 py-4">Count</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">1 May 2026</td><td className="px-5 py-4 text-slate-700">ABC Co</td><td className="px-5 py-4 text-slate-700">Call</td><td className="px-5 py-4 text-slate-700">Sarah</td><td className="px-5 py-4 text-slate-700">1</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">2 May 2026</td><td className="px-5 py-4 text-slate-700">ABC Co</td><td className="px-5 py-4 text-slate-700">Meeting</td><td className="px-5 py-4 text-slate-700">Sarah</td><td className="px-5 py-4 text-slate-700">1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+The grain is usually one row per transaction or event. This aligns with Kimball’s broader fact table thinking, where fact tables capture measurable business activity at a declared grain.
+
+> If the question is “what happened?”, use an event table. If the question is “what is the current status?”, use a current-state table.
+
+## 3. Periodic Snapshots vs History Tables: Best for “How Did It Move Over Time?”
+
+This is where movement reporting starts to become more interesting.
+
+A periodic snapshot stores the state of something at a regular interval: daily, weekly, month-end, quarter-end, and so on. Kimball defines a periodic snapshot fact table as one where each row summarises measurement events over a standard period such as a day, week, or month; the grain is the period, not the individual transaction.
+
+This is excellent for questions like: What was pipeline at the start of the quarter? How much ARR moved up or down month over month? Which deals slipped from this month to next month? Which opportunities changed stage between two snapshots?
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Snapshot Date</th><th className="px-5 py-4">Opportunity</th><th className="px-5 py-4">Stage</th><th className="px-5 py-4">ARR</th><th className="px-5 py-4">Close Date</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">30 Apr 2026</td><td className="px-5 py-4 text-slate-700">OPP-001</td><td className="px-5 py-4 text-slate-700">Discovery</td><td className="px-5 py-4 text-slate-700">40,000</td><td className="px-5 py-4 text-slate-700">30 Jun 2026</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">31 May 2026</td><td className="px-5 py-4 text-slate-700">OPP-001</td><td className="px-5 py-4 text-slate-700">Proposal</td><td className="px-5 py-4 text-slate-700">50,000</td><td className="px-5 py-4 text-slate-700">31 Jul 2026</td></tr>
+    </tbody>
+  </table>
+</div>
+
+A history table, often implemented as a Type 2 Slowly Changing Dimension, works differently. It stores a new row when tracked attributes change. Kimball’s Type 2 SCD pattern adds a new row with updated attribute values and requires a key structure that allows multiple rows for the same business entity.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Opportunity</th><th className="px-5 py-4">Stage</th><th className="px-5 py-4">ARR</th><th className="px-5 py-4">Valid From</th><th className="px-5 py-4">Valid To</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">OPP-001</td><td className="px-5 py-4 text-slate-700">Discovery</td><td className="px-5 py-4 text-slate-700">40,000</td><td className="px-5 py-4 text-slate-700">1 Apr 2026</td><td className="px-5 py-4 text-slate-700">10 May 2026</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">OPP-001</td><td className="px-5 py-4 text-slate-700">Proposal</td><td className="px-5 py-4 text-slate-700">50,000</td><td className="px-5 py-4 text-slate-700">10 May 2026</td><td className="px-5 py-4 text-slate-700">Current</td></tr>
+    </tbody>
+  </table>
+</div>
+
+The two structures overlap, but they are not the same.
+
+Yes, a periodic snapshot can be generated from a history table if the valid_from and valid_to dates are reliable. But in BI reporting, it is often still worth materialising the snapshot because it is easier for business users, faster for dashboards, and safer for standard comparisons.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Question</th><th className="px-5 py-4">Better structure</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">What was the exact value on 15 May?</td><td className="px-5 py-4 text-slate-700">History table</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">What was the month-end value for every month?</td><td className="px-5 py-4 text-slate-700">Periodic snapshot</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">What changed between April-end and May-end?</td><td className="px-5 py-4 text-slate-700">Periodic snapshot</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">What was valid during a specific date range?</td><td className="px-5 py-4 text-slate-700">History table</td></tr>
+    </tbody>
+  </table>
+</div>
+
+> A history table stores when values were valid. A periodic snapshot stores what the business looked like at reporting checkpoints.
+
+## 4. Change Logs and Status Intervals: Best for “What Changed, and How Long Did It Stay There?”
+
+This is where people often mix up audit logs, SCDs, and snapshots.
+
+A change log records field-level changes:
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[900px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Changed At</th><th className="px-5 py-4">Object</th><th className="px-5 py-4">Field</th><th className="px-5 py-4">Old Value</th><th className="px-5 py-4">New Value</th><th className="px-5 py-4">Changed By</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">5 May 2026</td><td className="px-5 py-4 text-slate-700">OPP-001</td><td className="px-5 py-4 text-slate-700">Close Date</td><td className="px-5 py-4 text-slate-700">30 Jun</td><td className="px-5 py-4 text-slate-700">31 Jul</td><td className="px-5 py-4 text-slate-700">Sarah</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">10 May 2026</td><td className="px-5 py-4 text-slate-700">OPP-001</td><td className="px-5 py-4 text-slate-700">Stage</td><td className="px-5 py-4 text-slate-700">Discovery</td><td className="px-5 py-4 text-slate-700">Proposal</td><td className="px-5 py-4 text-slate-700">Sarah</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This is best for close-date push analysis, stage movement audit, owner reassignment tracking, manual override monitoring, and data governance.
+
+A status interval table stores how long something stayed in each status:
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[720px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Ticket</th><th className="px-5 py-4">Status</th><th className="px-5 py-4">Start Time</th><th className="px-5 py-4">End Time</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">T001</td><td className="px-5 py-4 text-slate-700">Open</td><td className="px-5 py-4 text-slate-700">1 May 09:00</td><td className="px-5 py-4 text-slate-700">1 May 14:00</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">T001</td><td className="px-5 py-4 text-slate-700">Pending Customer</td><td className="px-5 py-4 text-slate-700">1 May 14:00</td><td className="px-5 py-4 text-slate-700">3 May 10:00</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">T001</td><td className="px-5 py-4 text-slate-700">Resolved</td><td className="px-5 py-4 text-slate-700">3 May 10:00</td><td className="px-5 py-4 text-slate-700">Current</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This is best for time in stage, SLA reporting, ageing, bottleneck analysis, and workflow performance.
+
+A status interval table is very similar to an SCD pattern, but applied to a process state rather than a descriptive dimension. For example, tracking customer segment history is usually an SCD use case; tracking how long a support ticket stayed in “Pending Customer” is better described as a status interval or workflow history.
+
+You can transform one into another in some cases, but you should not treat them as identical.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Structure</th><th className="px-5 py-4">Best question</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Change log</td><td className="px-5 py-4 text-slate-700">What changed, from what to what, and who changed it?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Status interval</td><td className="px-5 py-4 text-slate-700">How long did it stay in each state?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">SCD / history table</td><td className="px-5 py-4 text-slate-700">What value was valid at a point in time?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Periodic snapshot</td><td className="px-5 py-4 text-slate-700">What did it look like at each reporting checkpoint?</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## 5. Accumulating Snapshots and Milestone Tables: Best for Lifecycle Reporting
+
+Some business processes have a clear start, middle, and end: sales opportunity from creation to close, project from kickoff to go-live, support ticket from opened to resolved, recruitment from application to offer, or implementation from contract signed to activation.
+
+Kimball describes an accumulating snapshot fact table as one row that summarises a process moving through predictable steps, with date keys for key milestones.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[960px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Project</th><th className="px-5 py-4">Created Date</th><th className="px-5 py-4">Kickoff Date</th><th className="px-5 py-4">Build Start</th><th className="px-5 py-4">Go-Live Date</th><th className="px-5 py-4">Closed Date</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">P001</td><td className="px-5 py-4 text-slate-700">5 Jan</td><td className="px-5 py-4 text-slate-700">15 Jan</td><td className="px-5 py-4 text-slate-700">1 Feb</td><td className="px-5 py-4 text-slate-700">20 Mar</td><td className="px-5 py-4 text-slate-700">1 Apr</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This is useful for average days from kickoff to go-live, project delivery cycle time, stage duration, bottleneck detection, and implementation performance.
+
+But this structure works best when the process is relatively stable. If different project types have many optional steps, the wide table can become messy. In that case, a milestone table may be more practical:
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[620px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Project</th><th className="px-5 py-4">Milestone</th><th className="px-5 py-4">Milestone Date</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">P001</td><td className="px-5 py-4 text-slate-700">Created</td><td className="px-5 py-4 text-slate-700">5 Jan</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">P001</td><td className="px-5 py-4 text-slate-700">Kickoff</td><td className="px-5 py-4 text-slate-700">15 Jan</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">P001</td><td className="px-5 py-4 text-slate-700">Build Start</td><td className="px-5 py-4 text-slate-700">1 Feb</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">P001</td><td className="px-5 py-4 text-slate-700">Go Live</td><td className="px-5 py-4 text-slate-700">20 Mar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+In practice, I would often keep the milestone event table as the source and create a curated accumulating snapshot for the core business milestones.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Structure</th><th className="px-5 py-4">Best for</th><th className="px-5 py-4">Weakness</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Wide accumulating snapshot</td><td className="px-5 py-4 text-slate-700">Stable lifecycle with standard milestones</td><td className="px-5 py-4 text-slate-700">Less flexible when steps vary</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Milestone event table</td><td className="px-5 py-4 text-slate-700">Flexible process with optional milestones</td><td className="px-5 py-4 text-slate-700">More transformation needed for dashboarding</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## 6. Forecast, Plan, and Target Tables: Best for “What Did We Expect?”
+
+Forecast and plan tables deserve their own place because they are not just historical records. They capture what the business expected at a point in time.
+
+This structure supports forecast accuracy, forecast movement, budget vs actual, plan vs actual, and target attainment.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Forecast Version Date</th><th className="px-5 py-4">Forecast Month</th><th className="px-5 py-4">Account</th><th className="px-5 py-4">Forecast Revenue</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">1 May 2026</td><td className="px-5 py-4 text-slate-700">Jun 2026</td><td className="px-5 py-4 text-slate-700">ABC Co</td><td className="px-5 py-4 text-slate-700">80,000</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">8 May 2026</td><td className="px-5 py-4 text-slate-700">Jun 2026</td><td className="px-5 py-4 text-slate-700">ABC Co</td><td className="px-5 py-4 text-slate-700">65,000</td></tr>
+    </tbody>
+  </table>
+</div>
+
+You could technically manage forecast history using SCD-like mechanics, but I would avoid calling it an SCD. A forecast is usually a versioned fact: it records a measurable expectation for a future period.
+
+The important questions are: What was the original forecast? What is the latest forecast? How much did it move? What actually happened? Which team, owner, or segment forecasts most accurately?
+
+This is highly relevant for sales, revenue operations, professional services, workforce planning, and finance reporting.
+
+## 7. Factless Fact Tables: Best for “Did This Happen?”
+
+The term sounds strange, but the concept is practical.
+
+A factless fact table has no numeric measure. The existence of the row is the measure. Kimball describes factless fact tables as tables with no facts that capture relationships between dimension keys, such as one row per student per day for attendance.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[620px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Employee</th><th className="px-5 py-4">Date</th><th className="px-5 py-4">Office Location</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Iris</td><td className="px-5 py-4 text-slate-700">1 May 2026</td><td className="px-5 py-4 text-slate-700">Sydney</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Iris</td><td className="px-5 py-4 text-slate-700">2 May 2026</td><td className="px-5 py-4 text-slate-700">Sydney</td></tr>
+    </tbody>
+  </table>
+</div>
+
+There is no attendance_count column needed. You can count the rows. This is useful for office attendance, training completion, webinar participation, timesheet submission, compliance checks, and user access records.
+
+It becomes even more powerful when paired with a coverage table.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[520px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Employee</th><th className="px-5 py-4">Expected Workday</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Iris</td><td className="px-5 py-4 text-slate-700">1 May 2026</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Iris</td><td className="px-5 py-4 text-slate-700">2 May 2026</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Iris</td><td className="px-5 py-4 text-slate-700">3 May 2026</td></tr>
+    </tbody>
+  </table>
+</div>
+
+Then you compare expected attendance days minus actual attendance days to identify missing attendance days. Kimball also explains this pattern for analysing what did not happen: use a coverage table for all possible events and an activity table for actual events, then compare the two.
+
+For compliance reporting, this structure is often cleaner than forcing everything into a numeric fact table.
+
+## 8. Bridge and Mapping Tables: Best for “How Should This Roll Up?”
+
+Some reporting problems are not about time. They are about relationships.
+
+For example: one parent account has many child accounts; one opportunity has multiple contributors; one customer belongs to several product groups; one employee sits under a changing manager hierarchy; or one project contributes to multiple initiatives.
+
+A bridge table helps control this logic.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[620px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Parent Account</th><th className="px-5 py-4">Child Account</th><th className="px-5 py-4">Relationship Type</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">ABC Group</td><td className="px-5 py-4 text-slate-700">ABC Sydney</td><td className="px-5 py-4 text-slate-700">Subsidiary</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">ABC Group</td><td className="px-5 py-4 text-slate-700">ABC Melbourne</td><td className="px-5 py-4 text-slate-700">Subsidiary</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This structure supports consolidated ARR by parent account, territory rollups, product grouping, multi-touch attribution, and manager hierarchy reporting.
+
+Without a clear bridge or mapping table, people often hard-code logic inside reports. That usually works at first, then becomes hard to maintain.
+
+## A Quick Scenario Mapping
+
+The easiest way to choose the right structure is to start with the reporting question.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[760px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr><th className="px-5 py-4">Scenario</th><th className="px-5 py-4">Best-fit structure</th></tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Show the latest position</td><td className="px-5 py-4 text-slate-700">Current-state table</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Compare month-end or quarter-end movement</td><td className="px-5 py-4 text-slate-700">Periodic snapshot</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Know what value was valid at a specific point in time</td><td className="px-5 py-4 text-slate-700">SCD / history table</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Identify exactly what changed, from what to what</td><td className="px-5 py-4 text-slate-700">Change log</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Measure how long something stayed in each status</td><td className="px-5 py-4 text-slate-700">Status interval table</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Track a process from start to finish</td><td className="px-5 py-4 text-slate-700">Accumulating snapshot / milestone table</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Compare forecast, plan, target, and actuals</td><td className="px-5 py-4 text-slate-700">Forecast / plan / target table</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Check whether something happened or was missed</td><td className="px-5 py-4 text-slate-700">Factless fact table</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Roll data up through complex relationships</td><td className="px-5 py-4 text-slate-700">Bridge / mapping table</td></tr>
+    </tbody>
+  </table>
+</div>
+
+The main point is not to memorise every table type. The real skill is understanding the grain behind the question.
+
+A current-state table shows where the business is now. A snapshot shows how that position moved. A history table shows what was true at a point in time. A change log explains the exact change. A lifecycle structure shows where time was spent.
+
+> Good reporting does not start with better visuals. It starts with data structured at the right grain, so the business can ask better questions and trust the answers.

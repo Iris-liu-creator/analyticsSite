@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { getReadingTime } from "@/lib/utils";
 
-export type ContentKind = "projects" | "analysis" | "posts";
+export type ContentKind = "projects" | "analysis";
 
 export type ProjectMeta = {
   title: string;
@@ -34,6 +34,8 @@ export type ArticleMeta = {
   thumbnail: string;
   featured?: boolean;
   difficulty?: "Beginner" | "Intermediate" | "Advanced";
+  audiences?: Array<"analytics-leaders" | "data-professionals" | "business-teams">;
+  audiencePriority?: Partial<Record<"analytics-leaders" | "data-professionals" | "business-teams", number>>;
   readingTime?: number;
 };
 

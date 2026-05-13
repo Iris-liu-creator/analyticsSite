@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Content Guide",
-  description: "Private-style guide for adding projects, posts, analysis articles, images, charts, and dashboard embeds."
+  description: "Private-style guide for adding projects, analysis articles, images, charts, and dashboard embeds."
 };
 
 const code = `---
@@ -32,10 +32,10 @@ export default function ContentGuidePage() {
         <h2>Add a portfolio project</h2>
         <p>Create a new file in <code>content/projects</code> using a slug filename such as <code>sales-kpi-dashboard.mdx</code>. Add frontmatter like this:</p>
         <pre className="overflow-auto rounded-lg bg-slate-950 p-4 text-sm text-slate-100"><code>{code}</code></pre>
-        <h2>Add analysis or posts</h2>
-        <p>Use <code>content/analysis</code> for deeper BI, AI, and analytics write-ups. Use <code>content/posts</code> for learning notes, career reflections, and shorter updates.</p>
+        <h2>Add analysis articles</h2>
+        <p>Use <code>content/analysis</code> for BI, AI, analytics write-ups, learning notes, career reflections, and practical updates.</p>
         <h2>Add images</h2>
-        <p>Place small and medium assets under <code>public/images/projects</code>, <code>public/images/analysis</code>, or <code>public/images/posts</code>. Store large videos or raw files in Cloudinary, Supabase Storage, or S3.</p>
+        <p>Place small and medium assets under <code>public/images/projects</code> or <code>public/images/analysis</code>. Store large videos or raw files in Cloudinary, Supabase Storage, or S3.</p>
         <h2>Embed dashboards</h2>
         <p>Add an <code>embedUrl</code> to project frontmatter, or place <code>{'<PowerBIEmbed src="https://..." />'}</code> inside MDX. Use public or securely shared iframe links only.</p>
         <h2>Add chart components</h2>

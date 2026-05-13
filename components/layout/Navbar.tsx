@@ -32,9 +32,17 @@ export function Navbar() {
           ))}
           <ThemeToggle />
         </div>
-        <button type="button" onClick={() => setOpen((value) => !value)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white md:hidden dark:border-slate-700 dark:bg-slate-900" aria-label="Open menu">
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
       {open && (
         <div className="border-t border-slate-200 bg-white px-4 py-3 md:hidden dark:border-slate-800 dark:bg-slate-950">
@@ -44,9 +52,6 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-2 flex items-center gap-2">
-              <ThemeToggle />
-            </div>
           </div>
         </div>
       )}

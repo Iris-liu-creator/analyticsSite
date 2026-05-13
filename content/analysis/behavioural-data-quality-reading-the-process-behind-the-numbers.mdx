@@ -1,0 +1,199 @@
+---
+title: "Behavioural Data Quality: Reading the Process Behind the Numbers"
+slug: "behavioural-data-quality-reading-the-process-behind-the-numbers"
+date: "2026-05-13"
+category: "Data Quality"
+topic: "Data Quality"
+tags: ["Data Quality", "Process Improvement", "Behavioural Data", "Workflow Design", "Operating Cadence"]
+audiences: ["analytics-leaders", "business-teams"]
+audiencePriority:
+  analytics-leaders: 3
+  business-teams: 2
+summary: "How behavioural data can help teams identify workflow friction, improve operating cadence, and drive better ways of working."
+thumbnail: "/images/analysis/behavioural-data-quality.svg"
+featured: true
+difficulty: "Intermediate"
+---
+
+> Behavioural data quality is not only about whether records are clean. It is about whether the process is clear enough to create reliable behaviour signals.
+
+Most teams notice data quality issues when a dashboard number looks wrong. A field is missing, a report does not reconcile, or a metric suddenly drops without explanation.
+
+Those issues matter, but behavioural data needs a slightly different lens. Behavioural data records how people actually work: how they submit, update, approve, hand over, follow up, delay, correct, and complete tasks inside a process.
+
+A late timesheet, a stale CRM opportunity, an untouched lead, a delayed approval, or a skipped workflow step may look like a data problem. Very often, it is also a process signal.
+
+That is why behavioural data quality should not be treated only as a clean-up activity at the end of the pipeline. It should help teams understand whether the underlying workflow is clear, easy to follow, and producing information that people can trust for decisions. Data quality is ultimately about whether data is fit for its intended purpose, not simply whether it exists in a table.
+
+## 1. Start with the business behaviour, not the dataset
+
+Before checking the data, the first question should be simple: what behaviour are we trying to understand?
+
+This prevents the discussion from becoming too technical too early. Instead of starting with columns, tables, and validation rules, start with the business action that creates the data.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[820px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Business area</th>
+        <th className="px-5 py-4">Behaviour we want to understand</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Timesheets</td><td className="px-5 py-4 text-slate-700">Are people submitting time accurately and on time?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">CRM / Sales pipeline</td><td className="px-5 py-4 text-slate-700">Are sales teams keeping pipeline records current and moving opportunities through stages with discipline?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Marketing campaigns</td><td className="px-5 py-4 text-slate-700">Are prospects engaging in a way that indicates buying interest, or are we only seeing surface-level activity?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Lead management</td><td className="px-5 py-4 text-slate-700">Are leads being followed up quickly after form submissions, event attendance, or demo requests?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Approvals</td><td className="px-5 py-4 text-slate-700">Are requests being reviewed within the expected timeframe?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Project delivery</td><td className="px-5 py-4 text-slate-700">Are stage movements happening in the right order?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Support</td><td className="px-5 py-4 text-slate-700">Are tickets being owned, reassigned, and resolved efficiently?</td></tr>
+    </tbody>
+  </table>
+</div>
+
+For example, a CRM opportunity may have a close date, amount, and sales stage. Technically, the record is complete. But if the close date has been pushed five times and the stage has not changed for two months, the data may still be telling us something important about forecast risk or weak follow-up discipline.
+
+Similarly, a marketing campaign may show strong engagement because many contacts opened an email or clicked a link. But if those contacts do not convert into meaningful follow-up actions, qualified leads, opportunities, or pipeline movement, the behavioural signal may be weaker than the dashboard initially suggests.
+
+## 2. Check whether the behavioural signal is reliable
+
+Once the behaviour is clear, the next step is to test whether the data can be trusted. This does not need to become an academic data quality exercise. A practical review can focus on five checks.
+
+These checks align with common data quality dimensions such as accuracy, completeness, consistency, validity, and timeliness.  They also reflect the purpose of data integrity testing: confirming whether data is reliable before it flows into reporting and decision-making.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[920px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Quality check</th>
+        <th className="px-5 py-4">Practical question</th>
+        <th className="px-5 py-4">Example</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Completeness</td><td className="px-5 py-4 text-slate-700">Is the expected action captured?</td><td className="px-5 py-4 text-slate-700">Every employee-week should have a timesheet record, even if zero hours were submitted.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Timeliness</td><td className="px-5 py-4 text-slate-700">Was the action completed at the right time?</td><td className="px-5 py-4 text-slate-700">CRM updates made only before forecast meetings may not support real-time decision-making.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Consistency</td><td className="px-5 py-4 text-slate-700">Are people using the same definition?</td><td className="px-5 py-4 text-slate-700">One manager marks a project as at risk early, while another only uses it after the delay has already happened.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Sequence validity</td><td className="px-5 py-4 text-slate-700">Did the workflow happen in the right order?</td><td className="px-5 py-4 text-slate-700">A project closure date should not appear before the kick-off date.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Exception patterns</td><td className="px-5 py-4 text-slate-700">Are issues concentrated somewhere?</td><td className="px-5 py-4 text-slate-700">Late approvals may mainly sit with one team, region, or process stage.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+The important point is that these checks should be interpreted in context. A missing timestamp is not just a blank field. It may mean the workflow step is not being captured. A delayed CRM update is not just a timing issue. It may mean the system is being used for reporting compliance rather than day-to-day sales management.
+
+## 3. Use data quality issues as process clues
+
+The goal is not to jump from 'bad data' to 'bad behaviour'. A better question is: what process condition may have created this pattern?
+
+This shift matters because it changes the conversation. Instead of blaming people for messy data, the team can look at whether the workflow, ownership, definitions, or system design are making it difficult for people to do the right thing.
+
+This is especially useful in sales and marketing, where the first version of the metric can look positive. More leads, more clicks, or more open opportunities may appear healthy at first glance. The behavioural pattern behind them may tell a different story: weak follow-up, poor qualification, loose pipeline discipline, or a process optimised for activity rather than outcome.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[920px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Data pattern</th>
+        <th className="px-5 py-4">Possible process explanation</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Timesheets are submitted late every week</td><td className="px-5 py-4 text-slate-700">The deadline may be unclear, reminders may arrive too late, or project codes may not be ready in time.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">CRM records are updated in bulk before meetings</td><td className="px-5 py-4 text-slate-700">The system may be used mainly for reporting compliance, not as part of daily sales management.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Close dates are repeatedly pushed without stage movement</td><td className="px-5 py-4 text-slate-700">Sales teams may be keeping deals open for forecast coverage, but the opportunity may not have real momentum.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Campaign engagement is high, but conversion to MQL, SQL, or opportunity is low</td><td className="px-5 py-4 text-slate-700">The campaign may be attracting attention, but not the right audience or buying intent.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Leads sit untouched after form submission or event attendance</td><td className="px-5 py-4 text-slate-700">Lead routing, ownership, or SLA follow-up may be unclear.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Many approval requests sit idle</td><td className="px-5 py-4 text-slate-700">Ownership may be unclear, or managers may not have a regular review cadence.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Manual corrections are frequent</td><td className="px-5 py-4 text-slate-700">Input fields may be confusing, duplicated, or not aligned to real workflow.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Support tickets are reassigned many times</td><td className="px-5 py-4 text-slate-700">Routing logic may be weak, or team responsibilities may overlap.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+The data is not only saying that something is wrong. It is helping locate where the process may need support.
+
+## 4. Turn the finding into workflow improvement
+
+A useful behavioural data review should lead to small, practical process changes. The improvement does not always need to be a new dashboard or a complex technical solution. Often, the best fix is a clearer handoff, a better definition, or a lighter workflow.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[920px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Finding</th>
+        <th className="px-5 py-4">Better workflow response</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Timesheets are late because project codes are missing</td><td className="px-5 py-4 text-slate-700">Create project codes earlier and make code readiness part of the project setup checklist.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">CRM close dates keep moving without meaningful progression</td><td className="px-5 py-4 text-slate-700">Introduce a weekly pipeline hygiene review and define what a valid close-date change means.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Leads are not followed up quickly</td><td className="px-5 py-4 text-slate-700">Set routing rules, owner visibility, and SLA monitoring for high-intent actions such as demo requests.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Campaigns generate engagement but weak conversion</td><td className="px-5 py-4 text-slate-700">Review audience targeting, lead scoring, and handoff criteria between marketing and sales.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Approvals are delayed</td><td className="px-5 py-4 text-slate-700">Create delegation rules, backup approvers, and escalation thresholds.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Users rely heavily on 'Other' in a dropdown field</td><td className="px-5 py-4 text-slate-700">Redesign the picklist based on real scenarios instead of forcing users into poor-fit categories.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This is where behavioural data becomes more than a reporting input. It becomes a feedback loop for how the business operates.
+
+A data-driven culture needs more than dashboards. It also needs habits, ownership, feedback loops, and behaviour-change mechanisms that make the desired action easier to follow.
+
+## 5. Build a periodic data and process cadence
+
+Behavioural data quality should not be reviewed only when someone questions a dashboard. It works better as a regular operating rhythm.
+
+The cadence does not need to be heavy. The point is to create a practical loop where exceptions are visible, root causes are discussed, and process actions are followed through.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[820px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Cadence</th>
+        <th className="px-5 py-4">Focus</th>
+        <th className="px-5 py-4">Example activity</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Weekly</td><td className="px-5 py-4 text-slate-700">Monitor exceptions</td><td className="px-5 py-4 text-slate-700">Review late submissions, stale CRM records, untouched leads, missing approvals, and broken workflow sequences.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Monthly</td><td className="px-5 py-4 text-slate-700">Review patterns</td><td className="px-5 py-4 text-slate-700">Check whether issues are linked to teams, regions, systems, managers, campaigns, lead sources, or process stages.</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Quarterly</td><td className="px-5 py-4 text-slate-700">Improve the process</td><td className="px-5 py-4 text-slate-700">Adjust definitions, reminders, workflow design, ownership, training, routing rules, or governance checkpoints.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+The goal is not to create more reporting noise. The goal is to create an operating cadence where data quality and process quality improve together.
+
+## 6. Design dashboards as operating tools, not just reporting outputs
+
+Dashboards still matter, but the dashboard should not be the end of the process. A good behavioural dashboard should help teams see what requires attention, who owns the next action, and whether the process is improving over time.
+
+<div className="my-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <table className="w-full min-w-[920px] text-left text-sm">
+    <thead className="bg-slate-50 text-xs uppercase tracking-[0.14em] text-slate-500">
+      <tr>
+        <th className="px-5 py-4">Instead of only showing</th>
+        <th className="px-5 py-4">Add the process lens</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-slate-100">
+      <tr><td className="px-5 py-4 font-bold text-slate-950">78% of timesheets were submitted on time</td><td className="px-5 py-4 text-slate-700">Which teams are repeatedly late, what blocker appears most often, and did the latest process change reduce the delay?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Pipeline coverage is 3.2x target</td><td className="px-5 py-4 text-slate-700">How much of the pipeline is stale, repeatedly pushed, or missing next-step activity?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Email click-through rate increased</td><td className="px-5 py-4 text-slate-700">Did those clicks lead to qualified engagement, sales follow-up, or opportunity creation?</td></tr>
+      <tr><td className="px-5 py-4 font-bold text-slate-950">Average approval time is 4 days</td><td className="px-5 py-4 text-slate-700">Which approval stage creates the delay, and is the delay caused by ownership, delegation, or missing information?</td></tr>
+    </tbody>
+  </table>
+</div>
+
+This is the difference between a dashboard that describes activity and a dashboard that supports better management. The strongest behavioural reporting does not simply show what happened. It helps teams improve how work happens.
+
+## Conclusion
+
+Behavioural data quality is not just about cleaning records after the fact. It is about understanding whether the business process is creating reliable signals in the first place.
+
+A missing timestamp, a delayed update, a repeated close-date push, a low lead follow-up rate, or a manual correction may look small on its own. When these patterns repeat, they can reveal workflow friction, unclear ownership, weak handoffs, or behaviours that are not aligned with the way the business wants to operate.
+
+> The better question is not only 'why is this data wrong?' It is 'what part of the process is creating this pattern, and how can we make the right behaviour easier to follow?'
+
+That is where data quality starts becoming process improvement. In the end, behavioural data quality is process quality made visible.

@@ -14,7 +14,7 @@ export function RelatedProjects({ projects }: { projects: ProjectMeta[] }) {
   );
 }
 
-export function RelatedArticles({ articles, basePath }: { articles: ArticleMeta[]; basePath: "/analysis" | "/posts" }) {
+export function RelatedArticles({ articles, basePath }: { articles: ArticleMeta[]; basePath: "/analysis" }) {
   if (!articles.length) return null;
   return (
     <section className="mt-14">
