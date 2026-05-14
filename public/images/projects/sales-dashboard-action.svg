@@ -1,47 +1,120 @@
-<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="675" rx="36" fill="#EFF6FF"/>
-  <circle cx="1030" cy="86" r="128" fill="#DBEAFE"/>
-  <circle cx="1055" cy="545" r="176" fill="#CCFBF1"/>
-  <circle cx="116" cy="545" r="178" fill="#DBEAFE"/>
-  <rect x="74" y="70" width="1052" height="536" rx="34" fill="white"/>
-  <rect x="74" y="70" width="1052" height="536" rx="34" stroke="#D8E4F2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Designing a Sales Dashboard That Drives Action</title>
+  <desc id="desc">A minimalist revenue operations infographic showing three dashboard pillars: show performance, reveal risk, and guide action, connected to a decision flow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7FBFF"/>
+      <stop offset="55%" stop-color="#EEF5FF"/>
+      <stop offset="100%" stop-color="#F8FBFF"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FCFDFF"/>
+    </linearGradient>
+    <linearGradient id="strip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F7FAFF"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#2A5EA8" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#2A5EA8" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .font { font-family: Inter, Segoe UI, Arial, sans-serif; }
+      .eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 4px; fill: #1677FF; }
+      .title { font-size: 43px; font-weight: 650; letter-spacing: -1.1px; fill: #0E2347; }
+      .subtitle { font-size: 18px; font-weight: 400; fill: #52627D; }
+      .kicker { font-size: 15px; font-weight: 700; fill: #1677FF; }
+      .small { font-size: 14px; font-weight: 400; fill: #52627D; }
+      .pillarTitle { font-size: 18px; font-weight: 700; fill: #10203E; }
+      .pillarText { font-size: 14px; font-weight: 400; fill: #5F6E87; }
+      .flowTitle { font-size: 15px; font-weight: 700; fill: #10295E; }
+      .flowText { font-size: 13px; font-weight: 400; fill: #66728A; }
+      .line { stroke: #D9E3F2; stroke-width: 1; }
+      .blueLine { stroke: #2F80FF; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,5 L0,10" fill="none" stroke="#2F80FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
 
-  <text x="112" y="132" fill="#071A3D" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700">Designing a Sales Dashboard</text>
-  <text x="112" y="181" fill="#071A3D" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700">Driving Real Action</text>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="52" y="43" width="1096" height="589" rx="22" fill="url(#card)" filter="url(#shadow)"/>
 
-  <rect x="112" y="232" width="214" height="104" rx="20" fill="#EFF6FF"/>
-  <text x="140" y="272" fill="#536681" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Bookings</text>
-  <text x="140" y="311" fill="#071A3D" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="800">$8.2M</text>
+  <!-- Header -->
+  <text class="font eyebrow" x="108" y="93">REVENUE OPERATIONS</text>
+  <text class="font title" x="108" y="148">Designing a Sales Dashboard</text>
+  <text class="font title" x="108" y="199">That Drives Action</text>
+  <text class="font subtitle" x="108" y="238">A high-impact dashboard should help leaders decide what to do next —</text>
+  <text class="font subtitle" x="108" y="264">not just review what happened.</text>
 
-  <rect x="354" y="232" width="214" height="104" rx="20" fill="#ECFEFF"/>
-  <text x="382" y="272" fill="#536681" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Commit</text>
-  <text x="382" y="311" fill="#071A3D" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="800">76%</text>
+  <!-- Decision badge -->
+  <rect x="846" y="118" width="257" height="118" rx="20" fill="#F8FBFF" stroke="#DCE8FA"/>
+  <circle cx="896" cy="177" r="30" fill="#EAF2FF"/>
+  <path d="M884 177 L893 186 L910 166" fill="none" stroke="#1677FF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="font kicker" x="941" y="160">Decision-first</text>
+  <text class="font small" x="941" y="185">Metrics only matter</text>
+  <text class="font small" x="941" y="208">when they guide action.</text>
 
-  <rect x="596" y="232" width="214" height="104" rx="20" fill="#F0FDFA"/>
-  <text x="624" y="272" fill="#536681" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Coverage</text>
-  <text x="624" y="311" fill="#071A3D" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="800">3.4x</text>
+  <line class="line" x1="102" y1="294" x2="1098" y2="294"/>
 
-  <rect x="838" y="232" width="214" height="104" rx="20" fill="#EEF2FF"/>
-  <text x="866" y="272" fill="#536681" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Risk</text>
-  <text x="866" y="311" fill="#071A3D" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="800">14</text>
+  <!-- Pillars -->
+  <g transform="translate(0,0)">
+    <line class="line" x1="434" y1="329" x2="434" y2="473"/>
+    <line class="line" x1="764" y1="329" x2="764" y2="473"/>
 
-  <rect x="112" y="374" width="520" height="152" rx="24" fill="#F8FAFC"/>
-  <text x="142" y="420" fill="#071A3D" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="800">Forecast movement</text>
-  <path d="M155 486H551" stroke="#D8E4F2" stroke-width="6" stroke-linecap="round"/>
-  <circle cx="190" cy="486" r="14" fill="#14B8A6"/>
-  <circle cx="280" cy="486" r="14" fill="#2563EB"/>
-  <circle cx="370" cy="486" r="14" fill="#14B8A6"/>
-  <circle cx="460" cy="486" r="14" fill="#2563EB"/>
-  <path d="M202 486H268M292 486H358M382 486H448M472 486H538" stroke="#93C5FD" stroke-width="6" stroke-linecap="round"/>
-  <path d="M538 486L518 470M538 486L518 502" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Pillar 1 -->
+    <circle cx="258" cy="366" r="32" fill="#F4F8FF" stroke="#BBD3FF"/>
+    <path d="M241 377 L251 365 L259 370 L274 351" fill="none" stroke="#1677FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M264 351 H274 V361" fill="none" stroke="#1677FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="font pillarTitle" x="258" y="435" text-anchor="middle">Show Performance</text>
+    <text class="font pillarText" x="258" y="465" text-anchor="middle">Closed won vs target</text>
 
-  <rect x="668" y="374" width="384" height="152" rx="24" fill="#F8FAFC"/>
-  <text x="698" y="420" fill="#071A3D" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="800">Segment signal</text>
-  <rect x="712" y="480" width="36" height="30" rx="8" fill="#14B8A6"/>
-  <rect x="770" y="444" width="36" height="66" rx="8" fill="#0F766E"/>
-  <rect x="828" y="462" width="36" height="48" rx="8" fill="#5EEAD4"/>
-  <rect x="886" y="428" width="36" height="82" rx="8" fill="#2563EB"/>
-  <rect x="944" y="452" width="36" height="58" rx="8" fill="#93C5FD"/>
+    <!-- Pillar 2 -->
+    <circle cx="599" cy="366" r="32" fill="#FFF8F2" stroke="#F8CFB1"/>
+    <path d="M599 349 L618 382 H580 Z" fill="none" stroke="#F47A1F" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M599 360 V373" stroke="#F47A1F" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="599" cy="379" r="1.8" fill="#F47A1F"/>
+    <text class="font pillarTitle" x="599" y="435" text-anchor="middle">Reveal Risk</text>
+    <text class="font pillarText" x="599" y="465" text-anchor="middle">Slips, stale deals, weak conversion</text>
 
-  <rect x="112" y="556" width="940" height="2" fill="#E2E8F0"/>
+    <!-- Pillar 3 -->
+    <circle cx="936" cy="366" r="32" fill="#F1FBF8" stroke="#B8E5D9"/>
+    <path d="M920 366 H952" fill="none" stroke="#11A37F" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M941 354 L953 366 L941 378" fill="none" stroke="#11A37F" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="font pillarTitle" x="936" y="435" text-anchor="middle">Guide Action</text>
+    <text class="font pillarText" x="936" y="465" text-anchor="middle">Coach, intervene, reallocate focus</text>
+  </g>
+
+  <!-- Flow strip -->
+  <rect x="103" y="508" width="994" height="88" rx="16" fill="url(#strip)" stroke="#DCE8FA"/>
+
+  <g transform="translate(0,0)">
+    <!-- Step 1 -->
+    <circle cx="154" cy="552" r="23" fill="#EAF2FF" stroke="#D8E8FF" filter="url(#softShadow)"/>
+    <circle cx="154" cy="552" r="13" fill="none" stroke="#1677FF" stroke-width="2.2"/>
+    <text class="font" x="154" y="558" text-anchor="middle" font-size="18" font-weight="700" fill="#1677FF">?</text>
+    <text class="font flowTitle" x="191" y="546">Leadership Questions</text>
+    <text class="font flowText" x="191" y="570">Are we on track?</text>
+
+    <path class="blueLine" d="M372 552 H478" marker-end="url(#arrowBlue)"/>
+
+    <!-- Step 2 -->
+    <circle cx="521" cy="552" r="23" fill="#EAF2FF" stroke="#D8E8FF" filter="url(#softShadow)"/>
+    <path d="M512 563 V552 H518 V563 M522 563 V541 H528 V563 M532 563 V547 H538 V563" fill="none" stroke="#1677FF" stroke-width="1.8" stroke-linejoin="round"/>
+    <text class="font flowTitle" x="560" y="546">Dashboard Insight</text>
+    <text class="font flowText" x="560" y="570">What can still close?</text>
+
+    <path class="blueLine" d="M718 552 H812" marker-end="url(#arrowBlue)"/>
+
+    <!-- Step 3 -->
+    <circle cx="848" cy="552" r="23" fill="#EAF2FF" stroke="#D8E8FF" filter="url(#softShadow)"/>
+    <circle cx="848" cy="552" r="12" fill="none" stroke="#1677FF" stroke-width="2.2"/>
+    <circle cx="848" cy="552" r="6" fill="none" stroke="#1677FF" stroke-width="2"/>
+    <path d="M848 552 L857 543" stroke="#1677FF" stroke-width="2.2" stroke-linecap="round"/>
+    <text class="font flowTitle" x="886" y="546">Supported Decisions</text>
+    <text class="font flowText" x="886" y="570">Where is revenue at risk?</text>
+  </g>
 </svg>
