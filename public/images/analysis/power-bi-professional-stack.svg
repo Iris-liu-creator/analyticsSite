@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">What separates a Power BI professional from a report builder</title>
+  <desc id="desc">A Power BI maturity architecture visual showing stacked layers from source shaping through model, DAX, governance, adoption, and engineering.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.52" stop-color="#f6fbfc"/>
+      <stop offset="1" stop-color="#eef6f8"/>
+    </linearGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#e7f8f5"/>
+    </linearGradient>
+    <linearGradient id="stackA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="stackB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f2fbfa"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="softShadow" x="-14%" y="-18%" width="128%" height="136%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M680 -44H1200V675H514C640 548 678 392 610 260C556 157 574 46 680 -44Z" fill="url(#field)" opacity="0.78"/>
+  <path d="M0 528C162 478 316 498 465 548C628 604 795 590 956 520C1066 474 1142 472 1200 494V675H0Z" fill="#eff6ff" opacity="0.38"/>
+  <path d="M132 226H1070" stroke="#dbeafe" stroke-width="2" stroke-dasharray="10 18" opacity="0.55"/>
+
+  <g transform="translate(78 70)">
+    <text x="0" y="0" dominant-baseline="hanging" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="41" font-weight="750" fill="#071a3d">
+      <tspan x="0" dy="0">What separates a Power BI professional</tspan>
+      <tspan x="0" dy="54">from a report builder</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(92 244)">
+    <g filter="url(#softShadow)">
+      <rect x="0" y="0" width="430" height="326" rx="34" fill="#ffffff" stroke="#d8e2ef"/>
+      <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#071a3d">
+        <rect x="44" y="38" width="342" height="38" rx="14" fill="url(#stackA)" stroke="#dbeafe"/>
+        <text x="66" y="63">Source Shaping</text>
+        <circle cx="354" cy="57" r="8" fill="#7fa7f3"/>
+
+        <rect x="44" y="88" width="342" height="38" rx="14" fill="url(#stackB)" stroke="#bdeee6"/>
+        <text x="66" y="113">Semantic Model</text>
+        <circle cx="354" cy="107" r="8" fill="#8fd8d0"/>
+
+        <rect x="44" y="138" width="342" height="38" rx="14" fill="#f8fafc" stroke="#d8e2ef"/>
+        <text x="66" y="163">DAX Semantics</text>
+        <circle cx="354" cy="157" r="8" fill="#94a3b8"/>
+
+        <rect x="44" y="188" width="342" height="38" rx="14" fill="url(#stackA)" stroke="#dbeafe"/>
+        <text x="66" y="213">Scale, Security, Reuse</text>
+        <circle cx="354" cy="207" r="8" fill="#7fa7f3"/>
+
+        <rect x="44" y="238" width="342" height="38" rx="14" fill="url(#stackB)" stroke="#bdeee6"/>
+        <text x="66" y="263">Adoption, AI, Engineering</text>
+        <circle cx="354" cy="257" r="8" fill="#8fd8d0"/>
+      </g>
+    </g>
+
+    <g transform="translate(522 18)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="468" height="290" rx="34" fill="#ffffff" stroke="#d8e2ef"/>
+      <rect x="44" y="38" width="380" height="48" rx="16" fill="#f1f7fb"/>
+      <path d="M72 62H214M248 62H390" stroke="#dbeafe" stroke-width="8" stroke-linecap="round"/>
+      <rect x="44" y="118" width="160" height="112" rx="20" fill="#eff6ff"/>
+      <rect x="232" y="118" width="192" height="112" rx="20" fill="#f8fafc"/>
+      <path d="M82 202V174M120 202V146M158 202V164" stroke="#7fa7f3" stroke-width="14" stroke-linecap="round"/>
+      <path d="M262 150H384M262 180H356M262 210H398" stroke="#d8e2ef" stroke-width="8" stroke-linecap="round"/>
+      <path d="M44 256H424" stroke="#8fd8d0" stroke-width="12" stroke-linecap="round"/>
+    </g>
+
+    <path d="M430 162H522" stroke="#dbeafe" stroke-width="10" stroke-linecap="round"/>
+    <path d="M492 140L524 162L492 184" fill="none" stroke="#dbeafe" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

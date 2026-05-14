@@ -57,6 +57,8 @@ export default async function AnalysisDetailPage({ params }: PageProps) {
     "choosing-the-right-data-structure-for-better-reporting",
     "behavioural-data-quality-reading-the-process-behind-the-numbers",
     "how-to-factor-business-stage-problems-and-decision-context-into-your-kpi-framework",
+    "designing-quickly-adopted-dashboard",
+    "what-separates-a-power-bi-professional-from-a-report-builder",
     "building-governed-ai-reporting-people-can-really-trust",
     "beyond-flashy-dashboards-building-trustworthy-ai-reporting-workflows"
   ].includes(article.meta.slug);

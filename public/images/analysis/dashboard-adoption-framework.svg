@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Designing Quickly Adopted Dashboard</title>
+  <desc id="desc">A clean dashboard adoption framework visual showing six design layers feeding into a trusted report interface.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.55" stop-color="#f6fbfc"/>
+      <stop offset="1" stop-color="#eef6f8"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dbeafe"/>
+      <stop offset="0.5" stop-color="#ccfbf1"/>
+      <stop offset="1" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <filter id="softShadow" x="-12%" y="-18%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M680 -36H1200V675H515C650 540 676 388 606 260C552 160 574 48 680 -36Z" fill="#ecfeff" opacity="0.7"/>
+  <path d="M0 520C158 470 306 490 454 544C618 604 780 590 948 520C1060 474 1140 470 1200 492V675H0Z" fill="#eff6ff" opacity="0.42"/>
+  <path d="M118 224H1080" stroke="#dbeafe" stroke-width="2" stroke-dasharray="10 18" opacity="0.55"/>
+
+  <g transform="translate(78 72)">
+    <text x="0" y="0" dominant-baseline="hanging" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="44" font-weight="750" fill="#071a3d">
+      <tspan x="0" dy="0">Designing Quickly</tspan>
+      <tspan x="0" dy="56">Adopted Dashboard</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(78 248)">
+    <g filter="url(#softShadow)">
+      <rect x="0" y="0" width="440" height="288" rx="34" fill="url(#panel)" stroke="#d8e2ef"/>
+      <rect x="44" y="42" width="352" height="48" rx="16" fill="#f1f7fb"/>
+      <path d="M72 66H214M248 66H360" stroke="#dbeafe" stroke-width="8" stroke-linecap="round"/>
+      <rect x="44" y="122" width="150" height="112" rx="20" fill="#eff6ff"/>
+      <rect x="222" y="122" width="174" height="112" rx="20" fill="#f8fafc"/>
+      <path d="M78 204V174M112 204V150M146 204V164" stroke="#7fa7f3" stroke-width="14" stroke-linecap="round"/>
+      <path d="M250 154H358M250 184H330M250 214H372" stroke="#d8e2ef" stroke-width="8" stroke-linecap="round"/>
+      <path d="M44 260H396" stroke="url(#accent)" stroke-width="12" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(505 0)">
+      <rect x="0" y="0" width="560" height="288" rx="34" fill="#ffffff" opacity="0.76" stroke="#d8e2ef"/>
+      <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#071a3d">
+        <rect x="34" y="34" width="224" height="58" rx="18" fill="#eff6ff" stroke="#dbeafe"/>
+        <text x="146" y="63" text-anchor="middle" dominant-baseline="middle">Decision Context</text>
+        <rect x="302" y="34" width="224" height="58" rx="18" fill="#f2fbfa" stroke="#bdeee6"/>
+        <text x="414" y="63" text-anchor="middle" dominant-baseline="middle">Visual Structure</text>
+        <rect x="34" y="116" width="224" height="58" rx="18" fill="#f8fafc" stroke="#d8e2ef"/>
+        <text x="146" y="145" text-anchor="middle" dominant-baseline="middle">Narrative Flow</text>
+        <rect x="302" y="116" width="224" height="58" rx="18" fill="#eff6ff" stroke="#dbeafe"/>
+        <text x="414" y="145" text-anchor="middle" dominant-baseline="middle">Guided Self-Service</text>
+        <rect x="34" y="198" width="224" height="58" rx="18" fill="#f2fbfa" stroke="#bdeee6"/>
+        <text x="146" y="227" text-anchor="middle" dominant-baseline="middle">Trust &amp; Definition</text>
+        <rect x="302" y="198" width="224" height="58" rx="18" fill="#f8fafc" stroke="#d8e2ef"/>
+        <text x="414" y="227" text-anchor="middle" dominant-baseline="middle">Adoption &amp; Usability</text>
+      </g>
+    </g>
+  </g>
+</svg>
