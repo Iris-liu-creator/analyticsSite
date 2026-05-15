@@ -4,6 +4,7 @@ import { Calendar, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { budgetRanges, calendlyUrl, timelineOptions } from "@/data/services";
 import { Button } from "@/components/ui/Button";
+import { submitNetlifyForm } from "@/lib/netlifyForms";
 
 type InquiryFormState = {
   name: string;
@@ -32,6 +33,7 @@ function isValidEmail(value: string) {
 export function InquiryForm() {
   const [form, setForm] = useState(initialState);
   const [emailError, setEmailError] = useState("");
+  const [submitError, setSubmitError] = useState("");
   const [sent, setSent] = useState(false);
 
   function update<K extends keyof InquiryFormState>(key: K, value: InquiryFormState[K]) {
@@ -39,15 +41,23 @@ export function InquiryForm() {
     if (key === "companyEmail") setEmailError("");
   }
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
 
     if (!isValidEmail(form.companyEmail)) {
       setEmailError("Enter a valid company email address.");
       return;
     }
 
-    setSent(true);
+    try {
+      setSubmitError("");
+      await submitNetlifyForm(new FormData(formElement));
+      setSent(true);
+      setForm(initialState);
+    } catch {
+      setSubmitError("Something went wrong while sending your inquiry. Please try again or email directly.");
+    }
   }
 
   return (
@@ -156,9 +166,10 @@ export function InquiryForm() {
           </Button>
         ) : null}
       </div>
+      {submitError ? <p className="mt-4 text-sm font-medium text-red-600">{submitError}</p> : null}
       {sent ? (
         <p className="mt-4 rounded-lg bg-teal-50 p-4 text-sm font-medium text-teal-800 dark:bg-teal-950 dark:text-teal-100">
-          Thanks — your inquiry has been captured. Please book a time via Calendly to discuss next steps.
+          Thanks - your inquiry has been captured. Please book a time via Calendly to discuss next steps.
         </p>
       ) : null}
     </form>

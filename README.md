@@ -168,11 +168,17 @@ The current pricing display is `Available as monthly support or custom add-on`.
 
 ## Connect the Services Inquiry Form
 
-The services inquiry form is implemented in `components/content/InquiryForm.tsx`. Phase 1 uses client-side validation and a placeholder submit handler.
+The contact and services inquiry forms are wired for Netlify Forms. The app includes hidden static form definitions in `components/content/NetlifyFormDefinitions.tsx`, and the visible React forms submit through `lib/netlifyForms.ts`.
+
+After deploying to Netlify:
+
+1. Submit a test message through the live site.
+2. Open Netlify dashboard -> Site -> Forms.
+3. Confirm `contact` and `services-inquiry` appear.
+4. Add email notifications or integrations from the Netlify Forms settings.
 
 Future backend options:
 
-- Netlify Forms: keep the `data-netlify="true"` form attributes and allow Netlify to capture submissions after deployment.
 - Formspree: replace the submit handler with a `fetch` or form `action` pointed at your Formspree endpoint.
 - Supabase: insert validated inquiry data into a protected table through an API route or server action.
 - Custom API route: post the form payload to an `app/api/.../route.ts` endpoint and send notifications or store records there.
