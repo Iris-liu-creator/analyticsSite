@@ -67,7 +67,7 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
       </div>
 
       <div className="relative overflow-x-hidden overflow-y-visible rounded-lg bg-slate-100 px-2 py-8 dark:bg-slate-950 sm:px-8 lg:px-12">
-        <div className="relative mx-auto h-[620px] max-w-6xl sm:h-[560px] lg:h-[535px]">
+        <div className="relative mx-auto h-[620px] max-w-6xl sm:h-[590px] lg:h-[565px]">
           <div
             className={cn(
               "absolute left-1/2 top-1/2 flex w-max -translate-y-1/2",
@@ -161,7 +161,7 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
           ) : null}
         </div>
 
-        <div className="mt-3 flex justify-center gap-2">
+        <div className="mt-8 flex justify-center gap-2">
           {articles.map((article, dotIndex) => (
             <button
               key={article.slug}
