@@ -1,8 +1,9 @@
 "use client";
 
-import { Send } from "lucide-react";
+import { Calendar, Send } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { calendlyUrl } from "@/data/services";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -54,7 +55,15 @@ export function ContactForm() {
           />
         </label>
         <Button type="submit">Start the Conversation <Send className="h-4 w-4" /></Button>
-        {sent ? <p className="text-sm text-mint">Thanks. This demo form is ready for Netlify Forms, Formspree, or a future API route.</p> : null}
+        {sent ? (
+          <div className="rounded-lg bg-teal-50 p-4 text-sm font-medium text-teal-800 dark:bg-teal-950 dark:text-teal-100">
+            <p>Thanks. This demo form is ready for Netlify Forms, Formspree, or a future API route.</p>
+            <Button href={calendlyUrl} variant="secondary" className="mt-3">
+              <Calendar className="h-4 w-4" />
+              Book a Discovery Call
+            </Button>
+          </div>
+        ) : null}
       </div>
     </form>
   );

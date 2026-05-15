@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Calendar, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/content/ContactForm";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { calendlyUrl } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -20,6 +21,7 @@ export default function ContactPage() {
             Use the form for project enquiries, dashboard reviews, or analytics support & collaboration.
           </p>
           <div className="mt-8 grid gap-3">
+            <Link href={calendlyUrl} className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700 hover:text-signal dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><Calendar className="h-5 w-5" /> Book a Discovery Call</Link>
             <Link href="mailto:irisinsightsops888@gmail.com" className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700 hover:text-signal dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><Mail className="h-5 w-5" /> Email</Link>
             <Link href="https://www.linkedin.com/in/liu-iris-irish/" className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700 hover:text-signal dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><Linkedin className="h-5 w-5" /> LinkedIn</Link>
             <Link href="https://github.com/Iris-liu-creator/" className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700 hover:text-signal dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><Github className="h-5 w-5" /> GitHub</Link>

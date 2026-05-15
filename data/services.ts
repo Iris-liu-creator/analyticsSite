@@ -27,8 +27,8 @@ export type CredibilityCard = {
   icon: typeof ShieldCheck;
 };
 
-// TODO: Replace the fallback with your real Calendly URL by setting NEXT_PUBLIC_CALENDLY_URL.
-export const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/your-name/analytics-discovery-call";
+export const calendlyUrl =
+  process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/irisinsightsops888/30min";
 
 export const servicePillars: ServicePillar[] = [
   {

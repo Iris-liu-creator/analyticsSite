@@ -1,6 +1,7 @@
 import { ArrowRight, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { HeroMetricValue } from "@/components/sections/HeroMetricValue";
+import { calendlyUrl } from "@/data/services";
 
 export function HeroSection() {
   return (
@@ -16,9 +17,9 @@ export function HeroSection() {
           A professional portfolio for dashboards, analytics case studies, business intelligence systems, and practical AI workflows.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button href="/portfolio">View Portfolio <ArrowRight className="h-4 w-4" /></Button>
-          <Button href="/analysis" variant="secondary">Read Analysis</Button>
-          <Button href="/contact" variant="ghost">Contact Me</Button>
+          <Button href="/analysis">Explore Analysis <ArrowRight className="h-4 w-4" /></Button>
+          <Button href="/services" variant="secondary">View Services</Button>
+          <Button href={calendlyUrl} variant="ghost">Contact Me</Button>
         </div>
       </div>
       <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-900">

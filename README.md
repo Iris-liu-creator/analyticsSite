@@ -35,7 +35,7 @@ npm install
 npm run dev
 ```
 
-Then open `http://localhost:3000`.
+Then open `http://localhost:3000`. Later on deploy to Netlify.
 
 Production checks:
 
@@ -138,10 +138,10 @@ The full page route is `app/services/page.tsx`. The home preview reads from the 
 Set this public environment variable in `.env.local`, Vercel, or Netlify:
 
 ```bash
-NEXT_PUBLIC_CALENDLY_URL="https://calendly.com/your-name/analytics-discovery-call"
+NEXT_PUBLIC_CALENDLY_URL="https://calendly.com/irisinsightsops888/30min"
 ```
 
-If this variable is not configured, the app uses the placeholder fallback in `data/services.ts`. Replace that fallback or configure the environment variable before publishing the Services page publicly.
+If this variable is not configured, the app uses the fallback in `data/services.ts`. Configure the environment variable in Vercel or Netlify if you need to change the booking link without editing code.
 
 ## Update Service Packages
 

@@ -35,7 +35,7 @@ export default function ServicesPage() {
                 Discuss Your Analytics Needs
                 <ArrowRight className="h-4 w-4" />
               </Button>
-              <Button href="/portfolio" variant="secondary">View Portfolio</Button>
+              <Button href="/analysis" variant="secondary">Read Analysis</Button>
             </div>
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">

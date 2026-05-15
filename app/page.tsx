@@ -1,24 +1,19 @@
 import { AnalysisCard } from "@/components/content/AnalysisCard";
-import { PortfolioCard } from "@/components/content/PortfolioCard";
-import { FeaturedCarousel } from "@/components/sections/FeaturedCarousel";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { SkillsMatrix } from "@/components/sections/SkillsMatrix";
 import { ServiceCard } from "@/components/content/ServiceCard";
 import { Button } from "@/components/ui/Button";
-import { servicePillars } from "@/data/services";
+import { calendlyUrl, servicePillars } from "@/data/services";
 import { impactStats } from "@/data/skills";
-import { ArticleMeta, getAllContent, ProjectMeta } from "@/lib/content";
+import { ArticleMeta, getAllContent } from "@/lib/content";
 
 export default function HomePage() {
-  const projects = getAllContent<ProjectMeta>("projects").map((item) => item.meta);
   const analysis = getAllContent<ArticleMeta>("analysis").map((item) => item.meta);
-  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
   const featuredAnalysis = analysis.filter((article) => article.featured).slice(0, 3);
 
   return (
     <>
       <HeroSection />
-      <FeaturedCarousel projects={featuredProjects} />
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-4 md:grid-cols-4">
           {impactStats.map((stat) => (
@@ -32,13 +27,13 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-signal">Portfolio</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Featured Case Studies</h2>
+            <p className="text-sm font-semibold uppercase tracking-wide text-signal">Analysis</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Featured Analysis</h2>
           </div>
-          <Button href="/portfolio" variant="secondary">View All</Button>
+          <Button href="/analysis" variant="secondary">Read Analysis</Button>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featuredProjects.map((project) => <PortfolioCard key={project.slug} project={project} />)}
+          {featuredAnalysis.map((article) => <AnalysisCard key={article.slug} analysis={article} />)}
         </div>
       </section>
       <SkillsMatrix />
@@ -51,24 +46,12 @@ export default function HomePage() {
               For medium-sized teams that need help clarifying KPIs, building reliable dashboards, automating reporting, or creating a more sustainable analytics operating model.
             </p>
           </div>
-          <Button href="/services" variant="secondary">Codesign Your Analytics</Button>
+          <Button href={calendlyUrl} variant="secondary">Codesign Your Analytics</Button>
         </div>
         <div className="grid gap-6 lg:grid-cols-3">
           {servicePillars.map((service) => (
             <ServiceCard key={service.title} service={service} compact />
           ))}
-        </div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-6 flex items-end justify-between gap-4">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-signal">Analysis</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Featured Analysis</h2>
-          </div>
-          <Button href="/analysis" variant="secondary">Read Analysis</Button>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featuredAnalysis.map((article) => <AnalysisCard key={article.slug} analysis={article} />)}
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
