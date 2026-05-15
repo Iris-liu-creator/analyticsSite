@@ -59,7 +59,7 @@ export default function AboutPage() {
               <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-ink dark:text-white sm:text-5xl">
                 Analytics experiences that business teams can trust.
               </h1>
-              <p className="mt-6 max-w-3xl text-xl font-medium leading-9 text-slate-700 dark:text-slate-200">
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
                 Hey, I&apos;m Iris, who designs BI and reporting solutions that turn complex business data into clear, reliable, and decision-ready insights. My work helps teams move beyond manual reporting, siloed systems, and fragmented metrics toward consistent performance visibility, clearer accountability, and faster operational decisions.
               </p>
             </div>

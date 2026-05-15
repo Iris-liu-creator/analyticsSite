@@ -64,7 +64,6 @@ export function InquiryForm() {
     <form
       name="services-inquiry"
       method="POST"
-      data-netlify="true"
       onSubmit={submit}
       className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
     >

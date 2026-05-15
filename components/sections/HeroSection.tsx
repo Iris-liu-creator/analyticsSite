@@ -5,21 +5,23 @@ import { calendlyUrl } from "@/data/services";
 
 export function HeroSection() {
   return (
-    <section className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
+    <section className="mx-auto grid max-w-7xl gap-10 px-4 py-8 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
       <div>
-        <p className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-200">
+        <p className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold leading-5 text-blue-700 dark:bg-blue-950 dark:text-blue-200 sm:text-sm">
           Data Analytics | BI Reporting | RevOps Insights | AI-enabled Business Intelligence
         </p>
-        <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-ink dark:text-white sm:text-6xl">
+        <h1 className="mt-6 max-w-4xl text-[2rem] font-semibold leading-[1.12] tracking-tight text-ink dark:text-white sm:text-6xl sm:leading-none">
           Turning business data into trusted decisions, clean reporting, and useful automation.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+        <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-8">
           A professional portfolio for dashboards, analytics case studies, business intelligence systems, and practical AI workflows.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button href="/analysis">Explore Analysis <ArrowRight className="h-4 w-4" /></Button>
-          <Button href="/services" variant="secondary">View Services</Button>
-          <Button href={calendlyUrl} variant="ghost">Contact Me</Button>
+        <div className="mt-8 grid grid-cols-4 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+          <Button href="/analysis" className="col-span-2 w-full px-2 text-xs sm:col-span-1 sm:w-auto sm:px-4 sm:text-sm">
+            Explore Analysis <ArrowRight className="h-4 w-4" />
+          </Button>
+          <Button href="/services" variant="secondary" className="col-span-1 w-full px-2 text-xs sm:w-auto sm:px-4 sm:text-sm">Services</Button>
+          <Button href={calendlyUrl} variant="ghost" className="col-span-1 w-full px-2 text-xs sm:w-auto sm:px-4 sm:text-sm">Contact</Button>
         </div>
       </div>
       <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-900">

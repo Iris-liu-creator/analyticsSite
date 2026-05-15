@@ -129,7 +129,7 @@ export function ArticleLibrary({
           </div>
         ) : null}
       </div>
-      <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-8 grid auto-rows-fr gap-6 md:grid-cols-2 xl:grid-cols-3">
         {filtered.map((article) => <PostCard key={article.slug} post={article} basePath={basePath} />)}
       </div>
       {!filtered.length ? <div className="mt-8"><EmptyState /></div> : null}

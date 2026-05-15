@@ -168,7 +168,7 @@ The current pricing display is `Available as monthly support or custom add-on`.
 
 ## Connect the Services Inquiry Form
 
-The contact and services inquiry forms are wired for Netlify Forms. The app includes hidden static form definitions in `components/content/NetlifyFormDefinitions.tsx`, and the visible React forms submit through `lib/netlifyForms.ts`.
+The contact and services inquiry forms are wired for Netlify Forms. The app includes static form definitions in `public/__forms.html`, and the visible React forms submit through `lib/netlifyForms.ts`.
 
 After deploying to Netlify:
 
