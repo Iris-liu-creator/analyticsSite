@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ArrowRight, Calendar, ShieldCheck } from "lucide-react";
 import { AddOnCard } from "@/components/content/AddOnCard";
 import { CTASection } from "@/components/content/CTASection";
+import { EngagementDisclaimer } from "@/components/content/EngagementDisclaimer";
+import { IndependenceNotice } from "@/components/content/IndependenceNotice";
 import { InquiryForm } from "@/components/content/InquiryForm";
 import { PackageCard } from "@/components/content/PackageCard";
 import { ServiceCard } from "@/components/content/ServiceCard";
@@ -123,18 +125,24 @@ export default function ServicesPage() {
       <CTASection />
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.78fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1fr] lg:items-start">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-signal">Inquiry</p>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Discuss Your Analytics Needs</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
+            <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
               Share your current reporting challenge, and I’ll help identify the best next step - whether that is KPI clarification, dashboard development, reporting automation, or a broader analytics enablement plan.
             </p>
-            <p className="mt-6 rounded-lg border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
-              Client data and business context are handled confidentially and used only for the agreed analytics and reporting scope.
-            </p>
+            <div className="mt-6 grid gap-3">
+              <p className="rounded-lg border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+                Client data and business context are handled confidentially and used only for the agreed analytics and reporting scope.
+              </p>
+              <IndependenceNotice />
+            </div>
           </div>
-          <InquiryForm />
+          <div className="grid gap-4">
+            <InquiryForm />
+            <EngagementDisclaimer />
+          </div>
         </div>
       </section>
     </>

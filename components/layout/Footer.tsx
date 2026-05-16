@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <h2 className="text-lg font-semibold text-ink dark:text-white">Data Analytics | BI Reporting | AI-enabled BI</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300">
-            A professional analytics portfolio showcasing BI dashboards, case studies, reporting end-to-end solutions, and data-driven business insights.
+            An independent professional analytics portfolio showcasing BI dashboards, case studies, reporting end-to-end solutions, and data-driven business insights.
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-3 md:justify-end">

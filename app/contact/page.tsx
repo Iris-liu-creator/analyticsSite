@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Calendar, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/content/ContactForm";
+import { EngagementDisclaimer } from "@/components/content/EngagementDisclaimer";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { calendlyUrl } from "@/data/services";
 
@@ -27,7 +28,10 @@ export default function ContactPage() {
             <Link href="https://github.com/Iris-liu-creator/" className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700 hover:text-signal dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><Github className="h-5 w-5" /> GitHub</Link>
           </div>
         </div>
-        <ContactForm />
+        <div className="grid gap-4">
+          <ContactForm />
+          <EngagementDisclaimer />
+        </div>
       </div>
     </section>
   );
