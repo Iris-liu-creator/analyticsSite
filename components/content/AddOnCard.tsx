@@ -18,7 +18,7 @@ export function AddOnCard({ addOn }: { addOn: ServiceAddOn }) {
       <ul className="mt-4 space-y-2">
         {addOn.includes.map((item) => (
           <li key={item} className="flex gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
-            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-mint drop-shadow-[0_1px_2px_rgba(0,133,119,0.18)]" />
+            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-purple-600 drop-shadow-[0_1px_2px_rgba(124,58,237,0.18)]" />
             <span>{item}</span>
           </li>
         ))}

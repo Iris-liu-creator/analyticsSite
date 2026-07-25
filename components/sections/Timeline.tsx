@@ -11,7 +11,7 @@ export function Timeline() {
       {events.map((event, index) => (
         <div key={event.title} className="grid grid-cols-[2rem_1fr] gap-4">
           <div className="flex flex-col items-center">
-            <span className="apple-icon h-8 w-8 rounded-full text-sm font-semibold text-signal">{index + 1}</span>
+            <span className="apple-icon h-8 w-8 rounded-full"><span className="relative z-10 text-sm font-extrabold text-signal dark:text-blue-200">{index + 1}</span></span>
             {index < events.length - 1 ? <span className="h-full w-px bg-slate-200 dark:bg-slate-700" /> : null}
           </div>
           <div className="pb-5">

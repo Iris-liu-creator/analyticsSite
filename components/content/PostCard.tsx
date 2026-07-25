@@ -31,7 +31,7 @@ export function PostCard({ post, basePath = "/analysis" }: { post: ArticleMeta; 
           <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{post.summary}</p>
           <div className="mb-5 mt-4 flex flex-wrap gap-2">
             {post.tags.slice(0, 3).map((tag) => <TagPill key={tag}>{tag}</TagPill>)}
-            {post.difficulty ? <TagPill className="bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-200">{post.difficulty}</TagPill> : null}
+            {post.difficulty ? <TagPill className="bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-200">{post.difficulty}</TagPill> : null}
           </div>
           <span className="mt-auto inline-flex w-full items-center justify-center gap-2 apple-control px-4 py-2.5 text-sm font-semibold">
             Read Analysis <ArrowUpRight className="h-4 w-4" />

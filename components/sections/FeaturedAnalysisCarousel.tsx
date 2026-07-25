@@ -66,8 +66,35 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
         </div>
       </div>
 
-      <div className="apple-material relative overflow-x-hidden overflow-y-visible px-2 py-8 sm:px-8 lg:px-12">
-        <div className="relative mx-auto h-[620px] max-w-6xl sm:h-[590px] lg:h-[565px]">
+      <div className="apple-material relative overflow-x-hidden overflow-y-visible px-3 py-5 sm:px-8 sm:py-8 lg:px-12">
+        <article className="overflow-hidden apple-card sm:hidden">
+          <div className="apple-image-frame aspect-video">
+            <Image src={current.thumbnail} alt="" fill className="object-cover object-center" priority sizes="92vw" />
+          </div>
+          <div className="flex flex-col p-4">
+            <div className="flex flex-wrap items-center gap-1.5 text-[0.7rem] font-medium text-slate-500 dark:text-slate-400">
+              <span>{current.category}</span>
+              <span aria-hidden="true">|</span>
+              <span>{formatDate(current.date)}</span>
+              <span aria-hidden="true">|</span>
+              <Clock className="h-3 w-3" />
+              <span>{current.readingTime} min</span>
+            </div>
+            <h3 className="mt-2 text-base font-semibold leading-6 text-ink dark:text-white">{current.title}</h3>
+            <p className="mt-2 line-clamp-4 text-xs leading-5 text-slate-600 dark:text-slate-300">{current.summary}</p>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {current.tags.slice(0, 2).map((tag) => <TagPill key={tag}>{tag}</TagPill>)}
+              {current.difficulty ? <TagPill className="bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-200">{current.difficulty}</TagPill> : null}
+            </div>
+            <div className="mt-4">
+              <Button href={`/analysis/${current.slug}`} className="min-h-10 w-full py-2 text-xs">
+                Read Analysis <ArrowUpRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </article>
+
+        <div className="relative mx-auto hidden h-[620px] max-w-6xl sm:block sm:h-[590px] lg:h-[565px]">
           <div
             className={cn(
               "absolute left-1/2 top-1/2 flex w-max -translate-y-1/2",
@@ -93,12 +120,12 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
                     )}
                     aria-hidden={!isActive}
                   >
-                    <div className={cn("apple-image-frame", isActive ? "h-44 sm:h-56" : "h-40")}>
+                    <div className={cn("apple-image-frame", isActive ? "aspect-video" : "h-40")}>
                       <Image
                         src={article.thumbnail}
                         alt=""
                         fill
-                        className="object-cover"
+                        className="object-cover object-center"
                         priority={isActive}
                         sizes={isActive ? "(min-width: 1024px) 560px, 92vw" : "(min-width: 1024px) 330px, 0vw"}
                       />
@@ -124,7 +151,7 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
                           <TagPill key={tag}>{tag}</TagPill>
                         ))}
                         {isActive && article.difficulty ? (
-                          <TagPill className="bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-200">{article.difficulty}</TagPill>
+                          <TagPill className="bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-200">{article.difficulty}</TagPill>
                         ) : null}
                       </div>
                       {isActive ? (
@@ -161,7 +188,7 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
           ) : null}
         </div>
 
-        <div className="mt-8 flex justify-center gap-2">
+        <div className="mt-4 flex justify-center gap-2 sm:mt-8">
           {articles.map((article, dotIndex) => (
             <button
               key={article.slug}

@@ -1,11 +1,11 @@
-import { ArrowRight, BarChart3 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { HeroMetricValue } from "@/components/sections/HeroMetricValue";
 import { calendlyUrl } from "@/data/services";
 
 export function HeroSection() {
   return (
-    <section className="apple-page grid gap-10 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:py-24">
+    <section className="mx-auto grid max-w-7xl gap-10 px-4 pb-14 pt-6 sm:px-6 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-24">
       <div>
         <p className="inline-flex rounded-full border border-slate-200/70 bg-white/72 px-3 py-1 text-xs font-semibold leading-5 text-signal shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/10 dark:text-blue-200 sm:text-sm">
           Data Analytics | BI Reporting | RevOps Insights | AI-enabled Business Intelligence
@@ -30,7 +30,7 @@ export function HeroSection() {
             <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Executive BI cockpit</p>
             <h2 className="mt-1 text-xl font-semibold text-ink dark:text-white">Analytics Delivery at a Glance</h2>
           </div>
-          <span className="apple-icon h-12 w-12"><BarChart3 className="h-7 w-7" /></span>
+          <span className="apple-icon h-12 w-12" aria-hidden="true"><span className="relative h-7 w-7"><span className="absolute bottom-0 left-0 h-6 w-0.5 rounded-full bg-signal" /><span className="absolute bottom-0 left-0 h-0.5 w-6 rounded-full bg-signal" /><span className="absolute bottom-1 left-2 h-3 w-1 rounded-full bg-signal" /><span className="absolute bottom-1 left-3.5 h-5 w-1 rounded-full bg-blue-500" /><span className="absolute bottom-1 left-5 h-4 w-1 rounded-full bg-purple-500" /></span></span>
         </div>
         <div className="mt-8 grid grid-cols-2 gap-4">
           {[
@@ -63,7 +63,7 @@ export function HeroSection() {
             </div>
           ))}
         </div>
-        <div className="mt-6 h-28 rounded-lg bg-[linear-gradient(135deg,#e8f2ff_0%,#e7f8f5_52%,#fff8d7_100%)] p-4 ring-1 ring-white/70 dark:bg-[linear-gradient(135deg,#102a4c_0%,#0f3f3b_55%,#3b2f0d_100%)] dark:ring-white/10">
+        <div className="mt-6 h-28 rounded-lg bg-[linear-gradient(135deg,#e8f2ff_0%,#f1edff_52%,#f7eaff_100%)] p-4 ring-1 ring-white/70 dark:bg-[linear-gradient(135deg,#102a4c_0%,#2e1b5f_55%,#3b1d52_100%)] dark:ring-white/10">
           <div className="grid h-full grid-cols-12 items-end gap-2">
             {[35, 48, 40, 65, 52, 74, 68, 82, 76, 88, 80, 92].map((height, index) => (
               <span key={index} className="rounded-t bg-white/90 shadow-[0_1px_10px_rgba(255,255,255,0.28)] dark:bg-white/72" style={{ height: `${height}%` }} />

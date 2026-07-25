@@ -15,28 +15,28 @@ export default function HomePage() {
     <>
       <HeroSection />
       <FeaturedAnalysisCarousel articles={featuredAnalysis}>
-        <div className="mt-10 grid gap-4 md:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-4">
           {impactStats.map((stat) => (
-            <div key={stat.label} className="apple-card apple-card-hover p-6 text-center">
-              <p className="text-3xl font-semibold text-ink dark:text-white">{stat.value}</p>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{stat.label}</p>
+            <div key={stat.label} className="apple-card apple-card-hover px-3 py-4 text-center sm:p-6">
+              <p className="text-2xl font-semibold text-ink dark:text-white sm:text-3xl">{stat.value}</p>
+              <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-300 sm:mt-2 sm:text-sm">{stat.label}</p>
             </div>
           ))}
         </div>
       </FeaturedAnalysisCarousel>
       <SkillsMatrix />
-      <section className="apple-page">
-        <div className="mb-6 grid gap-4 sm:flex sm:items-end sm:justify-between">
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-14 lg:px-8">
+        <div className="mb-4 grid gap-3 sm:mb-6 sm:flex sm:items-end sm:justify-between sm:gap-4">
           <div>
             <p className="apple-label">Analytics Services</p>
-            <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Optional Consulting Support for Business-Ready Analytics</h2>
-            <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">
+            <h2 className="mt-2 text-xl font-semibold leading-7 text-ink dark:text-white sm:text-3xl sm:leading-tight">Optional Consulting Support for Business-Ready Analytics</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:mt-3 sm:text-base">
               For medium-sized teams that need help clarifying KPIs, building reliable dashboards, automating reporting, or creating a more sustainable analytics operating model.
             </p>
           </div>
-          <Button href={calendlyUrl} variant="secondary" className="w-full sm:w-auto">Codesign Your Analytics</Button>
+          <Button href={calendlyUrl} variant="secondary" className="min-h-10 w-full py-2 text-xs sm:min-h-11 sm:w-auto sm:py-2.5 sm:text-sm">Codesign Your Analytics</Button>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-3 sm:gap-6 lg:grid-cols-3">
           {servicePillars.map((service) => (
             <ServiceCard key={service.title} service={service} compact />
           ))}
