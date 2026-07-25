@@ -17,7 +17,7 @@ export default function HomePage() {
       <FeaturedAnalysisCarousel articles={featuredAnalysis}>
         <div className="mt-10 grid gap-4 md:grid-cols-4">
           {impactStats.map((stat) => (
-            <div key={stat.label} className="rounded-lg border border-slate-200 bg-white p-6 text-center dark:border-slate-800 dark:bg-slate-900">
+            <div key={stat.label} className="apple-card apple-card-hover p-6 text-center">
               <p className="text-3xl font-semibold text-ink dark:text-white">{stat.value}</p>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{stat.label}</p>
             </div>
@@ -25,11 +25,11 @@ export default function HomePage() {
         </div>
       </FeaturedAnalysisCarousel>
       <SkillsMatrix />
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <div className="mb-6 grid gap-4 sm:flex sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-signal">Analytics Services</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Optional Consulting Support for Business-Ready Analytics</h2>
+            <p className="apple-label">Analytics Services</p>
+            <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Optional Consulting Support for Business-Ready Analytics</h2>
             <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">
               For medium-sized teams that need help clarifying KPIs, building reliable dashboards, automating reporting, or creating a more sustainable analytics operating model.
             </p>
@@ -42,10 +42,10 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">About Me</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">A Business-Minded Analytics Professional.</h2>
+      <section className="apple-page">
+        <div className="apple-material p-8">
+          <p className="apple-label">About Me</p>
+          <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">A Business-Minded Analytics Professional.</h2>
           <p className="mt-4 max-w-3xl text-slate-600 dark:text-slate-300">
             I build reporting systems that help teams understand performance, spot risk, and make better decisions. My work sits at the intersection of BI engineering, stakeholder communication, RevOps, and practical automation.
           </p>

@@ -6,17 +6,17 @@ const cardSpans = ["lg:col-span-3", "lg:col-span-3", "lg:col-span-2", "lg:col-sp
 
 export function ToolsCapabilities() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <section className="apple-page">
       <div className="mb-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-signal">Tools & Capabilities</p>
-        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Practical tools for business-ready analytics</h2>
+        <p className="apple-label">Tools & Capabilities</p>
+        <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Practical tools for business-ready analytics</h2>
       </div>
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
         {capabilityGroups.map((group, index) => (
           <div
             key={group.title}
             className={cn(
-              "group flex h-full min-h-44 flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft dark:border-slate-800 dark:bg-slate-900",
+              "group flex h-full min-h-44 flex-col apple-card apple-card-hover p-6",
               cardSpans[index] ?? "lg:col-span-2"
             )}
           >
@@ -26,7 +26,7 @@ export function ToolsCapabilities() {
               {group.tools.map((tool) => (
                 <TagPill
                   key={tool}
-                  className="border border-slate-100 bg-slate-50/70 text-slate-600 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-300"
+                  className="text-slate-600 dark:text-slate-300"
                 >
                   {tool}
                 </TagPill>

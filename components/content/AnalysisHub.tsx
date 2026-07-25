@@ -81,10 +81,10 @@ export function AnalysisHub({
 
   return (
     <>
-      <section className="mb-10 rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+      <section className="mb-10 apple-card p-6 sm:p-8">
         <div className="max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Start Here</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink dark:text-white">Choose your starting point</h2>
+          <p className="apple-label">Start Here</p>
+          <h2 className="mt-3 text-3xl font-semibold text-ink dark:text-white">Choose your starting point</h2>
           <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
             Practical thinking on BI, reporting governance, KPI design, data workflows, and AI-enabled analytics, written by business-facing data professional.
           </p>
@@ -97,20 +97,20 @@ export function AnalysisHub({
               <article
                 key={card.title}
                 className={cn(
-                  "flex h-full flex-col rounded-lg border bg-slate-50/60 p-5 transition dark:bg-slate-950/40",
-                  isActive ? "border-signal shadow-soft dark:border-blue-400" : "border-slate-200 shadow-sm dark:border-slate-800"
+                  "flex h-full flex-col apple-card apple-card-hover p-5",
+                  isActive ? "border-signal shadow-soft dark:border-blue-400" : ""
                 )}
               >
-                <div className="grid h-11 w-11 place-items-center rounded-lg bg-white text-signal shadow-sm ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-800">
+                <div className="apple-icon h-11 w-11">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-4 text-xl font-semibold tracking-tight text-ink dark:text-white">{card.title}</h3>
+                <h3 className="mt-4 text-xl font-semibold text-ink dark:text-white">{card.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{card.body}</p>
                 <div className="mt-5">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Best for:</p>
+                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">Best for:</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {card.tags.map((tag) => (
-                      <span key={tag} className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-600 ring-1 ring-slate-200 dark:bg-slate-900 dark:text-slate-300 dark:ring-slate-800">
+                      <span key={tag} className="apple-chip">
                         {tag}
                       </span>
                     ))}
@@ -123,7 +123,7 @@ export function AnalysisHub({
                     "mt-5 inline-flex items-center justify-center rounded-lg border px-4 py-2.5 text-sm font-semibold transition",
                     isActive
                       ? "border-signal bg-signal text-white"
-                      : "border-slate-200 bg-white text-ink hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
+                      : "apple-control text-ink dark:text-white"
                   )}
                 >
                   {isActive ? `Showing ${audienceLabels[card.audience as AudienceKey]}` : card.cta}

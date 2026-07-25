@@ -10,7 +10,7 @@ const sample = [
 
 export function ChartEmbed({ title = "Operational improvement" }: { title?: string }) {
   return (
-    <div className="my-6 rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <div className="my-6 apple-card p-5">
       <h3 className="mb-4 text-base font-semibold text-ink dark:text-white">{title}</h3>
       <div className="h-72">
         <ResponsiveContainer width="100%" height="100%">

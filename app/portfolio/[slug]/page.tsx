@@ -37,12 +37,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     <article className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ label: "Portfolio", href: "/portfolio" }, { label: project.meta.title }]} />
       <div className="mb-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-signal">{project.meta.category} • {formatDate(project.meta.date)}</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink dark:text-white">{project.meta.title}</h1>
+        <p className="apple-label">{project.meta.category} • {formatDate(project.meta.date)}</p>
+        <h1 className="mt-3 text-4xl font-semibold text-ink dark:text-white">{project.meta.title}</h1>
         <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{project.meta.summary}</p>
         <div className="mt-5 flex flex-wrap gap-2">{project.meta.tools.map((tool) => <TagPill key={tool}>{tool}</TagPill>)}</div>
       </div>
-      <div className="relative mb-8 aspect-[16/8] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800">
+      <div className="apple-image-frame mb-8 aspect-[16/8]">
         <Image src={project.meta.heroImage ?? project.meta.thumbnail} alt="" fill className="object-cover" priority />
       </div>
       <PowerBIEmbed src={project.meta.embedUrl} title={`${project.meta.title} dashboard`} />

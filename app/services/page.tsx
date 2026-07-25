@@ -21,11 +21,11 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <section className="apple-page lg:py-16">
         <Breadcrumbs items={[{ label: "Services" }]} />
         <div className="grid gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-center">
           <div>
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-ink dark:text-white sm:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-semibold text-ink dark:text-white sm:text-6xl">
               Analytics Services for Data-Driven Business Teams
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
@@ -40,16 +40,16 @@ export default function ServicesPage() {
               <Button href="/analysis" variant="secondary">Read Analysis</Button>
             </div>
           </div>
-          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
-            <p className="text-sm font-semibold uppercase tracking-wide text-signal">Engagement style</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink dark:text-white">Built for Clarity, Impact, and Reusuability.</h2>
+          <div className="apple-material p-6">
+            <p className="apple-label">Engagement style</p>
+            <h2 className="mt-2 text-2xl font-semibold text-ink dark:text-white">Built for Clarity, Impact, and Reusuability.</h2>
             <p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">
               Services are shaped around real business decisions, reliable reporting foundations, and smooth handover, so teams leave with systems they can understand, trust, and use.
             </p>
             <div className="mt-6 grid gap-3">
               {["Discovery before scope", "Clear definitions before dashboards", "Documentation and handover built in"].map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-lg bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 dark:bg-slate-950 dark:text-slate-200">
-                  <ShieldCheck className="h-4 w-4 text-mint" />
+                <div key={item} className="flex items-center gap-3 rounded-lg bg-slate-100/60 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-white/70 dark:bg-white/5 dark:text-slate-200 dark:ring-white/10">
+                  <span className="apple-icon h-8 w-8"><ShieldCheck className="h-4 w-4" /></span>
                   {item}
                 </div>
               ))}
@@ -58,10 +58,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <div className="mb-8">
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Services overview</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Analytics support across setup, measurement, and operations</h2>
+          <p className="apple-label">Services overview</p>
+          <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Analytics support across setup, measurement, and operations</h2>
         </div>
         <div className="grid gap-6 lg:grid-cols-3">
           {servicePillars.map((service) => (
@@ -72,10 +72,10 @@ export default function ServicesPage() {
 
       <ToolsCapabilities />
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <div className="mb-8">
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Packages</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Choose the level of support that fits the stage of the work</h2>
+          <p className="apple-label">Packages</p>
+          <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Choose the level of support that fits the stage of the work</h2>
           <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">
             Packages are scoped after discovery so the engagement can match the data complexity, stakeholder needs, and reporting maturity.
           </p>
@@ -87,10 +87,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <div className="mb-8">
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Optional Add-ons & Post-Launch Support</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Support after the first launch</h2>
+          <p className="apple-label">Optional Add-ons & Post-Launch Support</p>
+          <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Support after the first launch</h2>
           <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">
             After launch, ongoing support can be added depending on the reporting complexity, update frequency, and business needs.
           </p>
@@ -102,17 +102,17 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <div className="mb-8">
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Trust and credibility</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Built for adoption, not just delivery</h2>
+          <p className="apple-label">Trust and credibility</p>
+          <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Built for adoption, not just delivery</h2>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {credibilityCards.map((card) => {
             const Icon = card.icon;
             return (
-              <div key={card.title} className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-blue-50 text-signal dark:bg-blue-950">
+              <div key={card.title} className="flex items-center gap-3 apple-card apple-card-hover p-5">
+                <span className="apple-icon h-10 w-10">
                   <Icon className="h-5 w-5" />
                 </span>
                 <h3 className="font-semibold text-ink dark:text-white">{card.title}</h3>
@@ -124,16 +124,16 @@ export default function ServicesPage() {
 
       <CTASection />
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1fr] lg:items-start">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-signal">Inquiry</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Discuss Your Analytics Needs</h2>
+            <p className="apple-label">Inquiry</p>
+            <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Discuss Your Analytics Needs</h2>
             <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
               Share your current reporting challenge, and I’ll help identify the best next step - whether that is KPI clarification, dashboard development, reporting automation, or a broader analytics enablement plan.
             </p>
             <div className="mt-6 grid gap-3">
-              <p className="rounded-lg border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+              <p className="apple-card p-4 text-sm leading-6 text-slate-600 dark:text-slate-300">
                 Client data and business context are handled confidentially and used only for the agreed analytics and reporting scope.
               </p>
               <IndependenceNotice />

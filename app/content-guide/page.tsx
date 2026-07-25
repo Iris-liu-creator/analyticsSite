@@ -24,7 +24,7 @@ export default function ContentGuidePage() {
   return (
     <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ label: "Content Guide" }]} />
-      <h1 className="text-4xl font-semibold tracking-tight text-ink dark:text-white">Content guide</h1>
+      <h1 className="text-4xl font-semibold text-ink dark:text-white">Content guide</h1>
       <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
         This page documents how to keep the portfolio GitHub-first while leaving room for Supabase, Firebase, Sanity, Contentful, or another CMS later.
       </p>

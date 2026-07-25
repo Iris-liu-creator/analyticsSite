@@ -80,17 +80,17 @@ export function CommentSection() {
   return (
     <section className="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800">
       <div className="mb-5">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink dark:text-white">Discussion & Reactions</h2>
+        <h2 className="text-2xl font-semibold text-ink dark:text-white">Discussion & Reactions</h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300">
           Share a question, reaction, or practical takeaway from this article.
         </p>
       </div>
       {isConfigured ? (
-        <div className="rounded-2xl bg-white/80 p-1 dark:bg-slate-900/40">
+        <div className="rounded-lg bg-white/80 p-1 dark:bg-slate-900/40">
           <div ref={containerRef} />
         </div>
       ) : (
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 text-sm leading-6 text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+        <div className="apple-card p-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
           <p>Comment feature is coming soon. Stay tuned and keep reading!</p>
           <p className="mt-2">Configure Giscus environment variables to enable GitHub Discussions comments and reactions.</p>
         </div>

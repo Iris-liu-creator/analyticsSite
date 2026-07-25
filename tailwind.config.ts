@@ -11,15 +11,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#14213d",
-        steel: "#425466",
-        cloud: "#f5f8fb",
-        signal: "#2563eb",
-        mint: "#0f766e",
-        amber: "#b45309"
+        ink: "#1d1d1f",
+        steel: "#515154",
+        cloud: "#f5f5f7",
+        signal: "#0071e3",
+        mint: "#008577",
+        amber: "#b35f00"
       },
       boxShadow: {
-        soft: "0 18px 45px rgba(20, 33, 61, 0.09)"
+        soft: "0 18px 48px rgba(0, 0, 0, 0.08)",
+        material: "0 22px 60px rgba(0, 0, 0, 0.10)"
       }
     }
   },

@@ -1,6 +1,6 @@
 export function IndependenceNotice() {
   return (
-    <details className="group rounded-lg border border-slate-200 bg-white p-4 text-xs leading-6 text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+    <details className="group apple-card p-4 text-xs leading-6 text-slate-600 dark:text-slate-300">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-ink dark:text-white">
         Independence, conflict of interest &amp; confidentiality
         <span className="text-xs font-semibold text-signal transition group-open:rotate-180">⌄</span>

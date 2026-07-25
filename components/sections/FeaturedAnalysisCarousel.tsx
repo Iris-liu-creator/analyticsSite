@@ -58,15 +58,15 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <section className="apple-page" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="mb-6 flex items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Analysis</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Featured Analysis</h2>
+          <p className="apple-label">Analysis</p>
+          <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Featured Analysis</h2>
         </div>
       </div>
 
-      <div className="relative overflow-x-hidden overflow-y-visible rounded-lg bg-slate-100 px-2 py-8 dark:bg-slate-950 sm:px-8 lg:px-12">
+      <div className="apple-material relative overflow-x-hidden overflow-y-visible px-2 py-8 sm:px-8 lg:px-12">
         <div className="relative mx-auto h-[620px] max-w-6xl sm:h-[590px] lg:h-[565px]">
           <div
             className={cn(
@@ -86,14 +86,14 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
                 <div key={`${article.slug}-${slideIndex}`} className="flex w-[var(--carousel-slot)] shrink-0 items-center justify-center px-3">
                   <article
                     className={cn(
-                      "overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition-all duration-700 ease-out dark:border-slate-800 dark:bg-slate-900",
+                      "overflow-hidden apple-card shadow-soft transition-all duration-700 ease-out",
                       isActive
                         ? "z-20 w-[min(82vw,560px)] scale-100 opacity-100"
                         : "z-10 hidden w-[min(76vw,330px)] scale-90 opacity-70 blur-[0.2px] sm:block"
                     )}
                     aria-hidden={!isActive}
                   >
-                    <div className={cn("relative bg-slate-100", isActive ? "h-44 sm:h-56" : "h-40")}>
+                    <div className={cn("apple-image-frame", isActive ? "h-44 sm:h-56" : "h-40")}>
                       <Image
                         src={article.thumbnail}
                         alt=""
@@ -105,7 +105,7 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
                       {!isActive ? <div className="absolute inset-0 bg-white/35 dark:bg-slate-950/35" /> : null}
                     </div>
                     <div className={cn("flex flex-col", isActive ? "min-h-[292px] p-5" : "p-4")}>
-                      <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                      <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
                         <span>{article.category}</span>
                         <span aria-hidden="true">|</span>
                         <span>{formatDate(article.date)}</span>
@@ -113,7 +113,7 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
                         <Clock className="h-3.5 w-3.5" />
                         <span>{article.readingTime} min</span>
                       </div>
-                      <h3 className={cn("mt-3 font-semibold tracking-tight text-ink dark:text-white", isActive ? "text-xl sm:text-2xl" : "line-clamp-2 text-lg")}>
+                      <h3 className={cn("mt-3 font-semibold text-ink dark:text-white", isActive ? "text-xl sm:text-2xl" : "line-clamp-2 text-lg")}>
                         {article.title}
                       </h3>
                       <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
@@ -145,14 +145,14 @@ export function FeaturedAnalysisCarousel({ articles, children }: { articles: Art
             <>
               <button
                 aria-label="Previous analysis"
-                className="absolute left-2 top-[38%] z-30 hidden h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-ink shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800 sm:left-[19%] sm:grid"
+                className="apple-control absolute left-2 top-[38%] z-30 hidden h-11 w-11 place-items-center sm:left-[19%] sm:grid"
                 onClick={() => move(-1)}
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 aria-label="Next analysis"
-                className="absolute right-2 top-[38%] z-30 hidden h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-ink shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800 sm:right-[19%] sm:grid"
+                className="apple-control absolute right-2 top-[38%] z-30 hidden h-11 w-11 place-items-center sm:right-[19%] sm:grid"
                 onClick={() => move(1)}
               >
                 <ChevronRight className="h-5 w-5" />

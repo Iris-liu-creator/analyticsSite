@@ -58,11 +58,11 @@ export function FeaturedCarousel({ projects }: { projects: ProjectMeta[] }) {
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <section className="apple-page" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="mb-6 flex items-end justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-signal">Featured Work</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Portfolio Highlights</h2>
+          <p className="apple-label">Featured Work</p>
+          <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Portfolio Highlights</h2>
         </div>
         <Button href="/portfolio" variant="secondary">View All</Button>
       </div>
@@ -90,14 +90,14 @@ export function FeaturedCarousel({ projects }: { projects: ProjectMeta[] }) {
                 >
                   <article
                     className={cn(
-                      "overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition-all duration-700 ease-out dark:border-slate-800 dark:bg-slate-900",
+                      "overflow-hidden apple-card shadow-soft transition-all duration-700 ease-out",
                       isActive
                         ? "z-20 w-[min(92vw,560px)] scale-100 opacity-100"
                         : "z-10 hidden w-[min(76vw,330px)] scale-90 opacity-70 blur-[0.2px] sm:block"
                     )}
                     aria-hidden={!isActive}
                   >
-                    <div className={cn("relative bg-slate-200", isActive ? "h-52 sm:h-56" : "h-40")}>
+                    <div className={cn("apple-image-frame", isActive ? "h-52 sm:h-56" : "h-40")}>
                       <Image
                         src={project.thumbnail}
                         alt=""
@@ -114,7 +114,7 @@ export function FeaturedCarousel({ projects }: { projects: ProjectMeta[] }) {
                           <TagPill key={tool}>{tool}</TagPill>
                         ))}
                       </div>
-                      <h3 className={cn("mt-3 font-semibold tracking-tight text-ink dark:text-white", isActive ? "text-2xl" : "line-clamp-2 text-lg")}>
+                      <h3 className={cn("mt-3 font-semibold text-ink dark:text-white", isActive ? "text-2xl" : "line-clamp-2 text-lg")}>
                         {project.title}
                       </h3>
                       <p className={cn("mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300", isActive ? "line-clamp-2" : "line-clamp-2")}>
@@ -122,7 +122,7 @@ export function FeaturedCarousel({ projects }: { projects: ProjectMeta[] }) {
                       </p>
                       {isActive ? (
                         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-                          <p className="max-w-sm rounded-lg bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 dark:bg-slate-950 dark:text-slate-200">{project.impact}</p>
+                          <p className="max-w-sm rounded-lg bg-slate-100/65 px-3 py-2 text-sm font-medium text-slate-700 ring-1 ring-white/70 dark:bg-white/5 dark:text-slate-200 dark:ring-white/10">{project.impact}</p>
                           <Button href={`/portfolio/${project.slug}`}>
                             View Case Study <ArrowUpRight className="h-4 w-4" />
                           </Button>
@@ -139,14 +139,14 @@ export function FeaturedCarousel({ projects }: { projects: ProjectMeta[] }) {
             <>
               <button
                 aria-label="Previous project"
-                className="absolute left-2 top-[38%] z-30 grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-ink shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800 sm:left-[19%]"
+                className="apple-control absolute left-2 top-[38%] z-30 grid h-11 w-11 place-items-center sm:left-[19%]"
                 onClick={() => move(-1)}
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 aria-label="Next project"
-                className="absolute right-2 top-[38%] z-30 grid h-11 w-11 place-items-center rounded-lg border border-slate-200 bg-white text-ink shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800 sm:right-[19%]"
+                className="apple-control absolute right-2 top-[38%] z-30 grid h-11 w-11 place-items-center sm:right-[19%]"
                 onClick={() => move(1)}
               >
                 <ChevronRight className="h-5 w-5" />

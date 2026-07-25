@@ -51,12 +51,12 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <Breadcrumbs items={[{ label: "About" }]} />
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-signal">Professional Summary</p>
-              <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-ink dark:text-white sm:text-5xl">
+              <p className="apple-label">Professional Summary</p>
+              <h1 className="mt-3 max-w-3xl text-4xl font-semibold text-ink dark:text-white sm:text-5xl">
                 Analytics experiences that business teams can trust.
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
@@ -64,11 +64,11 @@ export default function AboutPage() {
               </p>
             </div>
             <aside className="lg:pt-8">
-              <p className="text-sm font-semibold uppercase tracking-wide text-signal">My Approach to Trusted Analytics</p>
+              <p className="apple-label">My Approach to Trusted Analytics</p>
               <div className="mt-5 grid gap-3">
                 {principles.map((principle, index) => (
-                  <div key={principle} className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">0{index + 1}</p>
+                  <div key={principle} className="apple-card p-4">
+                    <p className="text-xs font-semibold text-slate-400">0{index + 1}</p>
                     <p className="mt-2 text-sm font-semibold leading-6 text-ink dark:text-white">{principle}</p>
                   </div>
                 ))}
@@ -77,11 +77,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <div className="mb-7 max-w-5xl">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-signal">Capabilities</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">Where I Add Value</h2>
+            <p className="apple-label">Capabilities</p>
+            <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">Where I Add Value</h2>
           </div>
           <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
             Practical analytics support across dashboard delivery, metric design, automation, data integration, and AI-enabled reporting workflows.
@@ -92,9 +92,9 @@ export default function AboutPage() {
             const Icon = service.icon;
 
             return (
-              <article key={service.title} className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-100 hover:bg-blue-50/50 hover:shadow-soft dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-900">
+              <article key={service.title} className="group apple-card apple-card-hover p-5">
                 <div className="flex gap-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-blue-50 text-signal shadow-sm dark:bg-blue-950">
+                  <span className="apple-icon h-11 w-11">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
@@ -110,11 +110,11 @@ export default function AboutPage() {
 
       <SkillsMatrix />
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="apple-page">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-signal">Analytics Journey</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink dark:text-white">From ad hoc reporting to trusted analytics systems.</h2>
+            <p className="apple-label">Analytics Journey</p>
+            <h2 className="mt-2 text-3xl font-semibold text-ink dark:text-white">From ad hoc reporting to trusted analytics systems.</h2>
           </div>
           <Timeline />
         </div>

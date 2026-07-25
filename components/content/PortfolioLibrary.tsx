@@ -51,7 +51,7 @@ export function PortfolioLibrary({ projects }: { projects: ProjectMeta[] }) {
 
   return (
     <div>
-      <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div className="apple-card p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="button"
@@ -60,7 +60,7 @@ export function PortfolioLibrary({ projects }: { projects: ProjectMeta[] }) {
             onClick={() => setFiltersOpen((open) => !open)}
             className="inline-flex items-center gap-3 text-left"
           >
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-slate-50 text-signal ring-1 ring-slate-200 dark:bg-slate-950 dark:ring-slate-800">
+            <span className="apple-icon h-10 w-10">
               <SlidersHorizontal className="h-4 w-4" />
             </span>
             <span>
@@ -77,7 +77,7 @@ export function PortfolioLibrary({ projects }: { projects: ProjectMeta[] }) {
               <button
                 type="button"
                 onClick={clearFilters}
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                className="apple-control inline-flex items-center gap-2 px-3 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300"
               >
                 <X className="h-4 w-4" />
                 Clear
@@ -88,7 +88,7 @@ export function PortfolioLibrary({ projects }: { projects: ProjectMeta[] }) {
               aria-expanded={filtersOpen}
               aria-controls="portfolio-filter-panel"
               onClick={() => setFiltersOpen((open) => !open)}
-              className="hidden items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-ink transition hover:bg-slate-50 dark:border-slate-700 dark:text-white dark:hover:bg-slate-800 sm:inline-flex"
+              className="apple-control hidden items-center gap-2 px-3 py-2 text-sm font-semibold sm:inline-flex"
             >
               {filtersOpen ? "Hide filters" : "Show filters"}
               <ChevronDown className={cn("h-4 w-4 text-slate-400 transition", filtersOpen && "rotate-180")} />

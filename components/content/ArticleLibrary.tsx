@@ -63,11 +63,11 @@ export function ArticleLibrary({
   return (
     <div>
       {audienceFilter ? (
-        <div className="mb-4 rounded-lg border border-blue-100 bg-blue-50/70 px-4 py-3 text-sm text-blue-900 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-100">
+        <div className="mb-4 rounded-lg bg-blue-50/80 px-4 py-3 text-sm text-blue-900 ring-1 ring-blue-100 backdrop-blur-xl dark:bg-blue-950/40 dark:text-blue-100 dark:ring-blue-900">
           Showing articles for <span className="font-semibold">{audienceLabel}</span>. Use “Show all” or “Clear” to return to the full library.
         </div>
       ) : null}
-      <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div className="apple-card p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="button"
@@ -76,7 +76,7 @@ export function ArticleLibrary({
             onClick={() => setFiltersOpen((open) => !open)}
             className="inline-flex items-center gap-3 text-left"
           >
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-slate-50 text-signal ring-1 ring-slate-200 dark:bg-slate-950 dark:ring-slate-800">
+            <span className="apple-icon h-10 w-10">
               <SlidersHorizontal className="h-4 w-4" />
             </span>
             <span>
@@ -93,7 +93,7 @@ export function ArticleLibrary({
               <button
                 type="button"
                 onClick={clearFilters}
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                className="apple-control inline-flex items-center gap-2 px-3 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300"
               >
                 <X className="h-4 w-4" />
                 Clear
@@ -104,7 +104,7 @@ export function ArticleLibrary({
               aria-expanded={filtersOpen}
               aria-controls={panelId}
               onClick={() => setFiltersOpen((open) => !open)}
-              className="hidden items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-ink transition hover:bg-slate-50 dark:border-slate-700 dark:text-white dark:hover:bg-slate-800 sm:inline-flex"
+              className="apple-control hidden items-center gap-2 px-3 py-2 text-sm font-semibold sm:inline-flex"
             >
               {filtersOpen ? "Hide filters" : "Show filters"}
               <ChevronDown className={cn("h-4 w-4 text-slate-400 transition", filtersOpen && "rotate-180")} />
@@ -122,7 +122,7 @@ export function ArticleLibrary({
         {audienceFilter ? (
           <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-slate-100 pt-4 text-sm dark:border-slate-800">
             <span className="text-slate-500 dark:text-slate-400">Audience path:</span>
-            <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-200">{audienceLabel}</span>
+            <span className="apple-chip font-semibold text-blue-700 dark:text-blue-200">{audienceLabel}</span>
             <button type="button" onClick={() => onAudienceFilterChange?.("")} className="text-xs font-semibold text-signal hover:underline">
               Show all
             </button>

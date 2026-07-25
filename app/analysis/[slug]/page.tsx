@@ -66,11 +66,11 @@ export default async function AnalysisDetailPage({ params }: PageProps) {
   return (
     <article className={cn("mx-auto px-4 py-12 sm:px-6 lg:px-8", usesSpaciousProse ? "max-w-5xl" : "max-w-4xl")}>
       <Breadcrumbs items={[{ label: "Analysis", href: "/analysis" }, { label: article.meta.title }]} />
-      <p className="text-sm font-semibold uppercase tracking-wide text-signal">{article.meta.topic ?? article.meta.category} | {formatDate(article.meta.date)} | {article.readingTime} min read</p>
-      <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink dark:text-white">{article.meta.title}</h1>
+      <p className="apple-label">{article.meta.topic ?? article.meta.category} | {formatDate(article.meta.date)} | {article.readingTime} min read</p>
+      <h1 className="mt-3 text-4xl font-semibold text-ink dark:text-white">{article.meta.title}</h1>
       <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{article.meta.summary}</p>
       <div className="mt-5 flex flex-wrap gap-2">{article.meta.tags.map((tag) => <TagPill key={tag}>{tag}</TagPill>)}</div>
-      <div className="relative my-8 aspect-[16/8] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-800">
+      <div className="apple-image-frame my-8 aspect-[16/8]">
         <Image src={article.meta.thumbnail} alt="" fill className="object-cover" priority />
       </div>
       <MDXContentRenderer
